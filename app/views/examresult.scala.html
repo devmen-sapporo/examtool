@@ -1,0 +1,11 @@
+@(result: Integer)
+
+@main("試験結果") {
+
+    <h1>あなたの点数は 85 点</h1>
+    <h1>合格。</h1>
+    
+    @helper.form(action = routes.Examination.showAnswerSheet){
+        <input type = submit name = "問題一覧へ">
+    }
+}

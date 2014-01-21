@@ -1,0 +1,27 @@
+@(msg: String, formMessage: Form[models.Message]) 
+
+@main("Edit data"){
+
+	<h1>Please edit and click[add].</h1>
+	<p>@msg</p>
+	
+	@helper.form(action = routes.Application.create) {
+	
+		<input type="hidden" value="@formMessage("id").value" name="id" />
+		
+		@(helper.inputText(
+			field = formMessage("name")
+		))
+	
+		@(helper.inputText(
+			field = formMessage("mail")
+		))
+	
+		@(helper.textarea(
+			field = formMessage("message")
+		))
+	
+		<input type = "submit">
+	}
+
+}

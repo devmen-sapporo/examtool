@@ -1,0 +1,43 @@
+@(result: Integer)
+
+@main("試験結果") {
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  @helper.form(action = routes.Examination.finishExam){
+	  <div class="panel-heading">
+                平成24年 応用情報処理試験 秋期   
+        <input type="submit" value="試験終了">
+	  </div>
+	  <div class="panel-body">
+	    <p>回答済 24/80 問</p>
+	    <p>未回答 56/80 問</p>
+	  </div>
+  }
+  <!-- Table -->
+  <table class="table">
+            <thead>
+            <tr>
+              <th>問</th>
+              <th>問題</th>
+              <th>回答</th>
+              <th>マーク</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(i <- 1 to 80){
+            <tr>
+              <td>@i</td>
+              <td>私の都市は何歳でしょう。また何歳までいたら平均年齢は２さいあがるで...</td>
+              <td>ウ</td>
+              <td><span class="glyphicon glyphicon-question-sign"></span></td>
+            </tr>
+            }
+          </tbody>
+  </table>
+</div>
+    
+    @helper.form(action = routes.Examination.startExam){
+        <input type = submit name = "問題一覧へ">
+    }
+}

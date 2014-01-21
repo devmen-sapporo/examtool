@@ -1,0 +1,28 @@
+@(message: String, form1: Form[Application.SampleData])
+
+@main("Welcome to Play") {
+
+	<h1>Play Framework lesson
+	<img src="@routes.Assets.at("images/logo_b.png")" height="100" width="100" />
+	</h1>
+	
+	<div class="well">
+	<p>Form</p>
+	
+	@helper.form(action = routes.Application.signIn){
+		@(helper.inputText(
+			field = form1("mail"), '_label -> "メールアドレス"
+		))
+		@(helper.inputPassword(
+			field = form1("password"), '_label -> "パスワード"
+		))
+		
+		 <input type = submit value = "サインイン">
+	}
+	
+	</div>
+	
+	<ol>
+		<li>@message</li>
+	</ol>
+}
