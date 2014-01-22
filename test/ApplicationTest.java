@@ -1,22 +1,11 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import static org.fest.assertions.Assertions.*;
+import static play.test.Helpers.*;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.*;
 
+import play.data.*;
 import play.mvc.*;
-import play.test.*;
-import play.data.DynamicForm;
-import play.data.validation.ValidationError;
-import play.data.validation.Constraints.RequiredValidator;
-import play.i18n.Lang;
-import play.libs.F;
-import play.libs.F.*;
-
-import static play.test.Helpers.*;
-import static org.fest.assertions.Assertions.*;
+import controllers.Application.SampleData;
 
 
 /**
@@ -28,16 +17,10 @@ import static org.fest.assertions.Assertions.*;
 public class ApplicationTest {
 
     @Test
-    public void simpleCheck() {
-        int a = 1 + 1;
-        assertThat(a).isEqualTo(2);
-    }
-
-    @Test
     public void renderTemplate() {
-        Content html = views.html.index.render("Your new application is ready.");
+        Content html = views.html.index.render(null, new Form(SampleData.class));
         assertThat(contentType(html)).isEqualTo("text/html");
-        assertThat(contentAsString(html)).contains("Your new application is ready.");
+        assertThat(contentAsString(html)).contains("Play Framework lesson");
     }
 
 
