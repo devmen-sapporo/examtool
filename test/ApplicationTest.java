@@ -1,11 +1,3 @@
-import static org.fest.assertions.Assertions.*;
-import static play.test.Helpers.*;
-
-import org.junit.*;
-
-import play.data.*;
-import play.mvc.*;
-import controllers.Application.SampleData;
 
 
 /**
@@ -15,13 +7,5 @@ import controllers.Application.SampleData;
 *
 */
 public class ApplicationTest {
-
-    @Test
-    public void renderTemplate() {
-        Content html = views.html.index.render(null, new Form(SampleData.class));
-        assertThat(contentType(html)).isEqualTo("text/html");
-        assertThat(contentAsString(html)).contains("Play Framework lesson");
-    }
-
 
 }
