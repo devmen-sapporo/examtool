@@ -7,8 +7,6 @@
 	</h1>
 	
 	<div class="well">
-	<p>Form</p>
-	
 	@helper.form(action = routes.Application.signIn){
 		@(helper.inputText(
 			field = form1("mail"), '_label -> "メールアドレス"
@@ -20,9 +18,5 @@
 		 <input type = submit value = "サインイン">
 	}
 	
-	</div>
-	
-	<ol>
-		<li>@message</li>
-	</ol>
+	</div>	
 }
