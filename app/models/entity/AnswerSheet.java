@@ -2,19 +2,28 @@ package models.entity;
 
 import java.util.*;
 
+import javax.persistence.*;
+
+import play.db.ebean.*;
+
 /**
  * 解答用紙クラスです。
  * 
  * @author A.Suzuki
  * 
  */
-public final class AnswerSheet {
+@Entity
+public final class AnswerSheet extends Model {
+	
+	@Id
+	public Long id;
 
 	/** 実施日 */
 	private final Calendar operationDate;
 
 	/** ユーザ */
-	private User user;
+	@OneToOne(cascade=CascadeType.ALL)
+	public User user;
 
 	/** 解答用紙 */
 	private QuestionSheet questionSheet;
@@ -80,13 +89,6 @@ public final class AnswerSheet {
 	 */
 	public int getQuestionCount() {
 		return this.questionSheet.getQuestions().size();
-	}
-
-	/**
-	 * @return user
-	 */
-	public User getUser() {
-		return user;
 	}
 
 	/**
