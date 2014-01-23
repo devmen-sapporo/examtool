@@ -10,7 +10,7 @@ users:
     
     - !!models.entity.User
         name:       Hiroyuki Maeda
-        email:      mae003@@gmail.com
+        email:      mae003@gmail.com
         password:   11111
 
     - !!models.entity.User
