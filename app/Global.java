@@ -12,6 +12,11 @@ public class Global extends GlobalSettings {
 	public void onStart(Application app) {
 		Logger.info("Application has started");
         InitialData.insert(app);
+        List<User> users = User.find.all();
+        for (User user : users)
+        {
+        	Logger.info(user.toString());
+        }
 	}
 	
 	@Override
