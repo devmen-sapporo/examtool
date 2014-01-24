@@ -4,22 +4,22 @@ users:
 
     - !!models.entity.User
         name:       Atsushi Suzuki
-        email:      atsushisuzuki.mail@gmail.com
+        mail:      atsushisuzuki.mail@gmail.com
         password:   00000
     
     - !!models.entity.User
         name:       Hiroyuki Maeda
-        email:      mae0003@gmail.com
+        mail:      mae0003@gmail.com
         password:   11111
 
     - !!models.entity.User
         name:       admin
-        email:      admin@sample.com
+        mail:      admin@sample.com
         password:   admin
             
     - !!models.entity.User
         name:       Koji Kudo
-        email:      kudo@sample.com
+        mail:      kudo@sample.com
         password:   22222
 
             
