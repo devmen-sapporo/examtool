@@ -3,23 +3,48 @@
 users:
 
     - !!models.entity.User
+        id:         1
         name:       Atsushi Suzuki
-        mail:      atsushisuzuki.mail@gmail.com
+        mail:       atsushisuzuki.mail@gmail.com
         password:   00000
     
     - !!models.entity.User
+        id:         2
         name:       Hiroyuki Maeda
-        mail:      mae0003@gmail.com
+        mail:       mae0003@gmail.com
         password:   11111
 
     - !!models.entity.User
+        id:         3
         name:       admin
-        mail:      admin@sample.com
+        mail:       admin@sample.com
         password:   admin
             
     - !!models.entity.User
+        id:         4
         name:       Koji Kudo
-        mail:      kudo@sample.com
+        mail:       kudo@sample.com
         password:   22222
+# Option
 
-            
+options:
+
+    - !!models.entity.Option
+        id:         1
+        sentence:   カブトムシ
+        isAnswer:   false
+
+    - !!models.entity.Option
+        id:         2
+        sentence:   むかで
+        isAnswer:   false
+
+    - !!models.entity.Option
+        id:         3
+        sentence:   むかで
+        isAnswer:   false
+
+    - !!models.entity.Option
+        id:         4
+        sentence:   むかで
+        isAnswer:   true

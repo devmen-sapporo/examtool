@@ -55,7 +55,7 @@ public class AnswerColumn {
 	public boolean isAnswer() {
 		if (this.selectedOption == null)
 			return false;
-		return this.selectedOption.isAnswer();
+		return this.selectedOption.isAnswer;
 	}
 
 }

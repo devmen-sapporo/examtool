@@ -1,20 +1,29 @@
 package models.entity;
 
+import javax.persistence.*;
+
+import play.db.ebean.*;
+
 /**
  * 選択肢クラスです。
  * @author Hiroyuki
  *
  */
-public class Option {
+@Entity
+public class Option extends Model {
+	
+	@Id
+	public Long id;
+	
 	/**
 	 * センテンス
 	 */
-	private String sentence;
+	public String sentence;
 
 	/**
 	 * 正解かどうかを示す値
 	 */
-	private boolean isAnswer;
+	public boolean isAnswer;
 
 	/**
 	 * コンストラクタ
@@ -26,22 +35,5 @@ public class Option {
 		this.sentence = sentence;
 		this.isAnswer = isAnswer;
 	}
-	
-	/**
-	 * 選択肢文を取得します。
-	 * @return 選択肢文
-	 */
-	public String getSentence() {
-		return sentence;
-	}
-
-	/**
-	 * 正解かどうかを示す値を取得します。
-	 * @return
-	 */
-	public boolean isAnswer() {
-		return isAnswer;
-	}
-	
 	
 }

@@ -2,50 +2,55 @@ package models.entity;
 
 import java.util.*;
 
+import javax.persistence.*;
+
+import play.db.ebean.*;
+
 /**
  * 問題クラスです。
  * 
  * @author H.Maeda
  * 
  */
-public final class Question {
+@Entity
+public final class Question extends Model{
 
+	
+	@Id
+	public Long id;
+	
 	/**
 	 * カテゴリー
 	 */
-	private Category category;
+	public Category category;
 
 	/**
 	 * 年
 	 */
-	private int year;
+	public int year;
 
 	/**
 	 * 期
 	 */
-	private Season season;
+	public Season season;
 
 	/**
 	 * 問題番号
 	 */
-	private int no;
+	public int no;
 
 	/**
 	 * 問題文
 	 */
-	private String sentence;
+	public String sentence;
 
 	/**
 	 * 選択肢
 	 */
-	private List<Option> options = new ArrayList<Option>();
+	public List<Option> options = new ArrayList<Option>();
 
-	/**
-	 * コンストラクタです。
-	 */
-	public Question() {
-		super();
-	}
+	public static Finder<Long, Question> find =
+			new Finder<Long, Question>(Long.class, Question.class);
 
 	/**
 	 * コンストラクタ
@@ -69,7 +74,7 @@ public final class Question {
 
 		int count = 0;
 		for (Option option : options) {
-			if (option.isAnswer())
+			if (option.isAnswer)
 				count++;
 		}
 
@@ -82,60 +87,6 @@ public final class Question {
 		this.no = no;
 		this.sentence = sentence;
 		this.options = options;
-	}
-
-	/**
-	 * カテゴリを取得します。
-	 * 
-	 * @return category
-	 */
-	public Category getCategory() {
-		return category;
-	}
-
-	/**
-	 * 年を取得します。
-	 * 
-	 * @return year
-	 */
-	public int getYear() {
-		return year;
-	}
-
-	/**
-	 * 期を取得します。
-	 * 
-	 * @return season
-	 */
-	public Season getSeason() {
-		return season;
-	}
-
-	/**
-	 * 問題番号を取得します。
-	 * 
-	 * @return no
-	 */
-	public int getNo() {
-		return no;
-	}
-
-	/**
-	 * 選択肢を取得します。
-	 * 
-	 * @return options
-	 */
-	public List<Option> getOptions() {
-		return options;
-	}
-
-	/**
-	 * 問題文を取得します。
-	 * 
-	 * @return 問題文
-	 */
-	public String getSentence() {
-		return this.sentence;
 	}
 	
 	/**
