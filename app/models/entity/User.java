@@ -23,7 +23,13 @@ public class User extends Model {
 	
 	public static Finder<Long, User> find =
 			new Finder<Long, User>(Long.class, User.class);
-	
+
+    public static User authenticate(String mail, String password) {
+        return find.where()
+            .eq("mail", mail)
+            .eq("password", password)
+            .findUnique();
+    }
 	@Override
 	public String toString() {
 		return ("[id:" + id + ", name:" + name + ", mail:" + mail + ", password" + password + "]");

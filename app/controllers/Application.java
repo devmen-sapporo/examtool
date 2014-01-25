@@ -2,6 +2,7 @@ package controllers;
 
 import static play.data.Form.*;
 import models.*;
+import models.entity.User;
 import play.data.*;
 import play.mvc.*;
 import views.html.*;
@@ -35,6 +36,10 @@ public class Application extends Controller {
     	SignInData data = formSignInData.get();
     	String mail = data.mail;
     	String password = data.password;
+    	if (User.authenticate(mail, password) == null)
+    	{
+    		return badRequest(index.render("メールアドレス、または、パスワードが正しくありません。", form(SampleData.class)));
+    	}
     	
     	return ok(menu.render(mail));
     }
