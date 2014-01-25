@@ -17,6 +17,13 @@ public class Global extends GlobalSettings {
         {
         	Logger.info(user.toString());
         }
+
+        List<Question> questions = Question.find.all();
+        for (Question question : questions)
+        {
+        	Logger.info(question.toString());
+        }
+	
 	}
 	
 	@Override

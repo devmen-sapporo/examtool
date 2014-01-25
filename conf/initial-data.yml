@@ -25,26 +25,78 @@ users:
         name:       Koji Kudo
         mail:       kudo@sample.com
         password:   22222
+
 # Option
 
 options:
 
     - !!models.entity.Option
         id:         1
-        sentence:   �J�u�g���V
-        isAnswer:   false
+        sentence:   逆アセンブルはバイナリコードの新種ウイルスの動作を解明するのに有効な手法である。
+        isAnswer:   true
 
     - !!models.entity.Option
         id:         2
-        sentence:   �ނ���
+        sentence:   パターンマッチングでウイルスを検知する方式は、暗号化された文書中のマクロウイルスの動作を解明するのに有効な手法である。
         isAnswer:   false
 
     - !!models.entity.Option
         id:         3
-        sentence:   �ނ���
+        sentence:   ファイルのハッシュ値を基にウイルスを検知する方式は、未知のウイルスがどのウイルスの亜種かを特定するのに確実な手法である。
         isAnswer:   false
 
     - !!models.entity.Option
         id:         4
-        sentence:   �ނ���
-        isAnswer:   true
+        sentence:   不正な動作からウイルスを検知する方式は、ウイルス名を特定するのに確実な手法である。
+        isAnswer:   false
+
+#Category
+
+categories:
+
+    - !!models.entity.Category
+        id:         1
+        name:       応用情報処理試験
+
+    - !!models.entity.Category
+        id:         2
+        name:       基本情報処理試験
+
+#Season
+
+seasons:
+
+    - !!models.entity.Season
+        id:         1
+        name:       春期
+
+    - !!models.entity.Season
+        id:         2
+        name:       秋期
+        
+#Question
+
+questions:
+
+    - !!models.entity.Question
+        id:         1
+#        categories:
+#            - !!models.entity.Category
+#                id:1
+                
+        year:       2012
+#        seasons:
+#            - !!models.entity.Season
+#                id: 1
+                
+        no:         1
+        sentence:   ウイルスの調査手法に関する記述のうち、適切なものはどれか。
+#        options:
+#            - !!models.entity.Option
+#                id: 1
+#           - !!models.entity.Option
+#                id: 2
+#            - !!models.entity.Option
+#                id: 3
+#            - !!models.entity.Option
+#                id: 4

@@ -25,6 +25,8 @@ public class Option extends Model {
 	 */
 	public boolean isAnswer;
 
+	public Option() {}
+	
 	/**
 	 * コンストラクタ
 	 * @param sentence センテンス
@@ -35,5 +37,9 @@ public class Option extends Model {
 		this.sentence = sentence;
 		this.isAnswer = isAnswer;
 	}
+	
+	public static Finder<Long, Option> find =
+			new Finder<Long, Option>(Long.class, Option.class);
+
 	
 }

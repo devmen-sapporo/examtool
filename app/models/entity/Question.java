@@ -10,10 +10,10 @@ import play.db.ebean.*;
  * 問題クラスです。
  * 
  * @author H.Maeda
- * 
+ *
  */
 @Entity
-public final class Question extends Model{
+public class Question extends Model{
 
 	
 	@Id
@@ -22,6 +22,7 @@ public final class Question extends Model{
 	/**
 	 * カテゴリー
 	 */
+	@ManyToOne
 	public Category category;
 
 	/**
@@ -32,6 +33,7 @@ public final class Question extends Model{
 	/**
 	 * 期
 	 */
+	@ManyToOne
 	public Season season;
 
 	/**
@@ -47,11 +49,18 @@ public final class Question extends Model{
 	/**
 	 * 選択肢
 	 */
+	@OneToMany(cascade = CascadeType.ALL)
 	public List<Option> options = new ArrayList<Option>();
 
 	public static Finder<Long, Question> find =
 			new Finder<Long, Question>(Long.class, Question.class);
 
+//	/**
+//	 * コンストラクタ
+//	 */
+//	public Question(){}
+//	
+	
 	/**
 	 * コンストラクタ
 	 * 
@@ -97,4 +106,10 @@ public final class Question extends Model{
 	public String getExamName() {
 		return String.format("平成%d年 %s %s", this.year, this.season.toString(), this.category.toString());
 	}
+	
+	@Override
+	public String toString() {
+		return ("[id:" + id + ", ExamName:" + "" + ", sentence:" + sentence + "]");
+	}
+
 }
