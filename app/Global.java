@@ -30,6 +30,8 @@ public class Global extends GlobalSettings {
         	question.optionItems.add(new OptionItem(3L).unique().get());
         	question.optionItems.add(new OptionItem(4L).unique().get());
         	
+        	question.season = new Season(1L).unique().get();
+        	
         	Logger.info(question.toString());
         }
         

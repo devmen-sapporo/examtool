@@ -1,4 +1,4 @@
-package models.service.OptionItem;
+package models.service.Examination;
 
 import utils.ConfigUtil;
 import utils.OptionUtil;

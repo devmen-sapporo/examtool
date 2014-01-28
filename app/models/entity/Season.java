@@ -2,7 +2,9 @@ package models.entity;
 
 import javax.persistence.*;
 
+import models.service.Examination.*;
 import play.db.ebean.*;
+import play.libs.F.Option;
 
 /**
  * @author Hiroyuki
@@ -20,6 +22,11 @@ public class Season extends Model{
 	public static Finder<Long, Season> find =
 			new Finder<Long, Season>(Long.class, Season.class);
 
+	public Option<OptionItem> unique()
+	{
+		return new OptionItemModelService().findById(id);
+	}
+	
 //	/** なし */
 //	None,
 //	/** 春期 */

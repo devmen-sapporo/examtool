@@ -2,7 +2,7 @@ package models.entity;
 
 import javax.persistence.*;
 
-import models.service.OptionItem.*;
+import models.service.Examination.*;
 import play.db.ebean.*;
 import play.libs.F.Option;
 
