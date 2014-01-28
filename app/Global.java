@@ -8,6 +8,7 @@ import com.avaje.ebean.*;
 
 public class Global extends GlobalSettings {
 	
+	
 	@Override
 	public void onStart(Application app) {
 		Logger.info("Application has started");
@@ -21,8 +22,17 @@ public class Global extends GlobalSettings {
         List<Question> questions = Question.find.all();
         for (Question question : questions)
         {
+        	List<Category> categories = Category.find.all();
+        	question.category = categories.get(0);
+        	
+        	question.optionItems.add(new OptionItem(1L).unique().get());
+        	question.optionItems.add(new OptionItem(2L).unique().get());
+        	question.optionItems.add(new OptionItem(3L).unique().get());
+        	question.optionItems.add(new OptionItem(4L).unique().get());
+        	
         	Logger.info(question.toString());
         }
+        
 	
 	}
 	
@@ -45,4 +55,7 @@ public class Global extends GlobalSettings {
         }
         
     }
+	
+
+	
 }

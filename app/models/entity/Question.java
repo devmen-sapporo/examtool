@@ -50,7 +50,7 @@ public class Question extends Model{
 	 * 選択肢
 	 */
 	@OneToMany(cascade = CascadeType.ALL)
-	public List<Option> options = new ArrayList<Option>();
+	public List<OptionItem> optionItems = new ArrayList<OptionItem>();
 
 	public static Finder<Long, Question> find =
 			new Finder<Long, Question>(Long.class, Question.class);
@@ -74,16 +74,16 @@ public class Question extends Model{
 	 *            問題番号
 	 * @param sentence
 	 *            問題文
-	 * @param options
+	 * @param optionItems
 	 *            選択肢
 	 */
 	public Question(Category category, int year, Season season, int no,
-			String sentence, List<Option> options) {
+			String sentence, List<OptionItem> optionItems) {
 		super();
 
 		int count = 0;
-		for (Option option : options) {
-			if (option.isAnswer)
+		for (OptionItem optionItem : optionItems) {
+			if (optionItem.isAnswer)
 				count++;
 		}
 
@@ -95,7 +95,7 @@ public class Question extends Model{
 		this.season = season;
 		this.no = no;
 		this.sentence = sentence;
-		this.options = options;
+		this.optionItems = optionItems;
 	}
 	
 	/**

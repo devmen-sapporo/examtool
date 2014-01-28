@@ -25,26 +25,26 @@ public class AnswerColumn {
 
 	/**
 	 * 選んだ選択肢を取得します。
-	 * @return selectedOption
+	 * @return selectedOptionItem
 	 */
-	public Option getSelectedOption() {
-		return selectedOption;
+	public OptionItem getSelectedOption() {
+		return selectedOptionItem;
 	}
 
 	/** 問題 */
 	private Question question;
 
 	/** 選んだ選択肢 */
-	private Option selectedOption;
+	private OptionItem selectedOptionItem;
 
 	/**
 	 * 解答します。
 	 * 
-	 * @param selectedOption
+	 * @param selectedOptionItem
 	 *            選んだ選択肢
 	 */
-	public void markAnswer(Option selectedOption) {
-		this.selectedOption = selectedOption;
+	public void markAnswer(OptionItem selectedOptionItem) {
+		this.selectedOptionItem = selectedOptionItem;
 	}
 
 	/**
@@ -53,9 +53,9 @@ public class AnswerColumn {
 	 * @return 正解の場合 true を返します。
 	 */
 	public boolean isAnswer() {
-		if (this.selectedOption == null)
+		if (this.selectedOptionItem == null)
 			return false;
-		return this.selectedOption.isAnswer;
+		return this.selectedOptionItem.isAnswer;
 	}
 
 }
