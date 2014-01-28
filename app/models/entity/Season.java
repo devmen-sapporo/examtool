@@ -21,10 +21,18 @@ public class Season extends Model{
 	
 	public static Finder<Long, Season> find =
 			new Finder<Long, Season>(Long.class, Season.class);
+	
+	/**
+	 * コンストラクタ
+	 * @param id
+	 */
+	public Season(long id) {
+		this.id = id;
+	}
 
-	public Option<OptionItem> unique()
+	public Option<Season> unique()
 	{
-		return new OptionItemModelService().findById(id);
+		return new SeasonModelService().findById(id);
 	}
 	
 //	/** なし */
