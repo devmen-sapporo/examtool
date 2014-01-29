@@ -22,16 +22,6 @@ public class Global extends GlobalSettings {
         List<Question> questions = Question.find.all();
         for (Question question : questions)
         {
-        	List<Category> categories = Category.find.all();
-        	question.category = categories.get(0);
-        	
-        	question.optionItems.add(new OptionItem(1L).unique().get());
-        	question.optionItems.add(new OptionItem(2L).unique().get());
-        	question.optionItems.add(new OptionItem(3L).unique().get());
-        	question.optionItems.add(new OptionItem(4L).unique().get());
-        	
-        	question.season = new Season(1L).unique().get();
-        	
         	Logger.info(question.toString());
         }
         
@@ -52,6 +42,7 @@ public class Global extends GlobalSettings {
 								Map<String,List<Object>> all = (Map<String,List<Object>>)Yaml.load("initial-data.yml");
 
                 Ebean.save(all.get("users"));
+                Ebean.save(all.get("questions"));
                 
             }
         }
