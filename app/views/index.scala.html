@@ -6,6 +6,10 @@
 	<img src="@routes.Assets.at("images/logo_b.png")" height="100" width="100" />
 	</h1>
 	
+	@if(message != null) {
+    	<div class="alert alert-danger">@message</div>
+	}
+	
 	<div class="well">
 	@helper.form(action = routes.Application.signIn){
 		@(helper.inputText(
@@ -16,7 +20,6 @@
 		))
 		
 		<input type="submit" value="Sign in" class="btn btn-primary">
-
 	}
 	</div>
 

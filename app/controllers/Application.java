@@ -2,15 +2,21 @@ package controllers;
 
 import static play.data.Form.*;
 import models.*;
-import models.entity.User;
+import models.entity.*;
 import play.data.*;
+import play.data.validation.Constraints.Email;
+import play.data.validation.Constraints.Required;
 import play.mvc.*;
 import views.html.*;
 
 public class Application extends Controller {
 
 	public static class SignInData {
+		@Email
+		@Required(message = "メールアドレスを入力してください。")
 		public String mail;
+		
+		@Required(message = "パスワードを入力してください。")
 		public String password;
 	}
 	
