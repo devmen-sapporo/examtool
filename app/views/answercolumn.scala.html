@@ -40,30 +40,16 @@
 </div>
 <!-- Table -->
 <div class="panel-body">
-<label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" />
-<B>ア</B><br>
-<div style="margin-left:20px;margin-right:10px;">
-新しい業務の在り方や運用に関わる業務手順，入出力情報，組織，責任，権限，業務上の制約などの項目
-</div>
-</label>
-<label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" />
-<B>イ</B><br>
-<div style="margin-left:20px;margin-right:10px;">
-新しい業務の遂行に必要なアプリケーションシステムに関わる対象となる人の作業，システム機能の実現範囲，機能聞の情報の流れなどの項目
-</div>
-</label>
-<label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" />
-<B>ウ</B><br>
-<div style="margin-left:20px;margin-right:10px;">
-経営戦略や情報戦略に関わる経営上のニーズ，システム化・システム改善を必要とする業務上の課題，求められる成果・目標などの項目
-</div>
-</label>
-<label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" />
-<B>エ</B><br>
-<div style="margin-left:20px;margin-right:10px;">
-システム基盤に関わる可用性，性能，拡張性，運用性，保守性，移行性，セキュリティ，システム環境などの項目
-</div>
-</label>
+
+@for(option <- question.optionItems) {
+	<label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" />
+	<B>ア</B><br>
+    <div style="margin-left:20px;margin-right:10px;">
+	@option.sentence
+	</div>
+	</label>
+}
+
 </div>
 </div>
 

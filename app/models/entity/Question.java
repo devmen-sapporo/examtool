@@ -54,7 +54,7 @@ public class Question extends Model{
 	@OneToMany(cascade = CascadeType.ALL)
 	public List<OptionItem> optionItems = new ArrayList<OptionItem>();
 
-	public static Finder<Long, Question> find =
+	public static Finder<Long, Question> finder =
 			new Finder<Long, Question>(Long.class, Question.class);
 
 	/**

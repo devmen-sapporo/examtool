@@ -26,6 +26,10 @@ public class OptionItem extends Model {
 	 */
 	public String sentence;
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	public Question question;
+	
+	
 	/**
 	 * 正解かどうかを示す値
 	 */

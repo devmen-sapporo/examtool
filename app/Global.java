@@ -19,13 +19,32 @@ public class Global extends GlobalSettings {
         	Logger.info(user.toString());
         }
 
-        List<Question> questions = Question.find.all();
+        List<Question> questions = Question.finder.all();
         for (Question question : questions)
         {
         	Logger.info(question.toString());
         }
         
-	
+        Question question = new Question(1L).unique().get();
+        question.optionItems.add(new OptionItem(1L).unique().get());
+        question.optionItems.add(new OptionItem(2L).unique().get());
+        question.optionItems.add(new OptionItem(3L).unique().get());
+        question.optionItems.add(new OptionItem(4L).unique().get());
+        question.sentence = "changed";
+        question.update();
+
+        for (OptionItem option : question.optionItems) {
+        	Logger.info(option.sentence);
+        }
+    	Logger.info("--------------");
+        
+        
+    	Question questionss = new Question(1L).unique().get();
+    	Logger.info(questionss.sentence);
+    	for (OptionItem option : questionss.optionItems) {
+        	Logger.info(option.sentence);
+        }
+        
 	}
 	
 	@Override
@@ -39,10 +58,11 @@ public class Global extends GlobalSettings {
             if(Ebean.find(User.class).findRowCount() == 0) {
                 
                 @SuppressWarnings("unchecked")
-								Map<String,List<Object>> all = (Map<String,List<Object>>)Yaml.load("initial-data.yml");
+				Map<String,List<Object>> all = (Map<String,List<Object>>)Yaml.load("initial-data.yml");
 
                 Ebean.save(all.get("users"));
                 Ebean.save(all.get("questions"));
+                Ebean.save(all.get("options"));
                 
             }
         }
