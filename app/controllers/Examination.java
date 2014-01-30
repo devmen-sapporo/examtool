@@ -1,12 +1,14 @@
 package controllers;
 
+import models.entity.*;
 import play.mvc.*;
 import views.html.*;
 
 public class Examination extends Controller {
 
-	public static Result startExam() {	
-            return ok(answercolumn.render(1));
+	public static Result startExam() {
+		Question question = new Question(1L).unique().get();
+        return ok(answercolumn.render(1, question));
     }
 
 	public static Result showAnswerSheet() {	

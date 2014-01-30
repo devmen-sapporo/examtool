@@ -1,4 +1,4 @@
-@(questionNo: Integer) 
+@(questionNo: Integer, question: models.entity.Question) 
 
 @main("問題"){
 <style type="text/css">
@@ -35,7 +35,7 @@
 <!-- Default panel contents -->
 <div class="panel-heading">
 <h3>
-非機能要件項目はどれか。
+@question.sentence
 </h3>
 </div>
 <!-- Table -->

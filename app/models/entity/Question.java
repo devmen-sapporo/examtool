@@ -4,7 +4,9 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import models.service.Examination.*;
 import play.db.ebean.*;
+import play.libs.F.Option;
 
 /**
  * 問題クラスです。
@@ -55,11 +57,13 @@ public class Question extends Model{
 	public static Finder<Long, Question> find =
 			new Finder<Long, Question>(Long.class, Question.class);
 
-//	/**
-//	 * コンストラクタ
-//	 */
-//	public Question(){}
-//	
+	/**
+	 * コンストラクタ
+	 */
+	public Question(Long id) {
+		this.id = id;
+	}
+	
 	
 	/**
 	 * コンストラクタ
@@ -111,5 +115,11 @@ public class Question extends Model{
 	public String toString() {
 		return ("[id:" + id + ", ExamName:" + "" + ", sentence:" + sentence + "]");
 	}
+	
+	public Option<Question> unique()
+	{
+		return new QuestionModelService().findById(id);
+	}
+
 
 }
