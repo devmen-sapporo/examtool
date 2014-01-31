@@ -30,7 +30,6 @@ public class Global extends GlobalSettings {
         question.optionItems.add(new OptionItem(2L).unique().get());
         question.optionItems.add(new OptionItem(3L).unique().get());
         question.optionItems.add(new OptionItem(4L).unique().get());
-        question.sentence = "changed";
         question.update();
 
         for (OptionItem option : question.optionItems) {

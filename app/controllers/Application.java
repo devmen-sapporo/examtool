@@ -44,7 +44,7 @@ public class Application extends Controller {
     	String password = data.password;
     	if (User.authenticate(mail, password) == null)
     	{
-    		return badRequest(index.render("メールアドレス、または、パスワードが正しくありません。", form(SampleData.class)));
+    		return badRequest(index.render("メールアドレス、またはパスワードに誤りがあります。", form(SampleData.class)));
     	}
     	
     	return ok(menu.render(mail));
