@@ -16,7 +16,6 @@ import play.libs.F.Option;
  */
 @Entity
 public class Question extends Model{
-
 	
 	@Id
 	public Long id;
@@ -51,7 +50,8 @@ public class Question extends Model{
 	/**
 	 * 選択肢
 	 */
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany
+	// (cascade = CascadeType.ALL)
 	public List<OptionItem> optionItems = new ArrayList<OptionItem>();
 
 	public static Finder<Long, Question> finder =
@@ -63,7 +63,6 @@ public class Question extends Model{
 	public Question(Long id) {
 		this.id = id;
 	}
-	
 	
 	/**
 	 * コンストラクタ
@@ -113,13 +112,11 @@ public class Question extends Model{
 	
 	@Override
 	public String toString() {
-		return ("[id:" + id + ", ExamName:" + "" + ", sentence:" + sentence + "]");
+		return ("[id:" + id + ", ExamName:" + "" + ", sentence:" + sentence + ", optionItems:" + optionItems + "]");
 	}
 	
 	public Option<Question> unique()
 	{
 		return new QuestionModelService().findById(id);
 	}
-
-
 }

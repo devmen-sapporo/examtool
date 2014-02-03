@@ -13,10 +13,14 @@
 	<div class="well">
 	@helper.form(action = routes.Application.signIn){
 		@(helper.inputText(
-			field = form1("mail"), '_label -> "メールアドレス"
+			field = form1("mail"), 
+			'_label -> "メールアドレス",
+			'placeholder -> " mail address"
 		))
 		@(helper.inputPassword(
-			field = form1("password"), '_label -> "パスワード"
+			field = form1("password"), 
+			'_label -> "パスワード",
+			'placeholder -> " password"
 		))
 		
 		<input type="submit" value="Sign in" class="btn btn-primary">

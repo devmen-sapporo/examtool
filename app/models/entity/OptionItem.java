@@ -26,15 +26,14 @@ public class OptionItem extends Model {
 	 */
 	public String sentence;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	public Question question;
-	
-	
 	/**
 	 * 正解かどうかを示す値
 	 */
 	public boolean isAnswer;
 
+	@ManyToOne
+	public Question question;
+	
     @Transient
     private OptionItemService optionItemService = new OptionItemService();
     @Transient
@@ -66,7 +65,7 @@ public class OptionItem extends Model {
 		this.isAnswer = isAnswer;
 	}
 	
-	public static Finder<Long, OptionItem> find =
+	public static Finder<Long, OptionItem> finder =
 			new Finder<Long, OptionItem>(Long.class, OptionItem.class);
 
 	public Option<OptionItem> unique()

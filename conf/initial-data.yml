@@ -26,29 +26,61 @@ users:
         mail:       kudo@sample.com
         password:   22222
 
-# Option
+#Question
 
-options:
+questions:
 
+    - !!models.entity.Question
+        id:         1
+
+#        category:
+#
+#            - !!models.entity.Category
+#                id:         3
+#                name:       試験
+                
+        year:       2012
+#        seasons:
+#            - !!models.entity.Season
+#                id: 1
+                
+        no:         1
+        sentence:   ウイルスの調査手法に関する記述のうち、適切なものはどれか。
+
+# OptionItem
+
+optionItems:
     - !!models.entity.OptionItem
         id:         1
         sentence:   逆アセンブルはバイナリコードの新種ウイルスの動作を解明するのに有効な手法である。
         isAnswer:   true
+        question:
+            !!models.entity.Question
+            id:     1
 
     - !!models.entity.OptionItem
         id:         2
         sentence:   パターンマッチングでウイルスを検知する方式は、暗号化された文書中のマクロウイルスの動作を解明するのに有効な手法である。
         isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     1
 
     - !!models.entity.OptionItem
         id:         3
         sentence:   ファイルのハッシュ値を基にウイルスを検知する方式は、未知のウイルスがどのウイルスの亜種かを特定するのに確実な手法である。
         isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     1
 
     - !!models.entity.OptionItem
         id:         4
         sentence:   不正な動作からウイルスを検知する方式は、ウイルス名を特定するのに確実な手法である。
         isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     1
 
 #Category
 
@@ -73,33 +105,3 @@ seasons:
     - !!models.entity.Season
         id:         2
         name:       秋期
-        
-#Question
-
-questions:
-
-    - !!models.entity.Question
-        id:         1
-
-#        category:
-#
-#            - !!models.entity.Category
-#                id:         3
-#                name:       試験
-                
-        year:       2012
-#        seasons:
-#            - !!models.entity.Season
-#                id: 1
-                
-        no:         1
-        sentence:   ウイルスの調査手法に関する記述のうち、適切なものはどれか。
-#        options:
-#            - !!models.entity.Option
-#                id: 1
-#           - !!models.entity.Option
-#                id: 2
-#            - !!models.entity.Option
-#                id: 3
-#            - !!models.entity.Option
-#                id: 4
