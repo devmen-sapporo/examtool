@@ -6,6 +6,7 @@ import models.entity.*;
 import play.data.*;
 import play.data.validation.Constraints.Email;
 import play.data.validation.Constraints.Required;
+import play.filters.csrf.*;
 import play.mvc.*;
 import views.html.*;
 
@@ -25,11 +26,10 @@ public class Application extends Controller {
 		public String name;
 	}
 	
+	@play.mvc.Security.Authenticated(models.Secured.class)
     public static Result index() {
-    	
-        return ok(index.render(
-        	null,
-        	new Form(SampleData.class)));
+
+    	return ok(menu.render(""));
     }
     
     public static Result signIn() {
@@ -78,4 +78,31 @@ public class Application extends Controller {
         return ok(index.render("Jumping boy.", new Form(SampleData.class)));
     }
     */
+    
+    @AddCSRFToken
+    public static Result login() {
+    	return ok(login.render("", form(Login.class)));
+    }
+    
+    @RequireCSRFCheck
+    public static Result authenticate() {
+    	Form<Login> loginForm = form(Login.class).bindFromRequest();
+    	if (loginForm.hasErrors()) {
+    		return badRequest(login.render("サインインに失敗しました。", loginForm));
+    	} else {
+    		session("mail", loginForm.get().getMail());
+    		String returnUrl = ctx().session().get("returnUrl");
+    		if (returnUrl == null || returnUrl.equals("") || returnUrl.equals(routes.Application.login().absoluteURL(request()))) {
+    			returnUrl = routes.Application.index().url();
+    		}
+    		
+    		return redirect(returnUrl);
+    	}
+    }
+ 
+    @play.mvc.Security.Authenticated(models.Secured.class)
+    public static Result logout() {
+    	session().clear();
+    	return redirect(routes.Application.login());
+    }
 }

@@ -1,0 +1,44 @@
+@(message: String, form: Form[models.Login])
+
+@main("Welcome to Play") {
+
+	<h1>Play Framework lesson
+	<img src="@routes.Assets.at("images/logo_b.png")" height="100" width="100" />
+	</h1>
+	
+	<div class="well">
+	@helper.form(action = routes.Application.authenticate()){
+		@helper.CSRF.formField
+		@if(form.hasGlobalErrors) {
+			<div class="alert alert-danger">@form.globalError.message</div>
+		}
+		
+		@(helper.inputText(
+			field = form("mail"), 
+			'_label -> "メールアドレス",
+			'placeholder -> " mail address",
+			'value -> "aaaaa"
+		))
+		@(helper.inputPassword(
+			field = form("password"), 
+			'_label -> "パスワード",
+			'placeholder -> " password"
+		))
+		
+		<input type="submit" value="Sign in" class="btn btn-primary">
+	}
+	</div>
+
+        <div class="fb-like" data-href="http://examtool.herokuapp.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+       
+    <div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
+
+}

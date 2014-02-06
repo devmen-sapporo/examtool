@@ -4,8 +4,11 @@
 
 # Home page
 GET     /                               controllers.Application.index()
+GET     /login                          controllers.Application.login()
+GET     /logout                          controllers.Application.logout()
 GET    /add                             controllers.Application.add()
 GET     /startexam                      controllers.Examination.startExam()
+POST    /authenticate                   controllers.Application.authenticate()
 POST     /signIn                         controllers.Application.signIn()
 POST    /create                         controllers.Application.create()
 POST    /answersheet                    controllers.Examination.showAnswerSheet()

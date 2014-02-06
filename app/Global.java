@@ -2,6 +2,8 @@ import java.util.*;
 
 import models.entity.*;
 import play.*;
+import play.api.mvc.*;
+import play.filters.csrf.*;
 import play.libs.*;
 
 import com.avaje.ebean.*;
@@ -52,6 +54,11 @@ public class Global extends GlobalSettings {
 	    Logger.info("Application shutdown...");
 	}
 	
+	@Override
+	public <T extends EssentialFilter> Class<T>[] filters() {
+		return new Class[] { CSRFFilter.class };
+	}
+	
 	static class InitialData {
         
         public static void insert(	Application app) {
@@ -68,7 +75,4 @@ public class Global extends GlobalSettings {
         }
         
     }
-	
-
-	
 }
