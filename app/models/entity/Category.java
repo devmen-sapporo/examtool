@@ -2,7 +2,9 @@ package models.entity;
 
 import javax.persistence.*;
 
+import models.service.Examination.*;
 import play.db.ebean.*;
+import play.libs.F.Option;
 
 /**
  * 試験区分
@@ -11,6 +13,10 @@ import play.db.ebean.*;
 @Entity
 public class Category extends Model{
 	
+	public Category(long id) {
+			this.id = id;
+	}
+
 	@Id
 	public Long id;
 
@@ -19,6 +25,11 @@ public class Category extends Model{
 	
 	public static Finder<Long, Category> find =
 			new Finder<Long, Category>(Long.class, Category.class);
+
+	public Option<Category> unique()
+	{
+		return new CategoryModelService().findById(id);
+	}
 
 
 	

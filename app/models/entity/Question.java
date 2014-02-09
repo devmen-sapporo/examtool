@@ -23,7 +23,7 @@ public class Question extends Model{
 	/**
 	 * カテゴリー
 	 */
-	@ManyToOne
+	@OneToOne
 	public Category category;
 
 	/**
@@ -34,7 +34,7 @@ public class Question extends Model{
 	/**
 	 * 期
 	 */
-	@ManyToOne
+	@OneToOne
 	public Season season;
 
 	/**

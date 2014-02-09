@@ -4,15 +4,15 @@ public class ExamCategory {
 	/**
 	 * カテゴリー
 	 */
-	private Category category;
+	public Category category;
 	/**
 	 * 年
 	 */
-	private int year;
+	public int year;
 	/**
 	 * 期
 	 */
-	private Season season;
+	public Season season;
 
 	/**
 	 * コンストラクタ
@@ -26,33 +26,6 @@ public class ExamCategory {
 		this.season = season;
 	}
 
-	/**
-	 * カテゴリを取得します。
-	 * 
-	 * @return category
-	 */
-	public Category getCategory() {
-		return this.category;
-	}
-
-	/**
-	 * 年を取得します。
-	 * 
-	 * @return year
-	 */
-	public int getYear() {
-		return this.year;
-	}
-
-	/**
-	 * 期を取得します。
-	 * 
-	 * @return season
-	 */
-	public Season getSeason() {
-		return this.season;
-	}
-	
 	
 	/**
 	 * 試験名を取得します。
@@ -60,7 +33,7 @@ public class ExamCategory {
 	 * @return
 	 */
 	public String getExamName() {
-		return String.format("平成%d年 %s %s", this.year, this.season.toString(), this.category.toString());
+		return String.format("平成%d年 %s %s", this.year, this.season.name, this.category.name);
 	}
 
 }

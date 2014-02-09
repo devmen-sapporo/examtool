@@ -1,14 +1,20 @@
 package controllers;
 
 import static play.data.Form.*;
+
+import java.util.*;
+
 import models.*;
 import models.entity.*;
+import play.*;
 import play.data.*;
 import play.data.validation.Constraints.Email;
 import play.data.validation.Constraints.Required;
 import play.filters.csrf.*;
 import play.mvc.*;
 import views.html.*;
+
+import com.avaje.ebean.*;
 
 public class Application extends Controller {
 
@@ -29,7 +35,8 @@ public class Application extends Controller {
 	@play.mvc.Security.Authenticated(models.Secured.class)
     public static Result index() {
 
-    	return ok(menu.render(""));
+    	List<ExamCategory> categorys = getCategoryList();
+    	return ok(menu.render("", categorys));
     }
     
     public static Result signIn() {
@@ -47,8 +54,36 @@ public class Application extends Controller {
     		return badRequest(index.render("メールアドレス、またはパスワードに誤りがあります。", form(SampleData.class)));
     	}
     	
-    	return ok(menu.render(mail));
+    	List<ExamCategory> categorys = getCategoryList();
+    	return ok(menu.render(mail, categorys));
     }
+
+	/**
+	 * @return
+	 */
+	private static List<ExamCategory> getCategoryList() {
+		List<ExamCategory> examCategorys = new ArrayList<>();
+
+
+        String sql = " SELECT category_id, year, season_id FROM question GROUP BY category_id"; 
+        List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).findList();
+        
+        for (SqlRow row : sqlRows){
+    		Logger.info("getCategoryList started");
+    		
+    		long category_id = row.getLong("category_id");
+    		long season_id = row.getLong("season_id");
+
+    		Season season = new Season(season_id).unique().get();
+        	Category category= new Category(category_id).unique().get();
+
+        	Logger.info("[category]"+ category.name);
+    		Logger.info("[season_id]"+ season.name);
+        	
+        	examCategorys.add(new ExamCategory(category, row.getInteger("year"), season));
+        }
+		return examCategorys;
+	}
 
     public static Result add() {
     	Form<Message> formMessage = new Form<>(Message.class);

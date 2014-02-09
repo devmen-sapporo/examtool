@@ -1,10 +1,12 @@
-@(messages: String)
+@(messages: String, examCategorys: List[models.entity.ExamCategory])
 
 @main("Menu") {
 
     @helper.form(action = routes.Examination.startExam){
-    <div style="width: 100%; text-align: center; margin: 0 auto;">
-        <input type = submit  style="width: 80%;" value = "試験開始" class="btn btn-default btn-lg">
-    </div>
+	    @for(examCategory <- examCategorys) {
+	    <div style="width: 100%; text-align: center; margin: 0 auto;">
+	        <input type = submit  style="width: 80%;" value = "@examCategory.getExamName()" class="btn btn-default btn-lg">
+	    </div>
+	    }
     }
 }
