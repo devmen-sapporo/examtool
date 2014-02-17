@@ -30,15 +30,15 @@
     <!-- Default panel contents -->
 	<div class="panel-heading">
 		<h3>
-		@answerColumn.getQuestion().sentence
+		@answerColumn.question.sentence
 		</h3>
 	</div>
 
 	<!-- Table -->
 	<div class="panel-body">
-		@for(option <- answerColumn.getQuestion().optionItems) {    
+		@for(option <- answerColumn.question.optionItems) {    
 		    <label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" />
-		    <B>@signs(answerColumn.getQuestion().optionItems.indexOf(option))</B><br>
+		    <B>@signs(answerColumn.question.optionItems.indexOf(option))</B><br>
 		    <div style="margin-left:20px;margin-right:10px;">
 		    @option.sentence
 		    </div>

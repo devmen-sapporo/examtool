@@ -27,16 +27,17 @@ public class Examination extends Controller {
         return ok(answercolumn.render(1, answerSheet.answerColumns.get(0), questionSheet.signs));
     }
 	
-//	public static Result changeAnswerColumn(){
-//		Map<String,String[]> form = request().body().asFormUrlEncoded();
-//		String param = form.get("selectedOptionIndex")[0];
-//		if (param != null) {
-//			int selectedOptionIndex = Integer.parseInt(param);
-//			AnswerColumn answerColumn = new AnswerColumn(1L).unique().get();
-//		}
-//		
-//        return ok(answercolumn.render(1, answerSheet.answerColumns.get(0), questionSheet.signs));
-//	}
+	public static Result changeAnswerColumn(){
+		Map<String,String[]> form = request().body().asFormUrlEncoded();
+		String param = form.get("selectedOptionIndex")[0];
+		AnswerColumn answerColumn = null;
+		if (param != null) {
+			int selectedOptionIndex = Integer.parseInt(param);
+			answerColumn = new AnswerColumn(1L).unique().get();
+		}
+		
+        return ok(answercolumn.render(1, answerColumn, QuestionSheet.signs));
+	}
 
 	private static AnswerSheet createAnswerSheets(QuestionSheet questionSheet) {
 		User user = User.find.byId(1L);

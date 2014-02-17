@@ -2,6 +2,8 @@ package models.entity;
 
 import java.util.*;
 
+import javax.persistence.*;
+
 /**
  * 
  * @author Hiroyuki
@@ -36,7 +38,8 @@ public class QuestionSheet {
 	/**
 	 * 記号リスト
 	 */
-	public List<String> signs = Arrays.asList("ア","イ","ウ","エ");
+	@Transient
+	public static List<String> signs = Arrays.asList("ア","イ","ウ","エ");
 
 	
 	/**

@@ -3,6 +3,11 @@
 
 # --- !Ups
 
+create table answer_column (
+  id                        bigint not null,
+  constraint pk_answer_column primary key (id))
+;
+
 create table answer_sheet (
   id                        bigint not null,
   operation_date            timestamp,
@@ -60,6 +65,8 @@ create table user (
   constraint pk_user primary key (id))
 ;
 
+create sequence answer_column_seq;
+
 create sequence answer_sheet_seq;
 
 create sequence category_seq;
@@ -89,6 +96,8 @@ create index ix_question_season_4 on question (season_id);
 
 SET REFERENTIAL_INTEGRITY FALSE;
 
+drop table if exists answer_column;
+
 drop table if exists answer_sheet;
 
 drop table if exists category;
@@ -104,6 +113,8 @@ drop table if exists season;
 drop table if exists user;
 
 SET REFERENTIAL_INTEGRITY TRUE;
+
+drop sequence if exists answer_column_seq;
 
 drop sequence if exists answer_sheet_seq;
 

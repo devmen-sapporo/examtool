@@ -1,12 +1,24 @@
 package models.entity;
 
+import javax.persistence.*;
+
+import models.service.Examination.*;
+import play.db.ebean.*;
+import play.libs.F.Option;
+
 /**
  * 解答クラスです。
  * 
  * @author Hiroyuki
  * 
  */
-public class AnswerColumn {
+@Entity
+public class AnswerColumn extends Model{
+	
+	public AnswerColumn(long id) {
+		this.id = id;
+	}
+	
 	/**
 	 * @param question
 	 */
@@ -15,27 +27,14 @@ public class AnswerColumn {
 		this.question = question;
 	}
 
-	/**
-	 * 問題を取得する。
-	 * @return question
-	 */
-	public Question getQuestion() {
-		return question;
-	}
-
-	/**
-	 * 選んだ選択肢を取得します。
-	 * @return selectedOptionItem
-	 */
-	public OptionItem getSelectedOption() {
-		return selectedOptionItem;
-	}
+	@Id
+	public long id;
 
 	/** 問題 */
-	private Question question;
+	public Question question;
 
 	/** 選んだ選択肢 */
-	private OptionItem selectedOptionItem;
+	public OptionItem selectedOptionItem;
 
 	/**
 	 * 解答します。
@@ -57,5 +56,9 @@ public class AnswerColumn {
 			return false;
 		return this.selectedOptionItem.isAnswer;
 	}
-
+	
+	public Option<AnswerColumn> unique()
+	{
+		return new AnswerColumnModelService().findById(id);
+	}
 }
