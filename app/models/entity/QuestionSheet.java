@@ -32,7 +32,13 @@ public class QuestionSheet {
 	 * 問題リスト
 	 */
 	private List<Question> questions;
+	
+	/**
+	 * 記号リスト
+	 */
+	public List<String> signs = Arrays.asList("ア","イ","ウ","エ");
 
+	
 	/**
 	 * @param createDate
 	 * @param list

@@ -20,6 +20,15 @@ public class ExamCategory {
 	 * @param year 年
 	 * @param season 期
 	 */
+	public ExamCategory(){}
+
+	
+	/**
+	 * コンストラクタ
+	 * @param category カテゴリ
+	 * @param year 年
+	 * @param season 期
+	 */
 	public ExamCategory(Category category, int year, Season season) {
 		this.category = category;
 		this.year = year;

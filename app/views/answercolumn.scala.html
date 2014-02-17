@@ -1,4 +1,4 @@
-@(questionNo: Integer, question: models.entity.Question) 
+@(questionNo: Integer, answerColumn: models.entity.AnswerColumn, signs: List[String]) 
 
 @main("問題"){
 <style type="text/css">
@@ -10,61 +10,57 @@
 </head>
 
 <div class="row"> 
-<div class="col-sm-8 col-lg-8">
-<h6> 64/80 回答済</h6>
+	<div class="col-sm-8 col-lg-8">
+    	<h6> 64/80 回答済</h6>
+	</div>	
+	<div class="col-sm-4 col-lg-4">
+		<div class="btn-group">
+		@helper.form(action = routes.Examination.showAnswerSheet){
+		    <input type="submit" value="問題一覧">
+		    <input type="submit" value="試験終了">
+		}
+		</div>
+	</div>
 </div>
-<div class="col-sm-4 col-lg-4">
-<div class="btn-group">
-
-<!-- button type="button" class="btn btn-default" onclick="">問題一覧</button>
-<button type="button" class="btn btn-default">中断</button>
-<button type="button" class="btn btn-default">テスト終了</button -->
-
-@helper.form(action = routes.Examination.showAnswerSheet){
-    <input type="submit" value="問題一覧">
-    <input type="submit" value="試験終了">
-}
-</div>
-</div>
-</div>
-
 
 <br>
 
 <div class="panel panel-primary">
-<!-- Default panel contents -->
-<div class="panel-heading">
-<h3>
-@question.sentence
-</h3>
-</div>
-<!-- Table -->
-<div class="panel-body">
 
-@for(option <- question.optionItems) {
-	<label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" />
-	<B>ア</B><br>
-    <div style="margin-left:20px;margin-right:10px;">
-	@option.sentence
+    <!-- Default panel contents -->
+	<div class="panel-heading">
+		<h3>
+		@answerColumn.getQuestion().sentence
+		</h3>
 	</div>
-	</label>
+
+	<!-- Table -->
+	<div class="panel-body">
+		@for(option <- answerColumn.getQuestion().optionItems) {    
+		    <label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" />
+		    <B>@signs(answerColumn.getQuestion().optionItems.indexOf(option))</B><br>
+		    <div style="margin-left:20px;margin-right:10px;">
+		    @option.sentence
+		    </div>
+		    </label>
+		}
+	</div>
+</div>
+
+<br>
+@helper.form(action = routes.Examination.showAnswerSheet){
+	<ul class="pager">
+	  <li class="previous"><a href="#">&larr; Prev</a></li>
+	  <li class="next"><a href="#">Next &rarr;</a></li>
+	</ul>
+	<br>
 }
 
-</div>
-</div>
-
-<br>
-<ul class="pager">
-  <li class="previous"><a href="#">&larr; Prev</a></li>
-  <li class="next"><a href="#">Next &rarr;</a></li>
-</ul>
-<br>
-
 <button type="button" class="btn btn-default">
-<span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
 </button>
 <button type="button" class="btn btn-default">
-<span class="glyphicon glyphicon-question-sign" ></span>
+    <span class="glyphicon glyphicon-question-sign" ></span>
 </button>
 
 }

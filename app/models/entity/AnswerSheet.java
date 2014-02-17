@@ -29,7 +29,7 @@ public final class AnswerSheet extends Model {
 	private QuestionSheet questionSheet;
 
 	/** 解答のリスト **/
-	private ArrayList<AnswerColumn> answerColumns = new ArrayList<>();
+	public ArrayList<AnswerColumn> answerColumns = new ArrayList<>();
 
 	/** 終了済かどうかを示すリスト */
 	private boolean isFinished = false;
