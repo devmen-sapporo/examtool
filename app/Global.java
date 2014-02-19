@@ -1,6 +1,11 @@
 import java.util.*;
 
 import models.entity.*;
+
+import org.pac4j.core.client.*;
+import org.pac4j.oauth.client.*;
+import org.pac4j.play.*;
+
 import play.*;
 import play.api.mvc.*;
 import play.filters.csrf.*;
@@ -27,6 +32,10 @@ public class Global extends GlobalSettings {
         	question.category = category;
         	question.update();
         }
+        
+        final FacebookClient facebookClient = new FacebookClient("280137138817690", "dd0c5ccface2d815603e631addfe8f19");
+        final Clients clients = new Clients("http://localhost:9000/callback", facebookClient);
+        Config.setClients(clients);
 	}
 	
 	@Override

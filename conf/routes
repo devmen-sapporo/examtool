@@ -13,6 +13,9 @@ POST    /signIn                         controllers.Application.signIn()
 POST    /create                         controllers.Application.create()
 POST    /answersheet                    controllers.Examination.showAnswerSheet()
 POST    /finishexam                     controllers.Examination.finishExam()
+GET     /result                         controllers.Application.result()
+GET     /callback                       org.pac4j.play.CallbackController.callback()
+POST    /callback                       org.pac4j.play.CallbackController.callback()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

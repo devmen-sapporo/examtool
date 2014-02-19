@@ -6,6 +6,10 @@ import java.util.*;
 
 import models.*;
 import models.entity.*;
+
+import org.pac4j.core.profile.*;
+import org.pac4j.play.java.*;
+
 import play.*;
 import play.data.*;
 import play.data.validation.Constraints.Email;
@@ -16,7 +20,7 @@ import views.html.*;
 
 import com.avaje.ebean.*;
 
-public class Application extends Controller {
+public class Application extends JavaController {
 
 	public static class SignInData {
 		@Email
@@ -116,14 +120,16 @@ public class Application extends Controller {
     
     @AddCSRFToken
     public static Result login() {
-    	return ok(login.render("", form(Login.class)));
+		String url = getRedirectionUrl("FacebookClient", "/result");
+    	return ok(login.render("", url, "", form(Login.class)));
     }
     
     @RequireCSRFCheck
     public static Result authenticate() {
     	Form<Login> loginForm = form(Login.class).bindFromRequest();
     	if (loginForm.hasErrors()) {
-    		return badRequest(login.render("サインインに失敗しました。", loginForm));
+    		String url = getRedirectionUrl("FacebookClient", "/result");
+    		return badRequest(login.render("サインインに失敗しました。", url, "", loginForm));
     	} else {
     		session("mail", loginForm.get().getMail());
     		String returnUrl = ctx().session().get("returnUrl");
@@ -139,5 +145,11 @@ public class Application extends Controller {
     public static Result logout() {
     	session().clear();
     	return redirect(routes.Application.login());
+    }
+    
+    public static Result result() {
+		CommonProfile profile = getUserProfile();
+		String urlPiciture = "https://graph.facebook.com/" + profile.getUsername() + "/picture";
+    	return ok(login.render("", "", urlPiciture, form(Login.class)));
     }
 }

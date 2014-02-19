@@ -1,4 +1,4 @@
-@(message: String, form: Form[models.Login])
+@(message: String, urlFacebook: String, urlPiciture: String, form: Form[models.Login])
 
 @main("Welcome to Play") {
 
@@ -25,7 +25,9 @@
 			'placeholder -> " password"
 		))
 		
-		<input type="submit" value="Sign in" class="btn btn-primary">
+		<input type="submit" value="Sign in" class="btn btn-primary"><br />
+		<a href="@urlFacebook">Sign in with Facebook</a><br />
+		<img src="@urlPiciture" /><br />
 	}
 	</div>
 
