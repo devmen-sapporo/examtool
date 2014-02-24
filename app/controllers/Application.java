@@ -69,7 +69,7 @@ public class Application extends JavaController {
 		List<ExamCategory> examCategorys = new ArrayList<>();
 
 
-        String sql = " SELECT category_id, year, season_id FROM question GROUP BY category_id"; 
+        String sql = " SELECT category_id, year, season_id FROM question GROUP BY category_id, year, season_id"; 
         List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).findList();
         
         for (SqlRow row : sqlRows){

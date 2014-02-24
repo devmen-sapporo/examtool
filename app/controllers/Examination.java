@@ -24,7 +24,7 @@ public class Examination extends Controller {
 		// TODO: どこからユーザ情報を取得するのか確認すること
     	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
     	
-        return ok(answercolumn.render(1, answerSheet.answerColumns.get(0), questionSheet.signs));
+        return ok(answercolumn.render(0, answerSheet, questionSheet.signs));
     }
 	
 	public static Result changeAnswerColumn(){
@@ -36,7 +36,7 @@ public class Examination extends Controller {
 			answerColumn = new AnswerColumn(1L).unique().get();
 		}
 		
-        return ok(answercolumn.render(1, answerColumn, QuestionSheet.signs));
+        return ok(answercolumn.render(0, null, QuestionSheet.signs));
 	}
 
 	private static AnswerSheet createAnswerSheets(QuestionSheet questionSheet) {

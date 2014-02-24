@@ -29,23 +29,233 @@ users:
 #Question
 
 questions:
-
     - !!models.entity.Question
         id:         1
-
-#        category:
-#
-#            - !!models.entity.Category
-#                id:         3
-#                name:       試験
-                
         year:       2012
-#        seasons:
-#            - !!models.entity.Season
-#                id: 1
-                
         no:         1
         sentence:   ウイルスの調査手法に関する記述のうち、適切なものはどれか。
+
+    - !!models.entity.Question
+        id:         44
+        year:       2014
+        no:         44
+        sentence:   コンピュータやネットワークのセキュリティ上の脆弱性を発見するために，システムを実際に攻撃して侵入を試みる手法はどれか。
+
+    - !!models.entity.Question
+        id:         45
+        year:       2014
+        no:         45
+        sentence:   安全性や信頼性を確保するための設計のうち，フールプルーフに該当するものはどれか。
+
+    - !!models.entity.Question
+        id:         46
+        year:       2014
+        no:         46
+        sentence:   UMLのダイアグラムのうち，インスタンス間の関係を表現するものはどれか。
+
+    - !!models.entity.Question
+        id:         47
+        year:       2014
+        no:         47
+        sentence:   オブジェクト指向におけるカプセル化を説明したものはどれか。
+
+    - !!models.entity.Question
+        id:         48
+        year:       2014
+        no:         48
+        sentence:   ブラックボックステストに関する記述として，適切なものはどれか。
+
+    - !!models.entity.Question
+        id:         49
+        year:       2014
+        no:         49
+        sentence:   運用テストにおける検査内容として，適切なものはどれか。
+
+    - !!models.entity.Question
+        id:         50
+        year:       2014
+        no:         50
+        sentence:   システムの外部設計を完了させるとき，承認を受けるものとして，適切なものはどれか。
+
+    - !!models.entity.Question
+        id:         51
+        year:       2014
+        no:         51
+        sentence:   プロジェクトスコープマネジメントにおいて，WBS作成のプロセスで行うことはどれか。
+
+    - !!models.entity.Question
+        id:         52
+        year:       2014
+        no:         52
+        sentence:   図のアローダイアグラムにおいて，プロジェクト全体の期間を短縮するために，作業A～Eの幾つかを1日ずつ短縮する。プロジェクト全体を2日短縮できる作業の組合せはどれか。52.gif/image-size:420×104
+
+    - !!models.entity.Question
+        id:         53
+        year:       2014
+        no:         53
+        sentence:   ある新規システムの開発規模を見積もったところ，500ファンクションポイント(FP)であった。このシステムを構築するプロジェクトには，開発工数の他にシステムの導入や開発者教育の工数が10人月必要である。また，プロジェクト管理に，開発と導入・教育を合わせた工数の10%を要する。このプロジェクトに要する全工数は何人月か。ここで，開発の生産性は1人月当たり10FPとする。
+
+    - !!models.entity.Question
+        id:         54
+        year:       2014
+        no:         54
+        sentence:   データの追加・変更・削除が，少ないながらも一定の頻度で行われるデータベースがある。このデータベースのフルバックアップを磁気テープに取得する時間間隔を今までの2倍にした。このとき，データベースのバックアップ又は復旧に関する記述のうち，適切なものはどれか。
+
+    - !!models.entity.Question
+        id:         55
+        year:       2014
+        no:         55
+        sentence:   システムの移行方式の一つである一斉移行方式の特徴はどれか。
+
+    - !!models.entity.Question
+        id:         56
+        year:       2014
+        no:         56
+        sentence:   ITIL v3における問題管理プロセスの目標はどれか。
+
+    - !!models.entity.Question
+        id:         57
+        year:       2014
+        no:         57
+        sentence:   ソースコードのバージョン管理システムが導入された場合に，システム監査において，ソースコードの機密性のチェックポイントとして追加することが適切なものはどれか。
+
+    - !!models.entity.Question
+        id:         58
+        year:       2014
+        no:         58
+        sentence:   リスクアセスメントに基づく監査対象の選定として，適切なものはどれか。
+
+    - !!models.entity.Question
+        id:         59
+        year:       2014
+        no:         59
+        sentence:   経済産業省の"営業秘密管理指針"に基づく営業秘密データの管理状況について監査を行うとき，秘密管理性のチェックポイントはどれか。
+
+    - !!models.entity.Question
+        id:         60
+        year:       2014
+        no:         60
+        sentence:   マスタファイル管理に関するシステム監査項目のうち，可用性に該当するものはどれか。
+
+    - !!models.entity.Question
+        id:         61
+        year:       2014
+        no:         61
+        sentence:   システム管理基準によれば，情報戦略における情報システム全体の最適化目標を設定する際の留意事項はどれか。
+
+    - !!models.entity.Question
+        id:         62
+        year:       2014
+        no:         62
+        sentence:   BPMの説明はどれか。
+
+    - !!models.entity.Question
+        id:         63
+        year:       2014
+        no:         63
+        sentence:   SaaSを説明したものはどれか。
+
+    - !!models.entity.Question
+        id:         64
+        year:       2014
+        no:         64
+        sentence:   IT投資案件において，5年間の投資効果をROI(Return On Investment)で評価した場合，四つの案件a～d のうち，最も効果が高いものはどれか。ここで，内部収益率(IRR)は0とする。 64.gif/image-size:440×377
+
+    - !!models.entity.Question
+        id:         65
+        year:       2014
+        no:         65
+        sentence:   情報化に関する費用のうち，ランニングコストに該当するものはどれか。 
+
+    - !!models.entity.Question
+        id:         66
+        year:       2014
+        no:         66
+        sentence:   共通フレーム2007によれば，企画プロセスで定義するものはどれか。
+
+    - !!models.entity.Question
+        id:         67
+        year:       2014
+        no:         67
+        sentence:   SWOT分析を用いて識別した，自社製品に関する外部要因はどれか。
+
+    - !!models.entity.Question
+        id:         68
+        year:       2014
+        no:         68
+        sentence:   コストプラス法による価格設定方法を表すものはどれか。
+
+    - !!models.entity.Question
+        id:         69
+        year:       2014
+        no:         69
+        sentence:   プロダクトライフサイクルにおける成長期の特徴はどれか。
+
+    - !!models.entity.Question
+        id:         70
+        year:       2014
+        no:         70
+        sentence:   CRMの目的はどれか。
+
+    - !!models.entity.Question
+        id:         71
+        year:       2014
+        no:         71
+        sentence:   ナレッジマネジメントを説明したものはどれか。
+
+    - !!models.entity.Question
+        id:         72
+        year:       2014
+        no:         72
+        sentence:   ディジタルディバイドを説明したものはどれか。
+
+    - !!models.entity.Question
+        id:         73
+        year:       2014
+        no:         73
+        sentence:   セル生産方式の利点が生かせる対象はどれか。
+
+    - !!models.entity.Question
+        id:         74
+        year:       2014
+        no:         74
+        sentence:   インターネットショッピングで売上の全体に対して，あまり売れない商品の売上合計の占める割合が無視できない割合になっていることを指すものはどれか。
+
+    - !!models.entity.Question
+        id:         75
+        year:       2014
+        no:         75
+        sentence:   裁量労働制の説明はどれか。
+
+    - !!models.entity.Question
+        id:         76
+        year:       2014
+        no:         76
+        sentence:   商品の1日当たりの販売確率が表のとおりであるとき，1個当たりの利益を1,000円とすると，利益の期待値が最大になる仕入個数は何個か。ここで，売れ残った場合，1個当たり300円の廃棄ロスが出るものとする。 76.gif/image-size:342×162
+
+    - !!models.entity.Question
+        id:         77
+        year:       2014
+        no:         77
+        sentence:   散布図のうち，"負の相関"を示すものはどれか。
+
+    - !!models.entity.Question
+        id:         78
+        year:       2014
+        no:         78
+        sentence:   親和図法を説明したものはどれか。
+
+    - !!models.entity.Question
+        id:         79
+        year:       2014
+        no:         79
+        sentence:   著作権法で保護されるものはどれか。
+
+    - !!models.entity.Question
+        id:         80
+        year:       2014
+        no:         80
+        sentence:   派遣元会社A社と派遣先会社B社が派遣契約を結び，A社は社員であるN氏を派遣した。労働者派遣法に照らして適切な行為はどれか。
 
 # OptionItem
 
@@ -81,6 +291,1063 @@ optionItems:
         question:
             !!models.entity.Question
             id:     1
+
+    - !!models.entity.OptionItem
+        id:         481
+        sentence:   テストデータの作成基準として，命令や分岐の網羅率を使用する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     48
+
+    - !!models.entity.OptionItem
+        id:         482
+        sentence:   被テストプログラムに冗長なコードがあっても検出できない。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     48
+
+    - !!models.entity.OptionItem
+        id:         483
+        sentence:   プログラムの内部構造に着目し，必要な部分が実行されたかどうかを検証する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     48
+
+    - !!models.entity.OptionItem
+        id:         484
+        sentence:   分岐命令やモジュールの数が増えると，テストデータが急増する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     48
+
+    - !!models.entity.OptionItem
+        id:         491
+        sentence:   個々のソフトウェアユニットについて，仕様を満足していることを確認する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     49
+
+    - !!models.entity.OptionItem
+        id:         492
+        sentence:   ソフトウェア品目の中で使用しているアルゴリズムの妥当性を確認する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     49
+
+    - !!models.entity.OptionItem
+        id:         493
+        sentence:   ソフトウェアユニット間のインタフェースが整合していることを確認する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     49
+
+    - !!models.entity.OptionItem
+        id:         494
+        sentence:   利用者に提供するという視点で，システムが要求を満足していることを確認する
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     49
+
+    - !!models.entity.OptionItem
+        id:         501
+        sentence:   画面レイアウト
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     50
+
+    - !!models.entity.OptionItem
+        id:         502
+        sentence:   システム開発計画
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     50
+
+    - !!models.entity.OptionItem
+        id:         503
+        sentence:   物理データベース仕様
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     50
+
+    - !!models.entity.OptionItem
+        id:         504
+        sentence:   プログラム流れ図
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     50
+
+    - !!models.entity.OptionItem
+        id:         511
+        sentence:   作業の工数を算定してコストを見積もる。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     51
+
+    - !!models.entity.OptionItem
+        id:         512
+        sentence:   作業を階層的に細分化する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     51
+
+    - !!models.entity.OptionItem
+        id:         513
+        sentence:   作業を順序付けして，スケジュールとして組み立てる。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     51
+
+    - !!models.entity.OptionItem
+        id:         514
+        sentence:   成果物を生成するアクティビティを定義する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     51
+
+    - !!models.entity.OptionItem
+        id:         521
+        sentence:   A，C，E
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     52
+
+    - !!models.entity.OptionItem
+        id:         522
+        sentence:   A，D
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     52
+
+    - !!models.entity.OptionItem
+        id:         523
+        sentence:   B，C，E
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     52
+
+    - !!models.entity.OptionItem
+        id:         524
+        sentence:   B，D
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     52
+
+    - !!models.entity.OptionItem
+        id:         531
+        sentence:   51
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     53
+
+    - !!models.entity.OptionItem
+        id:         532
+        sentence:   60
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     53
+
+    - !!models.entity.OptionItem
+        id:         533
+        sentence:   65
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     53
+
+    - !!models.entity.OptionItem
+        id:         534
+        sentence:   66
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     53
+
+    - !!models.entity.OptionItem
+        id:         541
+        sentence:   ジャーナル情報からの復旧処理時間が平均して約2倍になる。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     54
+
+    - !!models.entity.OptionItem
+        id:         542
+        sentence:   フルバックアップ1回当たりの磁気テープ使用量が約2倍になる。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     54
+
+    - !!models.entity.OptionItem
+        id:         543
+        sentence:   フルバックアップ1回当たりの磁気テープ使用量が約半分になる。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     54
+
+    - !!models.entity.OptionItem
+        id:         544
+        sentence:   フルバックアップ取得の平均実行時間が約2倍になる。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     54
+
+    - !!models.entity.OptionItem
+        id:         551
+        sentence:   新旧システム間を接続するアプリケーションが必要となる。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     55
+
+    - !!models.entity.OptionItem
+        id:         552
+        sentence:   新旧システムを並行させて運用し，ある時点で新システムに移行する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     55
+
+    - !!models.entity.OptionItem
+        id:         553
+        sentence:   新システムヘの移行時のトラブルの影響が大きい。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     55
+
+    - !!models.entity.OptionItem
+        id:         554
+        sentence:   並行して稼働させるための運用コストが発生する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     55
+
+    - !!models.entity.OptionItem
+        id:         561
+        sentence:   インシデントに対する既存ITサービスへの変更や新規サービスの導入を効率的かつ安全に実施する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     56
+
+    - !!models.entity.OptionItem
+        id:         562
+        sentence:   インシデントによって中断したITサービスを合意した時間内に復旧する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     56
+
+    - !!models.entity.OptionItem
+        id:         563
+        sentence:   インシデントの根本原因を突き止めて排除したり，インシデントの発生を予防したりする。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     56
+
+    - !!models.entity.OptionItem
+        id:         564
+        sentence:   利用者に単一窓口を提供し，事業への影響を最小限にし，通常サービスへ復帰できるように支援する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     56
+
+    - !!models.entity.OptionItem
+        id:         571
+        sentence:   バージョン管理システムに登録した変更結果を責任者が承認していること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     57
+
+    - !!models.entity.OptionItem
+        id:         572
+        sentence:   バージョン管理システムのアクセスコントロールの設定が適切であるとと
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     57
+
+    - !!models.entity.OptionItem
+        id:         573
+        sentence:   バージョン管理システムの導入コストが適正な水準にあること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     57
+
+    - !!models.entity.OptionItem
+        id:         574
+        sentence:   バージョン管理システムを開発部門が選定していること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     57
+
+    - !!models.entity.OptionItem
+        id:         581
+        sentence:   運用開始時期の順に，全てのシステムを対象とする。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     58
+
+    - !!models.entity.OptionItem
+        id:         582
+        sentence:   監査実施体制を踏まえて，実施可能なシステムを対象とする。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     58
+
+    - !!models.entity.OptionItem
+        id:         583
+        sentence:   無作為に抽出したシステムを対象とする。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     58
+
+    - !!models.entity.OptionItem
+        id:         584
+        sentence:   問題発生の可能性とその影響の大きなシステムを対象とする。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     58
+
+    - !!models.entity.OptionItem
+        id:         591
+        sentence:   当該データが経営効率の改善に役立っているかどうかを分析していること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     59
+
+    - !!models.entity.OptionItem
+        id:         592
+        sentence:   当該データの記録媒体に秘密を意味する表示をしていること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     59
+
+    - !!models.entity.OptionItem
+        id:         593
+        sentence:   当該データの内容が刊行物に掲載されていないかを定期的に確認していること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     59
+
+    - !!models.entity.OptionItem
+        id:         594
+        sentence:   当該データの内容が公序良俗に反していないかを確認していること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     59
+
+    - !!models.entity.OptionItem
+        id:         601
+        sentence:   マスタファイルが置かれているサーバを二重化し，耐障害性の向上を図っていること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     60
+
+    - !!models.entity.OptionItem
+        id:         602
+        sentence:   マスタファイルのデータを複数件まとめて検索・加工するための機能が，システムに盛り込まれていること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     60
+
+    - !!models.entity.OptionItem
+        id:         603
+        sentence:   マスタファイルのメンテナンスは，特権アカウントを付与された者だけに許されていること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     60
+
+    - !!models.entity.OptionItem
+        id:         604
+        sentence:   マスタファイルへのデータ入力チェック機能が，システムに盛り込まれていること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     60
+
+    - !!models.entity.OptionItem
+        id:         611
+        sentence:   開発，運用及び保守の費用の算出基礎を明確にすること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     61
+
+    - !!models.entity.OptionItem
+        id:         612
+        sentence:   開発の規模，システム特性等を考慮して開発手順を決めておくこと
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     61
+
+    - !!models.entity.OptionItem
+        id:         613
+        sentence:   経営戦略との整合性を考慮すること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     61
+
+    - !!models.entity.OptionItem
+        id:         614
+        sentence:   必要な要員，予算，設備，期間等を確保すること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     61
+
+    - !!models.entity.OptionItem
+        id:         621
+        sentence:   企業活動の主となる生産，物流，販売，財務，人事などの業務の情報を一元管理することによって，経営資源の全体最適を実現する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     62
+
+    - !!models.entity.OptionItem
+        id:         622
+        sentence:   業務プロセスに分析，設計，実行，改善のマネジメントサイクルを取り入れ，業務プロセスの改善見直しや最適なプロセスへの統合を継続的に実施する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     62
+
+    - !!models.entity.OptionItem
+        id:         623
+        sentence:   顧客データベースを基に，商品の販売から保守サービス，問合せやクレームへの対応など顧客に関する業務プロセスを一貫して管理する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     62
+
+    - !!models.entity.OptionItem
+        id:         624
+        sentence:   部品の供給から製品の販売までの一連の業務フロセスの情報をリアルタイムで交換することによって，在庫の削減とリードタイムの短縮を実現する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     62
+
+    - !!models.entity.OptionItem
+        id:         631
+        sentence:   インターネット経由でアプリケーションソフトウェアの機能を，必要なときだけ利用者に提供するサービスのこと
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     63
+
+    - !!models.entity.OptionItem
+        id:         632
+        sentence:   企業の経営資源を有効に活用するために，基幹業務を統合的に管理するためのパッケージソフトウェアのこと
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     63
+
+    - !!models.entity.OptionItem
+        id:         633
+        sentence:   既存の組織やビジネスプロセスを抜本的に見直し，職務，業務フロー，管理機構，情報システムを再設計すること
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     63
+
+    - !!models.entity.OptionItem
+        id:         634
+        sentence:   発注者とサービス提供者との間で，サービスの品質の内容について合意した文書のこと
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     63
+
+    - !!models.entity.OptionItem
+        id:         641
+        sentence:   a
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     64
+
+    - !!models.entity.OptionItem
+        id:         642
+        sentence:   b
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     64
+
+    - !!models.entity.OptionItem
+        id:         643
+        sentence:   c
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     64
+
+    - !!models.entity.OptionItem
+        id:         644
+        sentence:   d
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     64
+
+    - !!models.entity.OptionItem
+        id:         651
+        sentence:   サーバなど情報機器の保守費用
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     65
+
+    - !!models.entity.OptionItem
+        id:         652
+        sentence:   情報システム戦略立案のコンサルティング費用
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     65
+
+    - !!models.entity.OptionItem
+        id:         653
+        sentence:   ソフトウェアパッケージの導入費用
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     65
+
+    - !!models.entity.OptionItem
+        id:         654
+        sentence:   要件定義を行うシステムエンジニアの費用
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     65
+
+    - !!models.entity.OptionItem
+        id:         661
+        sentence:   新しい業務の在り方や業務手順，入出力情報，業務を実施する上での責任と権限，業務上のルールや制約などの要求事項
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     66
+
+    - !!models.entity.OptionItem
+        id:         662
+        sentence:   業務要件を実現するために必要なシステムの機能や，システムの開発方式，システムの運用手順，障害復旧時間などの要求事項
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     66
+
+    - !!models.entity.OptionItem
+        id:         663
+        sentence:   経営事業の目的，目標を達成するために必要なシステムに関係する経営上のニーズ，システム化，システム改善を必要とする業務上の課題などの要求事項
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     66
+
+    - !!models.entity.OptionItem
+        id:         664
+        sentence:   求められているシステムを実現するために必要なシステムの機能，能力，ライフサイクル，信頼性，安全性，セキュリティなどの要求事項
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     66
+
+    - !!models.entity.OptionItem
+        id:         671
+        sentence:   機能面における強み
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     67
+
+    - !!models.entity.OptionItem
+        id:         672
+        sentence:   コスト競争力
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     67
+
+    - !!models.entity.OptionItem
+        id:         673
+        sentence:   新規参入による脅威
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     67
+
+    - !!models.entity.OptionItem
+        id:         674
+        sentence:   品質における弱み
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     67
+
+    - !!models.entity.OptionItem
+        id:         681
+        sentence:   価格分析によって，利益最大，リスク最小を考慮し，段階的に価格を決める。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     68
+
+    - !!models.entity.OptionItem
+        id:         682
+        sentence:   顧客に対する値引きを前提にし，当初からマージンを加えて価格を決める。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     68
+
+    - !!models.entity.OptionItem
+        id:         683
+        sentence:   市場で競争可能と推定できるレベルで価格を決める。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     68
+
+    - !!models.entity.OptionItem
+        id:         684
+        sentence:   製造原価，営業費を基準にし，希望マージンを織り込んで価格を決める。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     68
+
+    - !!models.entity.OptionItem
+        id:         691
+        sentence:   市場が商品の価値を理解し始める。商品ラインもチャネルも拡大しなければならない。この時期は売上も伸びるが，投資も必要である。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     69
+
+    - !!models.entity.OptionItem
+        id:         692
+        sentence:   需要が大きくなり，製品の差別化や市場の細分化が明確になってくる。競争者間の競争も激化し，新品種の追加やコストダウンが重要となる。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     69
+
+    - !!models.entity.OptionItem
+        id:         693
+        sentence:   需要が減ってきて，撤退する企業も出てくる。この時期の強者になれるかどうかを判断し，代替市場への進出なども考える。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     69
+
+    - !!models.entity.OptionItem
+        id:         694
+        sentence:   需要は部分的で，新規需要開拓が勝負である。特定ターゲットに対する信念に満ちた説得が必要である。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     69
+
+    - !!models.entity.OptionItem
+        id:         701
+        sentence:   顧客ロイヤルティの獲得と顧客生涯価値の最大化
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     70
+
+    - !!models.entity.OptionItem
+        id:         702
+        sentence:   在庫不足による販売機会損失の削減
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     70
+
+    - !!models.entity.OptionItem
+        id:         703
+        sentence:   製造に必要な資材の発注量と発注時期の決定
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     70
+
+    - !!models.entity.OptionItem
+        id:         704
+        sentence:   販売時点での商品ごとの販売情報の把握
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     70
+
+    - !!models.entity.OptionItem
+        id:         711
+        sentence:   企業内に散在している知識を共有化し，全体の問題解決力を高める経営を行う。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     71
+
+    - !!models.entity.OptionItem
+        id:         712
+        sentence:   迅速な意思決定のために，組織の階層をできるだけ少なくした平型の組織構造によって経営を行う。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     71
+
+    - !!models.entity.OptionItem
+        id:         713
+        sentence:   優れた業績を上げている企業との比較分析から，自社の経営革新を行う。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     71
+
+    - !!models.entity.OptionItem
+        id:         714
+        sentence:   他社にはまねのできない，企業独自のノウハウや技術などの強みを核とした経営を行う。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     71
+
+    - !!models.entity.OptionItem
+        id:         721
+        sentence:   PCなどの情報通信機器の利用方法が分からなかったり，情報通信機器を所有していなかったりして，情報の入手が困難な人々のことである。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     72
+
+    - !!models.entity.OptionItem
+        id:         722
+        sentence:   高齢者や障害者の情報通信の利用面での困難が，社会的・経済的格差につながらないように，だれもが情報通信を利活用できるように整備された環境のことである。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     72
+
+    - !!models.entity.OptionItem
+        id:         723
+        sentence:   情報通信機器やソフトウェア，情報サービスなどを，高齢者・障害者を含むすべての人が利用可能であるが，利用しやすくなっているかの度合いのことである。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     72
+
+    - !!models.entity.OptionItem
+        id:         724
+        sentence:   情報リテラシの有無やITの利用環境の相違などによって生じる，社会的又は経済的格差のことである。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     72
+
+    - !!models.entity.OptionItem
+        id:         731
+        sentence:   生産性を上げるために，大量生産が必要なもの
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     73
+
+    - !!models.entity.OptionItem
+        id:         732
+        sentence:   製品の仕様が長期間変わらないもの
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     73
+
+    - !!models.entity.OptionItem
+        id:         733
+        sentence:   多種類かつフレキシブルな生産が求められるもの
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     73
+
+    - !!models.entity.OptionItem
+        id:         734
+        sentence:   標準化，単純化，専門家による分業が必要なもの
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     73
+
+    - !!models.entity.OptionItem
+        id:         741
+        sentence:   アフィリエイト
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     74
+
+    - !!models.entity.OptionItem
+        id:         742
+        sentence:   オプトイン
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     74
+
+    - !!models.entity.OptionItem
+        id:         743
+        sentence:   ドロップシッピング
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     74
+
+    - !!models.entity.OptionItem
+        id:         744
+        sentence:   ロングテール
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     74
+
+    - !!models.entity.OptionItem
+        id:         751
+        sentence:   企業が継続雇用の前提として，従業員に対して他社でも適用する技術・能力の維持責任を求める一方，企業も従業員の能力開発を積極的に支援する。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     75
+
+    - !!models.entity.OptionItem
+        id:         752
+        sentence:   従業員1人当たりの労働時間を短縮したり仕事の配分方法を見直したりするなど，労働者間で労働を分かち合うことで雇用の維持・創出を図る。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     75
+
+    - !!models.entity.OptionItem
+        id:         753
+        sentence:   特定の専門業務や企画業務において，労働時間は，実際の労働時間に関係なく，労使間であらかじめ取り決めた労働時間とみなす。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     75
+
+    - !!models.entity.OptionItem
+        id:         754
+        sentence:   能力主義と実績主義の徹底，経営参加意識の醸成，業績向上へのインセンティブなどを目的に，職務と能力，業績を基準に報酬を決める。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     75
+
+    - !!models.entity.OptionItem
+        id:         761
+        sentence:   4
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     76
+
+    - !!models.entity.OptionItem
+        id:         762
+        sentence:   5
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     76
+
+    - !!models.entity.OptionItem
+        id:         763
+        sentence:   6
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     76
+
+    - !!models.entity.OptionItem
+        id:         764
+        sentence:   7
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     76
+
+    - !!models.entity.OptionItem
+        id:         771
+        sentence:   77a.gif/image-size:178×144
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     77
+
+    - !!models.entity.OptionItem
+        id:         772
+        sentence:   77i.gif/image-size:179×143
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     77
+
+    - !!models.entity.OptionItem
+        id:         773
+        sentence:   77u.gif/image-size:180×143
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     77
+
+    - !!models.entity.OptionItem
+        id:         774
+        sentence:   77e.gif/image-size:179×145
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     77
+
+    - !!models.entity.OptionItem
+        id:         781
+        sentence:   事態の進展とともに様々な事象が想定される問題について，対応策を検討し望ましい結果に至るプロセスを定める方法である。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     78
+
+    - !!models.entity.OptionItem
+        id:         782
+        sentence:   収集した情報を相互の関連によってグループ化し，解決すべき問題点を明確にする方法である。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     78
+
+    - !!models.entity.OptionItem
+        id:         783
+        sentence:   複雑な要因の絡み合う事象について，その事象間の因果関係を明らかにする方法である。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     78
+
+    - !!models.entity.OptionItem
+        id:         784
+        sentence:   目的・目標を達成するための手段・方策を順次展開し，最適な手段・方策を追求していく方法である。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     78
+
+    - !!models.entity.OptionItem
+        id:         791
+        sentence:   アルゴリズム
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     79
+
+    - !!models.entity.OptionItem
+        id:         792
+        sentence:   コンパイラのプログラム
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     79
+
+    - !!models.entity.OptionItem
+        id:         793
+        sentence:   プログラム言語
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     79
+
+    - !!models.entity.OptionItem
+        id:         794
+        sentence:   プロトコル
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     79
+
+    - !!models.entity.OptionItem
+        id:         801
+        sentence:   B社の繁忙期とN氏の休暇申請が重なったので，B社から直接N氏に休暇の変更を指示した。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     80
+
+    - !!models.entity.OptionItem
+        id:         802
+        sentence:   N氏からの作業環境に関する苦情に対し，B社は雇用関係にないので，対応はA社だけで行った。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     80
+
+    - !!models.entity.OptionItem
+        id:         803
+        sentence:   N氏は派遣期間中の仕事に関する指示を，B社の担当者から直接受けることにした。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     80
+
+    - !!models.entity.OptionItem
+        id:         804
+        sentence:   派遣期間中にN氏の作業時間が空いたので，B社は派遣取決め以外の作業を依頼した。
+        isAnswer:   false
+        question:
+            !!models.entity.Question
+            id:     80
+
 
 #Category
 

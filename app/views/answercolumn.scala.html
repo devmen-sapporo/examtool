@@ -1,4 +1,10 @@
-@(questionNo: Integer, answerColumn: models.entity.AnswerColumn, signs: List[String]) 
+@(index: Integer, answerSheet: models.entity.AnswerSheet, signs: List[String]) 
+
+@**
+回答シート とインデックス
+FR 種別
+と選択したオプションを渡す。
+*@
 
 @main("問題"){
 <style type="text/css">
@@ -26,19 +32,21 @@
 <br>
 
 <div class="panel panel-primary">
-
     <!-- Default panel contents -->
 	<div class="panel-heading">
 		<h3>
-		@answerColumn.question.sentence
+		@answerSheet.answerColumns.get(index).question.sentence
 		</h3>
 	</div>
 
 	<!-- Table -->
 	<div class="panel-body">
-		@for(option <- answerColumn.question.optionItems) {    
-		    <label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" />
-		    <B>@signs(answerColumn.question.optionItems.indexOf(option))</B><br>
+		@for(option <- answerSheet.answerColumns.get(index).question.optionItems) {
+		    @if(answerSheet.answerColumns.get(index) == null){
+		        <p>null ダネ</p>
+		    }
+		    <label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" checked=""/>
+		    <B>@signs(answerSheet.answerColumns.get(index).question.optionItems.indexOf(option))</B><br>
 		    <div style="margin-left:20px;margin-right:10px;">
 		    @option.sentence
 		    </div>
@@ -50,8 +58,8 @@
 <br>
 @helper.form(action = routes.Examination.showAnswerSheet){
 	<ul class="pager">
-	  <li class="previous"><a href="#">&larr; Prev</a></li>
-	  <li class="next"><a href="#">Next &rarr;</a></li>
+	  <li class="previous"><a href="javascript:submit()">&larr; Prev</a></li>
+	  <li class="next"><a href="javascript:submit()">Next &rarr;</a></li>
 	</ul>
 	<br>
 }
@@ -59,6 +67,7 @@
 <button type="button" class="btn btn-default">
     <span class="glyphicon glyphicon-star"></span>
 </button>
+
 <button type="button" class="btn btn-default">
     <span class="glyphicon glyphicon-question-sign" ></span>
 </button>
