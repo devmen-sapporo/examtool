@@ -24,7 +24,6 @@ public class Examination extends Controller {
     	QuestionSheet questionSheet = new QuestionSheet(questions);
     	Logger.info("sss" + year);
 
-		// TODO: どこからユーザ情報を取得するのか確認すること
     	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
 
         return ok(answercolumn.render(0, answerSheet, questionSheet.signs));
@@ -43,7 +42,8 @@ public class Examination extends Controller {
 	}
 
 	private static AnswerSheet createAnswerSheets(QuestionSheet questionSheet) {
-		User user = User.find.byId(1L);
+    	String mail = ctx().session().get("mail");
+		User user = User.find.where().eq("mail", mail).findList().get(0);
 		return new AnswerSheet(user, questionSheet);
 	}
 
