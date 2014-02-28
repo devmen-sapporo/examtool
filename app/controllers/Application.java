@@ -36,25 +36,26 @@ public class Application extends JavaController {
 		public String name;
 	}
 	
+	/**
+	 * -> ログイン画面 -> メニュー画面
+	 * @return
+	 */
 	@play.mvc.Security.Authenticated(models.Secured.class)
     public static Result index() {
-
     	List<ExamCategory> categorys = getCategoryList();
     	return ok(menu.render("", categorys));
     }
     
     public static Result signIn() {
     	Form<SignInData> formSignInData = form(SignInData.class).bindFromRequest();
-    	if (formSignInData.hasErrors())
-    	{
+    	if (formSignInData.hasErrors()) {
     		return badRequest(index.render("サインインに失敗しました。", form(SampleData.class)));
     	}
     	
     	SignInData data = formSignInData.get();
     	String mail = data.mail;
     	String password = data.password;
-    	if (User.authenticate(mail, password) == null)
-    	{
+    	if (User.authenticate(mail, password) == null) {
     		return badRequest(index.render("メールアドレス、またはパスワードに誤りがあります。", form(SampleData.class)));
     	}
     	

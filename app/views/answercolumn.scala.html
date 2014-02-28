@@ -17,7 +17,7 @@ FR 種別
 
 <div class="row"> 
 	<div class="col-sm-8 col-lg-8">
-    	<h6> 64/80 回答済</h6>
+    	<h6>全 @answerSheet.getQuestionCount()問</h6>
 	</div>	
 	<div class="col-sm-4 col-lg-4">
 		<div class="btn-group">
@@ -45,7 +45,7 @@ FR 種別
 		    @if(answerSheet.answerColumns.get(index) == null){
 		        <p>null ダネ</p>
 		    }
-		    <label class="radiolabel" onclick=""><input type="radio" name="sex" value="male" class="radio" checked=""/>
+		    <label class="radiolabel" onclick=""><input type="radio" name="optionItemId" value="@option.id" class="radio" checked=""/>
 		    <B>@signs(answerSheet.answerColumns.get(index).question.optionItems.indexOf(option))</B><br>
 		    <div style="margin-left:20px;margin-right:10px;">
 		    @option.sentence

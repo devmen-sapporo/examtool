@@ -4,7 +4,6 @@ import java.util.*;
 
 import models.entity.*;
 import play.*;
-import play.data.*;
 import play.mvc.*;
 import views.html.*;
 
@@ -12,18 +11,22 @@ public class Examination extends Controller {
 
 	List<String> optionSings = new ArrayList<>();
 
-	public static Result startExam() {
-		Form<ExamCategory> formExamCategory = new Form<>(ExamCategory.class).bindFromRequest();
-    	ExamCategory examCategory = formExamCategory.get();
-    	
-    	List<Question> questions = Question.finder.where().findList();
- 
+	/**
+	 * -> メニュー -> 試験画面
+	 * @param examCategory
+	 * @return
+	 */
+	public static Result startExam(String category, Integer year) {
+
+    	List<Question> questions = Question.finder.where().eq("year", year).findList();
+    	Logger.info("sss" + questions.size());
+
     	QuestionSheet questionSheet = new QuestionSheet(questions);
-    	Logger.info("sss" + questionSheet.getQuestions().size());
+    	Logger.info("sss" + year);
 
 		// TODO: どこからユーザ情報を取得するのか確認すること
     	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
-    	
+
         return ok(answercolumn.render(0, answerSheet, questionSheet.signs));
     }
 	
