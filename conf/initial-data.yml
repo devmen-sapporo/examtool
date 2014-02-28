@@ -35,29 +35,29 @@ questions:
         no:         1
         sentence:   ウイルスの調査手法に関する記述のうち、適切なものはどれか。
 
-    - !!models.entity.Question
-        id:         44
-        year:       2014
-        no:         44
-        sentence:   コンピュータやネットワークのセキュリティ上の脆弱性を発見するために，システムを実際に攻撃して侵入を試みる手法はどれか。
+#    - !!models.entity.Question
+#        id:         44
+#        year:       2014
+#        no:         44
+#        sentence:   コンピュータやネットワークのセキュリティ上の脆弱性を発見するために，システムを実際に攻撃して侵入を試みる手法はどれか。
 
-    - !!models.entity.Question
-        id:         45
-        year:       2014
-        no:         45
-        sentence:   安全性や信頼性を確保するための設計のうち，フールプルーフに該当するものはどれか。
+#    - !!models.entity.Question
+#        id:         45
+#        year:       2014
+#        no:         45
+#        sentence:   安全性や信頼性を確保するための設計のうち，フールプルーフに該当するものはどれか。
 
-    - !!models.entity.Question
-        id:         46
-        year:       2014
-        no:         46
-        sentence:   UMLのダイアグラムのうち，インスタンス間の関係を表現するものはどれか。
+#    - !!models.entity.Question
+#        id:         46
+#        year:       2014
+#        no:         46
+#        sentence:   UMLのダイアグラムのうち，インスタンス間の関係を表現するものはどれか。
 
-    - !!models.entity.Question
-        id:         47
-        year:       2014
-        no:         47
-        sentence:   オブジェクト指向におけるカプセル化を説明したものはどれか。
+#    - !!models.entity.Question
+#        id:         47
+#        year:       2014
+#        no:         47
+#        sentence:   オブジェクト指向におけるカプセル化を説明したものはどれか。
 
     - !!models.entity.Question
         id:         48

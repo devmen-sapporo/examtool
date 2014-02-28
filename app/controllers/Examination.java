@@ -19,26 +19,23 @@ public class Examination extends Controller {
 	public static Result startExam(String category, Integer year) {
 
     	List<Question> questions = Question.finder.where().eq("year", year).findList();
-    	Logger.info("sss" + questions.size());
 
     	QuestionSheet questionSheet = new QuestionSheet(questions);
-    	Logger.info("sss" + year);
-
     	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
 
         return ok(answercolumn.render(0, answerSheet, questionSheet.signs));
     }
 	
-	public static Result changeAnswerColumn(){
-		Map<String,String[]> form = request().body().asFormUrlEncoded();
-		String param = form.get("selectedOptionIndex")[0];
-		AnswerColumn answerColumn = null;
-		if (param != null) {
-			int selectedOptionIndex = Integer.parseInt(param);
-			answerColumn = new AnswerColumn(1L).unique().get();
-		}
-		
-        return ok(answercolumn.render(0, null, QuestionSheet.signs));
+	public static Result changeAnswerColumn(Integer index){
+
+		Logger.info("受けたインデックスは => " + index);
+
+		List<Question> questions = Question.finder.where().eq("year", 2014).findList();
+
+    	QuestionSheet questionSheet = new QuestionSheet(questions);
+    	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
+
+		return ok(answercolumn.render(index, answerSheet, QuestionSheet.signs));
 	}
 
 	private static AnswerSheet createAnswerSheets(QuestionSheet questionSheet) {

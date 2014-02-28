@@ -58,8 +58,8 @@ FR 種別
 <br>
 @helper.form(action = routes.Examination.showAnswerSheet){
 	<ul class="pager">
-	  <li class="previous"><a href="javascript:submit()">&larr; Prev</a></li>
-	  <li class="next"><a href="javascript:submit()">Next &rarr;</a></li>
+	  <li class="previous"><a href="@routes.Examination.changeAnswerColumn(index - 1)">&larr; Prev</a></li>
+	  <li class="next"><a href="@routes.Examination.changeAnswerColumn(index + 1)">Next &rarr;</a></li>
 	</ul>
 	<br>
 }
