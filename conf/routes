@@ -12,7 +12,7 @@ GET     /changeexam                     controllers.Examination.changeAnswerColu
 POST    /authenticate                   controllers.Application.authenticate()
 POST    /signIn                         controllers.Application.signIn()
 POST    /create                         controllers.Application.create()
-POST    /answersheet                    controllers.Examination.showAnswerSheet()
+GET     /answersheet                    controllers.Examination.showAnswerSheet()
 POST    /finishexam                     controllers.Examination.finishExam()
 GET     /result                         controllers.Application.result()
 GET     /callback                       org.pac4j.play.CallbackController.callback()

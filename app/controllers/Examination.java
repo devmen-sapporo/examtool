@@ -44,8 +44,12 @@ public class Examination extends Controller {
 		return new AnswerSheet(user, questionSheet);
 	}
 
-	public static Result showAnswerSheet() {	
-        return ok(answersheet.render(null));
+	public static Result showAnswerSheet() {
+    	List<Question> questions = Question.finder.where().eq("year", 2014).findList();
+
+    	QuestionSheet questionSheet = new QuestionSheet(questions);
+    	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
+        return ok(answersheet.render(0, answerSheet));
 	}
 
 	public static Result finishExam() {	

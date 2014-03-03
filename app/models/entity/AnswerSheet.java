@@ -38,6 +38,9 @@ public final class AnswerSheet extends Model {
 	private int score = 0;
 
 	private int currentIndex = 0;
+
+	public static Finder<Long, AnswerSheet> finder =
+			new Finder<Long, AnswerSheet>(Long.class, AnswerSheet.class);
 	/**
 	 * コンストラクタ
 	 * 
