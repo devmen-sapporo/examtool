@@ -25,7 +25,7 @@
             </tr>
           </thead>
           <tbody>
-            @for(i <- 0 to 9) {
+            @for(i <- 0 to answerSheet.answerColumns.size - 1) {
             <tr>
               <td><a href="@routes.Examination.changeAnswerColumn(i)">@{i+1}</a></td>
               <td><a href="@routes.Examination.changeAnswerColumn(i)">@answerSheet.answerColumns.get(i).question.sentence</a></td>
