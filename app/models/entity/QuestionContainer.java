@@ -118,7 +118,7 @@ public class QuestionContainer {
 	 */
 	public QuestionSheet getQuestionSheet(String examName) {
 		for (QuestionSheet questionSheet : this.questionSheets) {
-			if (questionSheet.getQuestions().get(0).getExamName().equals(examName)) {
+			if (questionSheet.questions.get(0).getExamName().equals(examName)) {
 				return questionSheet;
 			}
 		}

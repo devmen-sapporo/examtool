@@ -21,19 +21,21 @@ public class Examination extends Controller {
     	List<Question> questions = Question.finder.where().eq("year", year).findList();
 
     	QuestionSheet questionSheet = new QuestionSheet(questions);
+    	questionSheet.save();
+    	
     	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
+    	answerSheet.save();
+
+		Logger.info("AnswerSheet.Id => " + answerSheet.getQuestionCount());
 
         return ok(answercolumn.render(0, answerSheet, questionSheet.signs));
     }
 	
-	public static Result changeAnswerColumn(Integer index){
+	public static Result changeAnswerColumn(Integer index, Long answerSheetId){
 
 		Logger.info("受けたインデックスは => " + index);
 
-		List<Question> questions = Question.finder.where().eq("year", 2014).findList();
-
-    	QuestionSheet questionSheet = new QuestionSheet(questions);
-    	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
+		AnswerSheet answerSheet = new AnswerSheet(answerSheetId).unique().get();
 
 		return ok(answercolumn.render(index, answerSheet, QuestionSheet.signs));
 	}

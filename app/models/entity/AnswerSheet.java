@@ -4,7 +4,9 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import models.service.Examination.*;
 import play.db.ebean.*;
+import play.libs.F.Option;
 
 /**
  * 解答用紙クラスです。
@@ -19,16 +21,17 @@ public final class AnswerSheet extends Model {
 	public Long id;
 
 	/** 実施日 */
-	private final Calendar operationDate;
+	private Calendar operationDate = null;
 
 	/** ユーザ */
 	@OneToOne(cascade=CascadeType.ALL)
 	public User user;
 
 	/** 解答用紙 */
-	private QuestionSheet questionSheet;
+//	public QuestionSheet questionSheet;
 
 	/** 解答のリスト **/
+	@OneToMany(cascade=CascadeType.ALL)
 	public ArrayList<AnswerColumn> answerColumns = new ArrayList<>();
 
 	/** 終了済かどうかを示すリスト */
@@ -38,6 +41,11 @@ public final class AnswerSheet extends Model {
 	private int score = 0;
 
 	private int currentIndex = 0;
+
+	public AnswerSheet(long id) {
+		this.id = id;
+	}
+
 	/**
 	 * コンストラクタ
 	 * 
@@ -48,13 +56,13 @@ public final class AnswerSheet extends Model {
 	 */
 	public AnswerSheet(User user, QuestionSheet questionSheet) {
 		this.user = user;
-		this.questionSheet = questionSheet;
+//		this.questionSheet = questionSheet;
 		this.operationDate = Calendar.getInstance();
-		this.makeAnswerColumns();
+		this.makeAnswerColumns(questionSheet);
 	}
 
-	private void makeAnswerColumns() {
-		for(Question question: this.questionSheet.getQuestions()) {
+	private void makeAnswerColumns(QuestionSheet questionSheet) {
+		for(Question question: questionSheet.questions) {
 			AnswerColumn answerColumn = new AnswerColumn(question);
 			this.answerColumns.add(answerColumn);
 		}
@@ -88,16 +96,16 @@ public final class AnswerSheet extends Model {
 	 * @return 問題数
 	 */
 	public int getQuestionCount() {
-		return this.questionSheet.getQuestions().size();
+		return this.answerColumns.size();
 	}
 
-	/**
-	 * 問題シートを取得します。
-	 * @return questionSheet
-	 */
-	public QuestionSheet getQuestionSheet() {
-		return questionSheet;
-	}
+//	/**
+//	 * 問題シートを取得します。
+//	 * @return questionSheet
+//	 */
+//	public QuestionSheet getQuestionSheet() {
+//		return questionSheet;
+//	}
 
 	/**
 	 * 得点欄を取得します。
@@ -126,5 +134,13 @@ public final class AnswerSheet extends Model {
 
 	public AnswerColumn getCurrentAnswerColumn() {
 		return this.answerColumns.get(this.currentIndex);
+	}
+	
+	public static Finder<Long, AnswerSheet> find =
+			new Finder<Long, AnswerSheet>(Long.class, AnswerSheet.class);
+
+	public Option<AnswerSheet> unique()
+	{
+		return new AnswerSheetModelService().findById(id);
 	}
 }

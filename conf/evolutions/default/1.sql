@@ -51,6 +51,11 @@ create table question (
   constraint pk_question primary key (id))
 ;
 
+create table question_sheet (
+  id                        bigint,
+  create_date               timestamp)
+;
+
 create table season (
   id                        bigint not null,
   name                      varchar(255),
@@ -107,6 +112,8 @@ drop table if exists message;
 drop table if exists option_item;
 
 drop table if exists question;
+
+drop table if exists question_sheet;
 
 drop table if exists season;
 

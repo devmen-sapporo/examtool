@@ -4,36 +4,29 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import models.service.Examination.*;
+import play.db.ebean.*;
+import play.libs.F.Option;
+
 /**
  * 
  * @author Hiroyuki
  *
  */
-public class QuestionSheet {
+@Entity
+public class QuestionSheet extends Model{
+	
+	public long id;
 	
 	/**
 	 * 作成日
 	 */
-	private Calendar createDate;
+	public Calendar createDate;
 	
-	/**
-	 * @return createDate
-	 */
-	public Calendar getCreateDate() {
-		return createDate;
-	}
-
-	/**
-	 * @return questions
-	 */
-	public List<Question> getQuestions() {
-		return questions;
-	}
-
 	/**
 	 * 問題リスト
 	 */
-	private List<Question> questions;
+	public List<Question> questions;
 	
 	/**
 	 * 記号リスト
@@ -41,7 +34,10 @@ public class QuestionSheet {
 	@Transient
 	public static List<String> signs = Arrays.asList("ア","イ","ウ","エ");
 
-	
+	public QuestionSheet(long id) {
+		this.id = id;
+	}
+			
 	/**
 	 * @param createDate
 	 * @param list
@@ -63,5 +59,13 @@ public class QuestionSheet {
 
 	public void add(Question question) {
 		this.questions.add(question);		
+	}
+
+	public static Finder<Long, QuestionSheet> find =
+			new Finder<Long, QuestionSheet>(Long.class, QuestionSheet.class);
+
+	public Option<QuestionSheet> unique()
+	{
+		return new QuestionSheetModelService().findById(id);
 	}
 }
