@@ -29,7 +29,7 @@ public final class AnswerSheet extends Model {
 
 	/** 解答欄のリスト **/
 	@OneToMany(cascade=CascadeType.ALL)
-	public ArrayList<AnswerColumn> answerColumns = new ArrayList<>();
+	public List<AnswerColumn> answerColumns = new ArrayList<>();
 
 	/** 終了済かどうかを示すリスト */
 	private boolean isFinished = false;
@@ -108,7 +108,7 @@ public final class AnswerSheet extends Model {
 	 * 得点欄を取得します。
 	 * @return answerColumns
 	 */
-	public ArrayList<AnswerColumn> getAnswerColumns() {
+	public List<AnswerColumn> getAnswerColumns() {
 		return answerColumns;
 	}
 

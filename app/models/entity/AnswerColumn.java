@@ -34,6 +34,9 @@ public class AnswerColumn extends Model{
 	@ManyToOne
 	public Question question;
 
+	@ManyToOne
+	public AnswerSheet answerSheet;
+	
 	/** 選んだ選択肢 */
 	@ManyToOne
 	public OptionItem selectedOptionItem;

@@ -23,8 +23,8 @@ public class Examination extends Controller {
     	QuestionSheet questionSheet = new QuestionSheet(questions);
 
     	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
-    	answerSheet.save();
-		Logger.info("AnswerSheet.Id => " + answerSheet.id);
+
+    	Logger.info("AnswerSheet.Id => " + answerSheet.id);
 		Logger.info("AnswerSheet.Count => " + answerSheet.getQuestionCount());
 		Logger.info("AnswerSheet.Question => " + answerSheet.answerColumns.get(1).question);
     	answerSheet.save();
