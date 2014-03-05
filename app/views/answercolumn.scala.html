@@ -45,7 +45,7 @@ FR 種別
 		    @if(answerSheet.answerColumns.get(index) == null){
 		        <p>null ダネ</p>
 		    }
-		    <label class="radiolabel" onclick=""><input type="radio" name="optionItemId" value="@option.id" class="radio" checked=""/>
+		    <label class="radiolabel" onclick=""><input type="radio" name="optionItemId" value="@option.id" class="radio" />
 		    <B>@signs(answerSheet.answerColumns.get(index).question.optionItems.indexOf(option))</B><br>
 		    <div style="margin-left:20px;margin-right:10px;">
 		    @option.sentence

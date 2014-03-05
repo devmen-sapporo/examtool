@@ -5,8 +5,8 @@
 
 create table answer_column (
   id                        bigint not null,
-  answer_sheet_id           bigint not null,
   question_id               bigint,
+  answer_sheet_id           bigint,
   selected_option_item_id   bigint,
   constraint pk_answer_column primary key (id))
 ;
@@ -89,10 +89,10 @@ create sequence season_seq;
 
 create sequence user_seq;
 
-alter table answer_column add constraint fk_answer_column_answer_sheet_1 foreign key (answer_sheet_id) references answer_sheet (id) on delete restrict on update restrict;
-create index ix_answer_column_answer_sheet_1 on answer_column (answer_sheet_id);
-alter table answer_column add constraint fk_answer_column_question_2 foreign key (question_id) references question (id) on delete restrict on update restrict;
-create index ix_answer_column_question_2 on answer_column (question_id);
+alter table answer_column add constraint fk_answer_column_question_1 foreign key (question_id) references question (id) on delete restrict on update restrict;
+create index ix_answer_column_question_1 on answer_column (question_id);
+alter table answer_column add constraint fk_answer_column_answerSheet_2 foreign key (answer_sheet_id) references answer_sheet (id) on delete restrict on update restrict;
+create index ix_answer_column_answerSheet_2 on answer_column (answer_sheet_id);
 alter table answer_column add constraint fk_answer_column_selectedOptio_3 foreign key (selected_option_item_id) references option_item (id) on delete restrict on update restrict;
 create index ix_answer_column_selectedOptio_3 on answer_column (selected_option_item_id);
 alter table answer_sheet add constraint fk_answer_sheet_user_4 foreign key (user_id) references user (id) on delete restrict on update restrict;
