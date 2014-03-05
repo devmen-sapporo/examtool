@@ -21,12 +21,16 @@ public class Examination extends Controller {
     	List<Question> questions = Question.finder.where().eq("year", year).findList();
 
     	QuestionSheet questionSheet = new QuestionSheet(questions);
-    	questionSheet.save();
-    	
+
     	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
     	answerSheet.save();
+		Logger.info("AnswerSheet.Id => " + answerSheet.id);
+		Logger.info("AnswerSheet.Count => " + answerSheet.getQuestionCount());
+		Logger.info("AnswerSheet.Question => " + answerSheet.answerColumns.get(1).question);
+    	answerSheet.save();
 
-		Logger.info("AnswerSheet.Id => " + answerSheet.getQuestionCount());
+		AnswerSheet selectedAnswerSheet = new AnswerSheet(answerSheet.id).unique().get();
+		Logger.info("selectedAnswerSheet.Id => " + selectedAnswerSheet.id);
 
         return ok(answercolumn.render(0, answerSheet, questionSheet.signs));
     }
@@ -34,8 +38,12 @@ public class Examination extends Controller {
 	public static Result changeAnswerColumn(Integer index, Long answerSheetId){
 
 		Logger.info("受けたインデックスは => " + index);
+		Logger.info("受けた ID は => " + answerSheetId);
 
 		AnswerSheet answerSheet = new AnswerSheet(answerSheetId).unique().get();
+		Logger.info("AnswerSheet.Id => " + answerSheet.id);
+		Logger.info("AnswerSheet.Count => " + answerSheet.answerColumns);
+		Logger.info("AnswerSheet.Question => " + answerSheet.answerColumns.get(1).question);
 
 		return ok(answercolumn.render(index, answerSheet, QuestionSheet.signs));
 	}

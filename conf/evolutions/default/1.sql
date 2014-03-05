@@ -5,6 +5,8 @@
 
 create table answer_column (
   id                        bigint not null,
+  question_id               bigint,
+  selected_option_item_id   bigint,
   constraint pk_answer_column primary key (id))
 ;
 
@@ -86,14 +88,18 @@ create sequence season_seq;
 
 create sequence user_seq;
 
-alter table answer_sheet add constraint fk_answer_sheet_user_1 foreign key (user_id) references user (id) on delete restrict on update restrict;
-create index ix_answer_sheet_user_1 on answer_sheet (user_id);
-alter table option_item add constraint fk_option_item_question_2 foreign key (question_id) references question (id) on delete restrict on update restrict;
-create index ix_option_item_question_2 on option_item (question_id);
-alter table question add constraint fk_question_category_3 foreign key (category_id) references category (id) on delete restrict on update restrict;
-create index ix_question_category_3 on question (category_id);
-alter table question add constraint fk_question_season_4 foreign key (season_id) references season (id) on delete restrict on update restrict;
-create index ix_question_season_4 on question (season_id);
+alter table answer_column add constraint fk_answer_column_question_1 foreign key (question_id) references question (id) on delete restrict on update restrict;
+create index ix_answer_column_question_1 on answer_column (question_id);
+alter table answer_column add constraint fk_answer_column_selectedOptio_2 foreign key (selected_option_item_id) references option_item (id) on delete restrict on update restrict;
+create index ix_answer_column_selectedOptio_2 on answer_column (selected_option_item_id);
+alter table answer_sheet add constraint fk_answer_sheet_user_3 foreign key (user_id) references user (id) on delete restrict on update restrict;
+create index ix_answer_sheet_user_3 on answer_sheet (user_id);
+alter table option_item add constraint fk_option_item_question_4 foreign key (question_id) references question (id) on delete restrict on update restrict;
+create index ix_option_item_question_4 on option_item (question_id);
+alter table question add constraint fk_question_category_5 foreign key (category_id) references category (id) on delete restrict on update restrict;
+create index ix_question_category_5 on question (category_id);
+alter table question add constraint fk_question_season_6 foreign key (season_id) references season (id) on delete restrict on update restrict;
+create index ix_question_season_6 on question (season_id);
 
 
 

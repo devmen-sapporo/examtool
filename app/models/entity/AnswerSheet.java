@@ -24,13 +24,10 @@ public final class AnswerSheet extends Model {
 	private Calendar operationDate = null;
 
 	/** ユーザ */
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
 	public User user;
 
-	/** 解答用紙 */
-//	public QuestionSheet questionSheet;
-
-	/** 解答のリスト **/
+	/** 解答欄のリスト **/
 	@OneToMany(cascade=CascadeType.ALL)
 	public ArrayList<AnswerColumn> answerColumns = new ArrayList<>();
 
@@ -39,7 +36,8 @@ public final class AnswerSheet extends Model {
 
 	/** 点数 */
 	private int score = 0;
-
+	
+	
 	private int currentIndex = 0;
 
 	public AnswerSheet(long id) {
@@ -56,7 +54,6 @@ public final class AnswerSheet extends Model {
 	 */
 	public AnswerSheet(User user, QuestionSheet questionSheet) {
 		this.user = user;
-//		this.questionSheet = questionSheet;
 		this.operationDate = Calendar.getInstance();
 		this.makeAnswerColumns(questionSheet);
 	}

@@ -31,9 +31,11 @@ public class AnswerColumn extends Model{
 	public long id;
 
 	/** 問題 */
+	@ManyToOne
 	public Question question;
 
 	/** 選んだ選択肢 */
+	@ManyToOne
 	public OptionItem selectedOptionItem;
 
 	/**
