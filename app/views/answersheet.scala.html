@@ -4,7 +4,7 @@
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  @helper.form(action = routes.Examination.finishExam){
+  @helper.form(action = routes.Examination.finishExam(answerSheet.id)){
 	  <div class="panel-heading">
                 平成24年 応用情報処理試験 秋期   
         <input type="submit" value="試験終了">

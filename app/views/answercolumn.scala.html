@@ -20,12 +20,10 @@ FR 種別
     	<h6>@(index+1) / @answerSheet.getQuestionCount()問</h6>
 	</div>	
 	<div class="col-sm-4 col-lg-4">
-		<div class="btn-group">
-		@helper.form(action = routes.Examination.showAnswerSheet){
-		    <input type="submit" value="問題一覧">
-		    <input type="submit" value="試験終了">
-		}
-		</div>
+	    <ul class="pager">
+    	    <li><a href="@routes.Examination.showAnswerSheet(answerSheet.id)">問題一覧</a></li>
+    	    <li><a href="@routes.Examination.finishExam(answerSheet.id)">試験終了</a></li>
+    	</ul>
 	</div>
 </div>
 
@@ -56,20 +54,18 @@ FR 種別
 </div>
 
 <br>
-@helper.form(action = routes.Examination.showAnswerSheet){
-	<ul class="pager">
-    <li class="previous">
-        <a href="@routes.Examination.changeAnswerColumn(index - 1, answerSheet.id)">&larr; Prev</a>
-    </li>
+<ul class="pager">
+	<li class="previous">
+		<a href="@routes.Examination.changeAnswerColumn(index - 1, answerSheet.id)">&larr; Prev</a>
+	</li>
 	
 	@if(index < answerSheet.getQuestionCount()-1) {
-	   <li class="next">
-	       <a href="@routes.Examination.changeAnswerColumn(index + 1, answerSheet.id)">Next &rarr;</a>
-	   </li>
+		<li class="next">
+			<a href="@routes.Examination.changeAnswerColumn(index + 1, answerSheet.id)">Next &rarr;</a>
+		</li>
 	}
 	</ul>
-	<br>
-}
+<br>
 
 <button type="button" class="btn btn-default">
     <span class="glyphicon glyphicon-star"></span>

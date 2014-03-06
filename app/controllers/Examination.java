@@ -54,15 +54,15 @@ public class Examination extends Controller {
 		return new AnswerSheet(user, questionSheet);
 	}
 
-	public static Result showAnswerSheet() {
-    	List<Question> questions = Question.finder.where().eq("year", 2014).findList();
+	public static Result showAnswerSheet(Long answerSheetId) {
 
-    	QuestionSheet questionSheet = new QuestionSheet(questions);
-    	AnswerSheet answerSheet = createAnswerSheets(questionSheet);
+		AnswerSheet answerSheet = new AnswerSheet(answerSheetId).unique().get();
         return ok(answersheet.render(0, answerSheet));
 	}
 
-	public static Result finishExam() {	
-        return ok(examresult.render(1));
+	public static Result finishExam(Long answerSheetId) {
+
+		AnswerSheet answerSheet = new AnswerSheet(answerSheetId).unique().get();
+        return ok(examresult.render(0, answerSheet));
 	}
 }
