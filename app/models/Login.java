@@ -44,9 +44,7 @@ public class Login {
 		}
 		return finder.where()
 				.eq("mail", mail)
-				.eq("password", password)
-				// TODO : パスワードをハッシュコードで登録する必要がある
-				//.eq("password", hashedPassword)
+				.eq("password", hashedPassword)
 				.findUnique();
 	}
 	
