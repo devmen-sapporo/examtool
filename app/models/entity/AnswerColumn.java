@@ -52,13 +52,21 @@ public class AnswerColumn extends Model{
 	}
 
 	/**
+	 * 解答済かどうかを返します。
+	 * 
+	 * @return 解答済の場合 true を返します。
+	 */
+	public boolean isAnswered() {
+		return (this.selectedOptionItem == null);
+	}
+	
+	/**
 	 * 正解かどうかを返します。
 	 * 
 	 * @return 正解の場合 true を返します。
 	 */
-	public boolean isAnswer() {
-		if (this.selectedOptionItem == null)
-			return false;
+	public boolean isCorrect() {
+		if (!this.isAnswered()) return false;
 		return this.selectedOptionItem.isAnswer;
 	}
 	
