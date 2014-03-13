@@ -95,6 +95,21 @@ public final class AnswerSheet extends Model {
 	public int getQuestionCount() {
 		return this.answerColumns.size();
 	}
+	
+	/**
+	 * 解答済みの問題数を取得します。
+	 * 
+	 * @return 解答済みの問題数
+	 */
+	public int getAnsweredCount() {
+		int count = 0;
+		for(AnswerColumn answerColumn : this.answerColumns)
+		{
+			if (answerColumn.isAnswered()) count++;
+		}
+		
+		return count;
+	}
 
 //	/**
 //	 * 問題シートを取得します。
