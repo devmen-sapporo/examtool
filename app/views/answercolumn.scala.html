@@ -1,5 +1,7 @@
 @(index: Integer, answerSheet: models.entity.AnswerSheet, signs: List[String]) 
 
+@import helper._
+
 @**
 回答シート とインデックス
 FR 種別
@@ -13,12 +15,28 @@ FR 種別
     label.radiolabel {display:block; width:100%; background:#FEFEFE; border:1px solid #F3F3F3; font-weight: normal}
     -->
     </style>
-</head>
 
+	<script type="text/javascript">
+	<!--
+	$(document).ready(function(){
+	    $( "#nextColumn" ).click( function() {  
+	    	$('#form1').submit();
+	    });  
+        $( "#prevColumn" ).click( function() {  
+            $('#form1').submit();
+        });  
+	});
+--></script>
+
+<!-- 
+            $("#nextIndex").val("@(index+1)");
+            $("#nextIndex").val("@(index+1)");
+ -->
+ 
 <div class="row"> 
 	<div class="col-sm-8 col-lg-8">
     	<h6>@(index+1) / @answerSheet.getQuestionCount()問</h6>
-	</div>	
+	</div>
 	<div class="col-sm-4 col-lg-4">
 	    <ul class="pager">
     	    <li><a href="@routes.Examination.showAnswerSheet(answerSheet.id)">問題一覧</a></li>
@@ -36,42 +54,48 @@ FR 種別
 		@answerSheet.answerColumns.get(index).question.sentence
 		</h4>
 	</div>
-
-	<!-- Table -->
-	<div class="panel-body">
-		@for(option <- answerSheet.answerColumns.get(index).question.optionItems) {
-		    @if(answerSheet.answerColumns.get(index) == null){
-		        <p>null ダネ</p>
-		    }
-		    <label class="radiolabel" onclick=""><input type="radio" name="optionItemId" value="@option.id" class="radio" />
-		    <B>@signs(answerSheet.answerColumns.get(index).question.optionItems.indexOf(option))</B><br>
-		    <div style="margin-left:20px;margin-right:10px;">
-		    @option.sentence
-		    </div>
-		    </label>
-		}
-	</div>
-</div>
-
-<br>
-<ul class="pager">
-	<li class="previous">
-		<a href="@routes.Examination.changeAnswerColumn(index - 1, answerSheet.id)">&larr; Prev</a>
-	</li>
 	
-	@if(index < answerSheet.getQuestionCount()-1) {
-		<li class="next">
-			<a href="@routes.Examination.changeAnswerColumn(index + 1, answerSheet.id)">Next &rarr;</a>
-		</li>
-	}
+	<!-- Form ---------->
+	
+    @helper.form(action = CSRF(routes.Examination.answerAndChange()), 'id -> "form1"){
+	    <input type="hidden" name="answerSheetId" value="@answerSheet.id">
+	    <input type="hidden" name="currentIndex" value="@index">
+	    <input type="hidden" name="nextIndex" value="@(index+1)">
+	    
+		<!-- Table -->
+		<div class="panel-body">
+			@for(option <- answerSheet.answerColumns.get(index).question.optionItems) {
+			    @if(answerSheet.answerColumns.get(index) == null){
+			        <p>null ダネ</p>
+			    }
+			    
+			    <label class="radiolabel" onclick=""><input type="radio" name="optionItemId" value="@option.id" class="radio">
+				    <B>@signs(answerSheet.answerColumns.get(index).question.optionItems.indexOf(option))</B>
+				    <br>
+				    <div style="margin-left:20px;margin-right:10px;">
+				      @option.sentence
+				    </div>
+				    </input>
+			    </label>
+			}
+		</div>
+		
+    }
+	<!---------- Form -->
+</div>
+<br>
+    <ul class="pager">
+        @if(index > 0) {
+			<li class="previous">
+				<a id="prevColumn">&larr; Prev</a>
+			</li>
+		}
+		
+		@if(index < answerSheet.getQuestionCount()-1) {
+			<li class="next">
+				<a id="nextColumn">Next &rarr;</a>
+			</li>
+		}
 	</ul>
 <br>
-
-<button type="button" class="btn btn-default">
-    <span class="glyphicon glyphicon-star"></span>
-</button>
-<button type="button" class="btn btn-default">
-    <span class="glyphicon glyphicon-question-sign" ></span>
-</button>
-
 }

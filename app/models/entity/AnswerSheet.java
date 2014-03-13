@@ -83,7 +83,7 @@ public final class AnswerSheet extends Model {
 		this.score = 0;
 		for(AnswerColumn answerColumn : this.answerColumns)
 		{
-			if (answerColumn.isAnswer()) this.score++;
+			if (answerColumn.isCorrect()) this.score++;
 		}
 	}
 

@@ -35,19 +35,47 @@ public class Examination extends Controller {
         return ok(answercolumn.render(0, answerSheet, questionSheet.signs));
     }
 	
+	/**
+	 * [*] -> 解答欄画面
+	 * @param index
+	 * @param answerSheetId
+	 * @return
+	 */
 	public static Result changeAnswerColumn(Integer index, Long answerSheetId){
-
-		Logger.info("受けたインデックスは => " + index);
-		Logger.info("受けた ID は => " + answerSheetId);
-
+		
 		AnswerSheet answerSheet = new AnswerSheet(answerSheetId).unique().get();
 		Logger.info("AnswerSheet.Id => " + answerSheet.id);
 		Logger.info("AnswerSheet.Count => " + answerSheet.answerColumns);
 		Logger.info("AnswerSheet.Question => " + answerSheet.answerColumns.get(1).question);
-
+		
 		return ok(answercolumn.render(index, answerSheet, QuestionSheet.signs));
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	public static Result answerAndChange() {
+
+		Map<String, String[]> form = request().body().asFormUrlEncoded();
+		
+		Logger.info("受けたインデックスは => " + form.get("currentIndex")[0]);
+		Logger.info("次のインデックスは => " + form.get("nextIndex")[0]);
+		Logger.info("受けた optionItemId は => " + form.get("optionItemId")[0]);
+		
+		int currentIndex = Integer.parseInt(form.get("currentIndex")[0]);
+		int nextIndex = Integer.parseInt(form.get("nextIndex")[0]);
+		long selectedOptionItemId = Long.parseLong(form.get("optionItemId")[0]);
+		long id = Long.parseLong(form.get("answerSheetId")[0]);
+		
+		// 解答を記録する
+		AnswerSheet answerSheet = new AnswerSheet(id).unique().get();
+		answerSheet.answerColumns.get(currentIndex).selectedOptionItem = new OptionItem(selectedOptionItemId).unique().get();
+		answerSheet.update();
+
+		return ok(answercolumn.render(nextIndex, answerSheet, QuestionSheet.signs));
+	}
+	
 	private static AnswerSheet createAnswerSheets(QuestionSheet questionSheet) {
     	String mail = ctx().session().get("mail");
 		User user = User.find.where().eq("mail", mail).findList().get(0);
