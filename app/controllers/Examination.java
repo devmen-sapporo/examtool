@@ -61,17 +61,21 @@ public class Examination extends Controller {
 		
 		Logger.info("受けたインデックスは => " + form.get("currentIndex")[0]);
 		Logger.info("次のインデックスは => " + form.get("nextIndex")[0]);
-		Logger.info("受けた optionItemId は => " + form.get("optionItemId")[0]);
 		
 		int currentIndex = Integer.parseInt(form.get("currentIndex")[0]);
 		int nextIndex = Integer.parseInt(form.get("nextIndex")[0]);
-		long selectedOptionItemId = Long.parseLong(form.get("optionItemId")[0]);
+
 		long id = Long.parseLong(form.get("answerSheetId")[0]);
-		
-		// 解答を記録する
 		AnswerSheet answerSheet = new AnswerSheet(id).unique().get();
-		answerSheet.answerColumns.get(currentIndex).selectedOptionItem = new OptionItem(selectedOptionItemId).unique().get();
-		answerSheet.update();
+		
+		if ( form.get("optionItemId") != null ) {
+			Logger.info("受けた optionItemId は => " + form.get("optionItemId")[0]);
+			
+			long selectedOptionItemId = Long.parseLong(form.get("optionItemId")[0]);
+			// 解答を記録する
+			answerSheet.answerColumns.get(currentIndex).selectedOptionItem = new OptionItem(selectedOptionItemId).unique().get();
+			answerSheet.update();
+		}
 
 		return ok(answercolumn.render(nextIndex, answerSheet, QuestionSheet.signs));
 	}
