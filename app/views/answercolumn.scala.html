@@ -20,9 +20,11 @@ FR 種別
 	<!--
 	$(document).ready(function(){
 	    $( "#nextColumn" ).click( function() {  
+            $("#nextIndex").val("@(index+1)");
 	    	$('#form1').submit();
 	    });  
         $( "#prevColumn" ).click( function() {  
+            $("#nextIndex").val("@(index-1)");
             $('#form1').submit();
         });  
 	});
@@ -60,7 +62,7 @@ FR 種別
     @helper.form(action = CSRF(routes.Examination.answerAndChange()), 'id -> "form1"){
 	    <input type="hidden" name="answerSheetId" value="@answerSheet.id">
 	    <input type="hidden" name="currentIndex" value="@index">
-	    <input type="hidden" name="nextIndex" value="@(index+1)">
+	    <input type="hidden" name="nextIndex" id="nextIndex" value="">
 	    
 		<!-- Table -->
 		<div class="panel-body">
@@ -68,8 +70,12 @@ FR 種別
 			    @if(answerSheet.answerColumns.get(index) == null){
 			        <p>null ダネ</p>
 			    }
-			    
-			    <label class="radiolabel" onclick=""><input type="radio" name="optionItemId" value="@option.id" class="radio">
+			    <label class="radiolabel" onclick="">
+			        @if(answerSheet.answerColumns.get(index).isAnswered() && (answerSheet.answerColumns.get(index).selectedOptionItem == option)){
+			            <input type="radio" name="optionItemId" value="@option.id" class="radio" checked="checked">
+			        } else {
+                        <input type="radio" name="optionItemId" value="@option.id" class="radio">
+			        }
 				    <B>@signs(answerSheet.answerColumns.get(index).question.optionItems.indexOf(option))</B>
 				    <br>
 				    <div style="margin-left:20px;margin-right:10px;">
@@ -79,7 +85,6 @@ FR 種別
 			    </label>
 			}
 		</div>
-		
     }
 	<!---------- Form -->
 </div>

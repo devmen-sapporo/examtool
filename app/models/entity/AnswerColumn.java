@@ -57,7 +57,7 @@ public class AnswerColumn extends Model{
 	 * @return 解答済の場合 true を返します。
 	 */
 	public boolean isAnswered() {
-		return (this.selectedOptionItem == null);
+		return (this.selectedOptionItem != null);
 	}
 	
 	/**
