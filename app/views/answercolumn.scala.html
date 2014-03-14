@@ -30,24 +30,19 @@ FR 種別
 	});
 --></script>
 
-<!-- 
-            $("#nextIndex").val("@(index+1)");
-            $("#nextIndex").val("@(index+1)");
- -->
  
-<div class="row"> 
-	<div class="col-sm-8 col-lg-8">
-    	<h6>@(index+1) / @answerSheet.getQuestionCount()問</h6>
-	</div>
-	<div class="col-sm-4 col-lg-4">
-	    <ul class="pager">
-    	    <li><a href="@routes.Examination.showAnswerSheet(answerSheet.id)">問題一覧</a></li>
-    	    <li><a href="@routes.Examination.finishExam(answerSheet.id)">試験終了</a></li>
-    	</ul>
-	</div>
-</div>
 
 <br>
+	解答済問題
+<div class="progress progress-striped">
+  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@answerSheet.getAnsweredCount()" aria-valuemin="0" aria-valuemax="@answerSheet.getQuestionCount()" style="width: @(answerSheet.getAnsweredCount()*100 / answerSheet.getQuestionCount())%;">
+    @answerSheet.getAnsweredCount() / @answerSheet.getQuestionCount()
+  </div>
+</div>
+        <ul class="pager">
+            <li><a href="@routes.Examination.showAnswerSheet(answerSheet.id)">問題一覧</a></li>
+            <li><a href="@routes.Examination.finishExam(answerSheet.id)">試験終了</a></li>
+        </ul>
 
 <div class="panel panel-primary">
     <!-- Default panel contents -->
