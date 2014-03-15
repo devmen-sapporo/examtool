@@ -20,8 +20,8 @@ public final class AnswerSheet extends Model {
 	@Id
 	public Long id;
 
-	/** 実施日 */
-	private Calendar operationDate = null;
+	/** 実施日時 */
+	public Calendar operationDate = null;
 
 	/** ユーザ */
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -54,8 +54,8 @@ public final class AnswerSheet extends Model {
 	 */
 	public AnswerSheet(User user, QuestionSheet questionSheet) {
 		this.user = user;
-		this.operationDate = Calendar.getInstance();
 		this.makeAnswerColumns(questionSheet);
+		this.operationDate = Calendar.getInstance();
 	}
 
 	private void makeAnswerColumns(QuestionSheet questionSheet) {
@@ -63,15 +63,6 @@ public final class AnswerSheet extends Model {
 			AnswerColumn answerColumn = new AnswerColumn(question);
 			this.answerColumns.add(answerColumn);
 		}
-	}
-
-	/**
-	 * 実施日を取得します。
-	 * 
-	 * @return 実施日
-	 */
-	public Calendar getOperationDate() {
-		return operationDate;
 	}
 
 	/**

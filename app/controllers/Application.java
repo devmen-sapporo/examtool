@@ -26,42 +26,46 @@ public class Application extends JavaController {
 		@Email
 		@Required(message = "メールアドレスを入力してください。")
 		public String mail;
-		
+
 		@Required(message = "パスワードを入力してください。")
 		public String password;
 	}
-	
-	public static class SampleData{
+
+	public static class SampleData {
 		public String message;
 		public String name;
 	}
-	
+
 	/**
 	 * -> ログイン画面 -> メニュー画面
+	 * 
 	 * @return
 	 */
 	@play.mvc.Security.Authenticated(models.Secured.class)
-    public static Result index() {
-    	List<ExamCategory> categorys = getCategoryList();
-    	return ok(menu.render("", categorys));
-    }
-    
-    public static Result signIn() {
-    	Form<SignInData> formSignInData = form(SignInData.class).bindFromRequest();
-    	if (formSignInData.hasErrors()) {
-    		return badRequest(index.render("サインインに失敗しました。", form(SampleData.class)));
-    	}
-    	
-    	SignInData data = formSignInData.get();
-    	String mail = data.mail;
-    	String password = data.password;
-    	if (User.authenticate(mail, password) == null) {
-    		return badRequest(index.render("メールアドレス、またはパスワードに誤りがあります。", form(SampleData.class)));
-    	}
-    	
-    	List<ExamCategory> categorys = getCategoryList();
-    	return ok(menu.render(mail, categorys));
-    }
+	public static Result index() {
+		List<ExamCategory> categorys = getCategoryList();
+		return ok(menu.render("", categorys));
+	}
+
+	public static Result signIn() {
+		Form<SignInData> formSignInData = form(SignInData.class)
+				.bindFromRequest();
+		if (formSignInData.hasErrors()) {
+			return badRequest(index.render("サインインに失敗しました。",
+					form(SampleData.class)));
+		}
+
+		SignInData data = formSignInData.get();
+		String mail = data.mail;
+		String password = data.password;
+		if (User.authenticate(mail, password) == null) {
+			return badRequest(index.render("メールアドレス、またはパスワードに誤りがあります。",
+					form(SampleData.class)));
+		}
+
+		List<ExamCategory> categorys = getCategoryList();
+		return ok(menu.render(mail, categorys));
+	}
 
 	/**
 	 * @return
@@ -69,88 +73,63 @@ public class Application extends JavaController {
 	private static List<ExamCategory> getCategoryList() {
 		List<ExamCategory> examCategorys = new ArrayList<>();
 
+		String sql = " SELECT category_id, year, season_id FROM question GROUP BY category_id, year, season_id";
+		List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).findList();
 
-        String sql = " SELECT category_id, year, season_id FROM question GROUP BY category_id, year, season_id"; 
-        List<SqlRow> sqlRows = Ebean.createSqlQuery(sql).findList();
-        
-        for (SqlRow row : sqlRows){
-    		Logger.info("getCategoryList started");
-    		
-    		long category_id = row.getLong("category_id");
-    		long season_id = row.getLong("season_id");
+		for (SqlRow row : sqlRows) {
+			Logger.info("getCategoryList started");
 
-    		Season season = new Season(season_id).unique().get();
-        	Category category= new Category(category_id).unique().get();
+			long category_id = row.getLong("category_id");
+			long season_id = row.getLong("season_id");
 
-        	Logger.info("[category]"+ category.name);
-    		Logger.info("[season_id]"+ season.name);
-        	
-        	examCategorys.add(new ExamCategory(category, row.getInteger("year"), season));
-        }
+			Season season = new Season(season_id).unique().get();
+			Category category = new Category(category_id).unique().get();
+
+			Logger.info("[category]" + category.name);
+			Logger.info("[season_id]" + season.name);
+
+			examCategorys.add(new ExamCategory(category,
+					row.getInteger("year"), season));
+		}
 		return examCategorys;
 	}
 
-    public static Result add() {
-    	Form<Message> formMessage = new Form<>(Message.class);
-    	return ok(add.render("add", formMessage));    
-    }
-
-    public static Result create() {
-    	Form<Message> formMessage = new Form<>(Message.class).bindFromRequest();
-    	if (formMessage.hasErrors()) {
-    		return badRequest(add.render("Error", formMessage));
-    	}
-    	
-    	Message message = formMessage.get();
-    	message.save();
-    	
-    	return redirect("/");
-    }
-
-    /*
-    public static Result setitem() {
-    	Form<Message> formMessage = new Form<>(Message.class);
-    	return ok(item.render("item NO を入力。", formMessage));
-    }
-
-    public static Result edit() {
-    	Form<Message> formMessage = new Form<>(Message.class);
-        return ok(index.render("Jumping boy.", new Form(SampleData.class)));
-    }
-    */
-    
-    @AddCSRFToken
-    public static Result login() {
+	@AddCSRFToken
+	public static Result login() {
 		String url = getRedirectionUrl("FacebookClient", "/result");
-    	return ok(login.render("", url, "", form(Login.class)));
-    }
-    
-    @RequireCSRFCheck
-    public static Result authenticate() {
-    	Form<Login> loginForm = form(Login.class).bindFromRequest();
-    	if (loginForm.hasErrors()) {
-    		String url = getRedirectionUrl("FacebookClient", "/result");
-    		return badRequest(login.render("サインインに失敗しました。", url, "", loginForm));
-    	} else {
-    		session("mail", loginForm.get().getMail());
-    		String returnUrl = ctx().session().get("returnUrl");
-    		if (returnUrl == null || returnUrl.equals("") || returnUrl.equals(routes.Application.login().absoluteURL(request()))) {
-    			returnUrl = routes.Application.index().url();
-    		}
-    		
-    		return redirect(returnUrl);
-    	}
-    }
- 
-    @play.mvc.Security.Authenticated(models.Secured.class)
-    public static Result logout() {
-    	session().clear();
-    	return redirect(routes.Application.login());
-    }
-    
-    public static Result result() {
+		return ok(login.render("", url, "", form(Login.class)));
+	}
+
+	@RequireCSRFCheck
+	public static Result authenticate() {
+		Form<Login> loginForm = form(Login.class).bindFromRequest();
+		if (loginForm.hasErrors()) {
+			String url = getRedirectionUrl("FacebookClient", "/result");
+			return badRequest(login.render("サインインに失敗しました。", url, "", loginForm));
+		} else {
+			session("mail", loginForm.get().getMail());
+			String returnUrl = ctx().session().get("returnUrl");
+			if (returnUrl == null
+					|| returnUrl.equals("")
+					|| returnUrl.equals(routes.Application.login().absoluteURL(
+							request()))) {
+				returnUrl = routes.Application.index().url();
+			}
+
+			return redirect(returnUrl);
+		}
+	}
+
+	@play.mvc.Security.Authenticated(models.Secured.class)
+	public static Result logout() {
+		session().clear();
+		return redirect(routes.Application.login());
+	}
+
+	public static Result result() {
 		CommonProfile profile = getUserProfile();
-		String urlPiciture = "https://graph.facebook.com/" + profile.getUsername() + "/picture";
-    	return ok(login.render("", "", urlPiciture, form(Login.class)));
-    }
+		String urlPiciture = "https://graph.facebook.com/"
+				+ profile.getUsername() + "/picture";
+		return ok(login.render("", "", urlPiciture, form(Login.class)));
+	}
 }
