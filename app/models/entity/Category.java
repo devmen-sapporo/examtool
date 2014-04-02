@@ -14,7 +14,7 @@ import play.libs.F.Option;
 public class Category extends Model{
 	
 	public Category(long id) {
-			this.id = id;
+		this.id = id;
 	}
 
 	@Id

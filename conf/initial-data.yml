@@ -26,7 +26,7 @@ users:
         mail:       kudo@sample.com
         password:   4cf5a5be41f417cb2087f1f17e44734ae9b1677dc6b0ed3b80de422cc8e5607980ed08334540c15966485db039927bade22d3dedd5fd3b3f7d9743c20310882c
 
-#Question
+#Question -------------------------------------------------------
 
 questions:
     - !!models.entity.Question
@@ -257,7 +257,7 @@ questions:
         no:         80
         sentence:   派遣元会社A社と派遣先会社B社が派遣契約を結び，A社は社員であるN氏を派遣した。労働者派遣法に照らして適切な行為はどれか。
 
-# OptionItem
+# OptionItem -------------------------------------------------------
 
 optionItems:
     - !!models.entity.OptionItem

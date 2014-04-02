@@ -48,6 +48,11 @@ public class Question extends Model{
 	public String sentence;
 
 	/**
+	 * 問題の画像があるかどうかを示す値
+	 */
+	public boolean hasImage;
+
+	/**
 	 * 選択肢
 	 */
 	@OneToMany
@@ -99,6 +104,14 @@ public class Question extends Model{
 		this.no = no;
 		this.sentence = sentence;
 		this.optionItems = optionItems;
+		this.hasImage = false;
+	}
+
+	public Question(Category category, int year, Season season, int no,
+			String sentence, List<OptionItem> optionItems, boolean hasImage) {
+
+		this(category, year, season, no, sentence, optionItems);
+		this.hasImage = hasImage;
 	}
 	
 	/**

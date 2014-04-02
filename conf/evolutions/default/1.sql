@@ -51,6 +51,7 @@ create table question (
   season_id                 bigint,
   no                        integer,
   sentence                  varchar(255),
+  has_image                 boolean,
   constraint pk_question primary key (id))
 ;
 
