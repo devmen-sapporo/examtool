@@ -19,12 +19,14 @@
 		@(helper.inputText(
 			field = form("mail"), 
 			'_label -> "メールアドレス",
-			'placeholder -> " mail address"
+			'placeholder -> " mail address",
+			'_showConstraints -> false
 		))
 		@(helper.inputPassword(
 			field = form("password"), 
 			'_label -> "パスワード",
-			'placeholder -> " password"
+			'placeholder -> " password",
+            '_showConstraints -> false
 		))
 		
 		<input type="submit" value="Sign in" class="btn btn-primary"><br />
