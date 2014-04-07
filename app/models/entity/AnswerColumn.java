@@ -13,18 +13,22 @@ import play.libs.F.Option;
  * 
  */
 @Entity
-public class AnswerColumn extends Model{
-	
+public class AnswerColumn extends Model {
+
 	public AnswerColumn(long id) {
 		this.id = id;
 	}
-	
+
 	/**
-	 * @param question
+	 * コンストラクタ
+	 * 
+	 * @param user ユーザ情報
+	 * @param question 問題
 	 */
-	public AnswerColumn(Question question) {
+	public AnswerColumn(User user, Question question) {
 		super();
 		this.question = question;
+		this.user = user;
 	}
 
 	@Id
@@ -32,11 +36,15 @@ public class AnswerColumn extends Model{
 
 	/** 問題 */
 	@ManyToOne
+	public User user;
+
+	/** 問題 */
+	@ManyToOne
 	public Question question;
 
 	@ManyToOne
 	public AnswerSheet answerSheet;
-	
+
 	/** 選んだ選択肢 */
 	@ManyToOne
 	public OptionItem selectedOptionItem;
@@ -59,19 +67,19 @@ public class AnswerColumn extends Model{
 	public boolean isAnswered() {
 		return (this.selectedOptionItem != null);
 	}
-	
+
 	/**
 	 * 正解かどうかを返します。
 	 * 
 	 * @return 正解の場合 true を返します。
 	 */
 	public boolean isCorrect() {
-		if (!this.isAnswered()) return false;
+		if (!this.isAnswered())
+			return false;
 		return this.selectedOptionItem.isAnswer;
 	}
-	
-	public Option<AnswerColumn> unique()
-	{
+
+	public Option<AnswerColumn> unique() {
 		return new AnswerColumnModelService().findById(id);
 	}
 }

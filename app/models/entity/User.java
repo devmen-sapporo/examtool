@@ -2,13 +2,23 @@ package models.entity;
 
 import javax.persistence.*;
 
+import models.service.Examination.*;
 import play.data.validation.Constraints.Email;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.*;
+import play.libs.F.Option;
 
 @Entity
 public class User extends Model {
-	
+
+	/**
+	 * コンストラクタ
+	 * @param id
+	 */
+	public User(long id) {
+		this.id = id;
+	}
+
 	@Id
 	public Long id;
 
@@ -30,6 +40,11 @@ public class User extends Model {
             .eq("password", password)
             .findUnique();
     }
+    
+	public Option<User> unique() {
+		return new UserModelService().findById(id);
+	}
+
 	@Override
 	public String toString() {
 		return ("[id:" + id + ", name:" + name + ", mail:" + mail + ", password" + password + "]");

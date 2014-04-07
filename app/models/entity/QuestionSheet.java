@@ -48,15 +48,6 @@ public class QuestionSheet extends Model{
 		this.questions = list;
 	}
 
-	/**
-	 * 試験を開始します。
-	 * @param user
-	 * @return
-	 */
-	public AnswerSheet startExam(User user) {
-		return new AnswerSheet(user, this);
-	}
-
 	public void add(Question question) {
 		this.questions.add(question);		
 	}

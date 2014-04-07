@@ -54,13 +54,13 @@ public final class AnswerSheet extends Model {
 	 */
 	public AnswerSheet(User user, QuestionSheet questionSheet) {
 		this.user = user;
-		this.makeAnswerColumns(questionSheet);
+		this.makeAnswerColumns(user, questionSheet);
 		this.operationDate = Calendar.getInstance();
 	}
 
-	private void makeAnswerColumns(QuestionSheet questionSheet) {
+	private void makeAnswerColumns(User user, QuestionSheet questionSheet) {
 		for(Question question: questionSheet.questions) {
-			AnswerColumn answerColumn = new AnswerColumn(question);
+			AnswerColumn answerColumn = new AnswerColumn(user, question);
 			this.answerColumns.add(answerColumn);
 		}
 	}
