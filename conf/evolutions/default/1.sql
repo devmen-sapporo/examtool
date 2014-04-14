@@ -41,6 +41,7 @@ create table option_item (
   id                        bigint not null,
   sentence                  varchar(255),
   is_answer                 boolean,
+  has_image                 boolean,
   question_id               bigint,
   constraint pk_option_item primary key (id))
 ;

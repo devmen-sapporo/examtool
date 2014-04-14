@@ -96,7 +96,7 @@ public class Application extends JavaController {
 
 	@AddCSRFToken
 	public static Result login() {
-		String url = getRedirectionUrl("FacebookClient", "/result");
+		String url = getRedirectAction("FacebookClient", "/result").getLocation();
 		return ok(login.render("", url, "", form(Login.class)));
 	}
 
@@ -104,7 +104,7 @@ public class Application extends JavaController {
 	public static Result authenticate() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
 		if (loginForm.hasErrors()) {
-			String url = getRedirectionUrl("FacebookClient", "/result");
+			String url = getRedirectAction("FacebookClient", "/result").getLocation();
 			return badRequest(login.render("サインインに失敗しました。", url, "", loginForm));
 		} else {
 			session("mail", loginForm.get().getMail());

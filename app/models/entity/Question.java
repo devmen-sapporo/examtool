@@ -47,6 +47,7 @@ public class Question extends Model{
 	 */
 	public String sentence;
 
+	// TODO: 画像があった場合に画像のパスを View 側で組み立てているのでこのクラスで行うこと。
 	/**
 	 * 問題の画像があるかどうかを示す値
 	 */

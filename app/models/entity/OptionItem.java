@@ -31,6 +31,11 @@ public class OptionItem extends Model {
 	 */
 	public boolean isAnswer;
 
+	/**
+	 * 選択肢の画像があるかどうかを示す値
+	 */
+	public boolean hasImage;
+
 	@ManyToOne
 	public Question question;
 	
