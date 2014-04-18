@@ -106,6 +106,7 @@ questions:
         year:       2014
         no:         55
         sentence:   システムの移行方式の一つである一斉移行方式の特徴はどれか。
+        hasImage:   true
 
     - !!models.entity.Question
         id:         56
@@ -124,12 +125,14 @@ questions:
         year:       2014
         no:         58
         sentence:   リスクアセスメントに基づく監査対象の選定として，適切なものはどれか。
+        hasImage:   true
 
     - !!models.entity.Question
         id:         59
         year:       2014
         no:         59
         sentence:   経済産業省の"営業秘密管理指針"に基づく営業秘密データの管理状況について監査を行うとき，秘密管理性のチェックポイントはどれか。
+        hasImage:   true
 
     - !!models.entity.Question
         id:         60
@@ -1356,10 +1359,12 @@ categories:
     - !!models.entity.Category
         id:         1
         name:       応用情報処理試験
+        attrName:   AP
 
     - !!models.entity.Category
         id:         2
         name:       基本情報処理試験
+        attrName:   FE
 
 #Season
 
@@ -1368,7 +1373,10 @@ seasons:
     - !!models.entity.Season
         id:         1
         name:       春期
+        attrName:   SP
 
     - !!models.entity.Season
         id:         2
         name:       秋期
+        attrName:   AU[
+        

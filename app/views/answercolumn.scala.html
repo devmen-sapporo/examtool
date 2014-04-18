@@ -54,8 +54,8 @@ FR 種別
 	<div class="panel-heading">
 		<h4>問 @answerSheet.answerColumns.get(index).question.no</h4>
         <h5>@answerSheet.answerColumns.get(index).question.sentence</h5>
-        @if(answerSheet.answerColumns.get(index).question.no == 51) {
-            <img src="@routes.Assets.at("images/question/AP24SPQ51.png")" width="100%" />
+        @if(answerSheet.answerColumns.get(index).question.hasImage) {
+            <img src="@routes.Assets.at("images/question/" + answerSheet.answerColumns.get(index).question.getImageFileName())" width="100%" />
         }
         
 	</div>

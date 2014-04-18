@@ -15,6 +15,7 @@ import play.libs.F.Option;
  */
 @Entity
 public class OptionItem extends Model {
+	
 	@Transient
 	private OptionItemModelService checkService = new OptionItemModelService();
 
@@ -41,6 +42,7 @@ public class OptionItem extends Model {
 	
     @Transient
     private OptionItemService optionItemService = new OptionItemService();
+
     @Transient
     private OptionItemModelService optionItemModelService = new OptionItemModelService();
     

@@ -88,8 +88,7 @@ public class Application extends JavaController {
 			Logger.info("[category]" + category.name);
 			Logger.info("[season_id]" + season.name);
 
-			examCategorys.add(new ExamCategory(category,
-					row.getInteger("year"), season));
+			examCategorys.add(new ExamCategory(category, row.getInteger("year"), season));
 		}
 		return examCategorys;
 	}

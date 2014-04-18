@@ -19,6 +19,9 @@ public class Season extends Model{
 	/** シーズン名称 */
 	public String name;
 	
+	/** 省略名称 */
+	public String attrName;
+	
 	public static Finder<Long, Season> find =
 			new Finder<Long, Season>(Long.class, Season.class);
 	

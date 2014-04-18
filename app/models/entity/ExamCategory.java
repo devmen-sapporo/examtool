@@ -1,5 +1,12 @@
 package models.entity;
 
+// TODO: カテゴリと区別がつかないので名称変更を鈴木氏が行う。
+
+/**
+ * 試験カテゴリクラス
+ * @author Hiroyuki
+ *
+ */
 public class ExamCategory {
 	/**
 	 * カテゴリー

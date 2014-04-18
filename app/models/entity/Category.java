@@ -23,6 +23,9 @@ public class Category extends Model{
 	/** カテゴリ名称 */
 	public String name;
 	
+	/** 省略名称 */
+	public String attrName;
+	
 	public static Finder<Long, Category> find =
 			new Finder<Long, Category>(Long.class, Category.class);
 
@@ -30,14 +33,7 @@ public class Category extends Model{
 	{
 		return new CategoryModelService().findById(id);
 	}
-
-
 	
-//	/** 基本情報技術者 */
-//	FE,
-//	/** 応用 情報技術者 */
-//	AP;
-//
 //	@Override
 //	public String toString() {
 //	    switch(this) {

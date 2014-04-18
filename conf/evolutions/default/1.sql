@@ -25,6 +25,7 @@ create table answer_sheet (
 create table category (
   id                        bigint not null,
   name                      varchar(255),
+  attr_name                 varchar(255),
   constraint pk_category primary key (id))
 ;
 
@@ -65,6 +66,7 @@ create table question_sheet (
 create table season (
   id                        bigint not null,
   name                      varchar(255),
+  attr_name                 varchar(255),
   constraint pk_season primary key (id))
 ;
 
