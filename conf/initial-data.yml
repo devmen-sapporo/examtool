@@ -26,6 +26,40 @@ users:
         mail:       kudo@sample.com
         password:   4cf5a5be41f417cb2087f1f17e44734ae9b1677dc6b0ed3b80de422cc8e5607980ed08334540c15966485db039927bade22d3dedd5fd3b3f7d9743c20310882c
 
+#Category
+
+categories:
+
+    - !!models.entity.Category
+        id:         1
+        name:       応用情報処理試験
+        attrName:   AP
+
+    - !!models.entity.Category
+        id:         2
+        name:       基本情報処理試験
+        attrName:   FE
+
+    - !!models.entity.Category
+        id:         3
+        name:       プロジェクトマネージャ
+        attrName:   PM
+        
+#Season
+
+seasons:
+
+    - !!models.entity.Season
+        id:         1
+        name:       春期
+        attrName:   SP
+
+    - !!models.entity.Season
+        id:         2
+        name:       秋期
+        attrName:   AU
+        
+
 #Question -------------------------------------------------------
 
 questions:
@@ -87,7 +121,8 @@ questions:
         id:         52
         year:       2014
         no:         52
-        sentence:   図のアローダイアグラムにおいて，プロジェクト全体の期間を短縮するために，作業A～Eの幾つかを1日ずつ短縮する。プロジェクト全体を2日短縮できる作業の組合せはどれか。52.gif/image-size:420×104
+        sentence:   図のアローダイアグラムにおいて，プロジェクト全体の期間を短縮するために，作業A～Eの幾つかを1日ずつ短縮する。プロジェクト全体を2日短縮できる作業の組合せはどれか。
+        hasImage:   true
 
     - !!models.entity.Question
         id:         53
@@ -106,7 +141,6 @@ questions:
         year:       2014
         no:         55
         sentence:   システムの移行方式の一つである一斉移行方式の特徴はどれか。
-        hasImage:   true
 
     - !!models.entity.Question
         id:         56
@@ -125,14 +159,12 @@ questions:
         year:       2014
         no:         58
         sentence:   リスクアセスメントに基づく監査対象の選定として，適切なものはどれか。
-        hasImage:   true
 
     - !!models.entity.Question
         id:         59
         year:       2014
         no:         59
         sentence:   経済産業省の"営業秘密管理指針"に基づく営業秘密データの管理状況について監査を行うとき，秘密管理性のチェックポイントはどれか。
-        hasImage:   true
 
     - !!models.entity.Question
         id:         60
@@ -150,19 +182,20 @@ questions:
         id:         62
         year:       2014
         no:         62
-        sentence:   BPMの説明はどれか。
+        sentence:   BPM の説明はどれか。
 
     - !!models.entity.Question
         id:         63
         year:       2014
         no:         63
-        sentence:   SaaSを説明したものはどれか。
+        sentence:   SaaS を説明したものはどれか。
 
     - !!models.entity.Question
         id:         64
         year:       2014
         no:         64
-        sentence:   IT投資案件において，5年間の投資効果をROI(Return On Investment)で評価した場合，四つの案件a～d のうち，最も効果が高いものはどれか。ここで，内部収益率(IRR)は0とする。 64.gif/image-size:440×377
+        sentence:   IT 投資案件において，5 年間の投資効果を ROI (Return On Investment) で評価した場合，四つの案件a～d のうち，最も効果が高いものはどれか。ここで，内部収益率(IRR)は 0 とする。
+        hasImage:   true
 
     - !!models.entity.Question
         id:         65
@@ -174,13 +207,13 @@ questions:
         id:         66
         year:       2014
         no:         66
-        sentence:   共通フレーム2007によれば，企画プロセスで定義するものはどれか。
+        sentence:   共通フレーム 2007 によれば，企画プロセスで定義するものはどれか。
 
     - !!models.entity.Question
         id:         67
         year:       2014
         no:         67
-        sentence:   SWOT分析を用いて識別した，自社製品に関する外部要因はどれか。
+        sentence:   SWOT 分析を用いて識別した，自社製品に関する外部要因はどれか。
 
     - !!models.entity.Question
         id:         68
@@ -198,7 +231,7 @@ questions:
         id:         70
         year:       2014
         no:         70
-        sentence:   CRMの目的はどれか。
+        sentence:   CRM の目的はどれか。
 
     - !!models.entity.Question
         id:         71
@@ -234,7 +267,8 @@ questions:
         id:         76
         year:       2014
         no:         76
-        sentence:   商品の1日当たりの販売確率が表のとおりであるとき，1個当たりの利益を1,000円とすると，利益の期待値が最大になる仕入個数は何個か。ここで，売れ残った場合，1個当たり300円の廃棄ロスが出るものとする。 76.gif/image-size:342×162
+        sentence:   商品の 1 日当たりの販売確率が表のとおりであるとき， 1 個当たりの利益を 1,000 円とすると，利益の期待値が最大になる仕入個数は何個か。ここで，売れ残った場合， 1 個当たり 300 円の廃棄ロスが出るものとする。
+        hasImage:   true
 
     - !!models.entity.Question
         id:         77
@@ -258,7 +292,7 @@ questions:
         id:         80
         year:       2014
         no:         80
-        sentence:   派遣元会社A社と派遣先会社B社が派遣契約を結び，A社は社員であるN氏を派遣した。労働者派遣法に照らして適切な行為はどれか。
+        sentence:   派遣元会社 A 社と派遣先会社 B 社が派遣契約を結び，A 社は社員である N 氏を派遣した。労働者派遣法に照らして適切な行為はどれか。
 
 # OptionItem -------------------------------------------------------
 
@@ -489,7 +523,7 @@ optionItems:
 
     - !!models.entity.OptionItem
         id:         541
-        sentence:   ジャーナル情報からの復旧処理時間が平均して約2倍になる。
+        sentence:   ジャーナル情報からの復旧処理時間が平均して約 2 倍になる。
         isAnswer:   false
         question:
             !!models.entity.Question
@@ -497,7 +531,7 @@ optionItems:
 
     - !!models.entity.OptionItem
         id:         542
-        sentence:   フルバックアップ1回当たりの磁気テープ使用量が約2倍になる。
+        sentence:   フルバックアップ1回当たりの磁気テープ使用量が約 2 倍になる。
         isAnswer:   false
         question:
             !!models.entity.Question
@@ -505,7 +539,7 @@ optionItems:
 
     - !!models.entity.OptionItem
         id:         543
-        sentence:   フルバックアップ1回当たりの磁気テープ使用量が約半分になる。
+        sentence:   フルバックアップ 1 回当たりの磁気テープ使用量が約半分になる。
         isAnswer:   false
         question:
             !!models.entity.Question
@@ -513,7 +547,7 @@ optionItems:
 
     - !!models.entity.OptionItem
         id:         544
-        sentence:   フルバックアップ取得の平均実行時間が約2倍になる。
+        sentence:   フルバックアップ取得の平均実行時間が約 2 倍になる。
         isAnswer:   false
         question:
             !!models.entity.Question
@@ -561,7 +595,7 @@ optionItems:
 
     - !!models.entity.OptionItem
         id:         562
-        sentence:   インシデントによって中断したITサービスを合意した時間内に復旧する。
+        sentence:   インシデントによって中断した IT サービスを合意した時間内に復旧する。
         isAnswer:   false
         question:
             !!models.entity.Question
@@ -1225,32 +1259,36 @@ optionItems:
 
     - !!models.entity.OptionItem
         id:         771
-        sentence:   77a.gif/image-size:178×144
+        sentence:   
         isAnswer:   false
+        hasImage:   true
         question:
             !!models.entity.Question
             id:     77
 
     - !!models.entity.OptionItem
         id:         772
-        sentence:   77i.gif/image-size:179×143
+        sentence:   
         isAnswer:   false
+        hasImage:   true
         question:
             !!models.entity.Question
             id:     77
 
     - !!models.entity.OptionItem
         id:         773
-        sentence:   77u.gif/image-size:180×143
+        sentence:   
         isAnswer:   false
+        hasImage:   true
         question:
             !!models.entity.Question
             id:     77
 
     - !!models.entity.OptionItem
         id:         774
-        sentence:   77e.gif/image-size:179×145
+        sentence:   
         isAnswer:   false
+        hasImage:   true
         question:
             !!models.entity.Question
             id:     77
@@ -1351,32 +1389,3 @@ optionItems:
             !!models.entity.Question
             id:     80
 
-
-#Category
-
-categories:
-
-    - !!models.entity.Category
-        id:         1
-        name:       応用情報処理試験
-        attrName:   AP
-
-    - !!models.entity.Category
-        id:         2
-        name:       基本情報処理試験
-        attrName:   FE
-
-#Season
-
-seasons:
-
-    - !!models.entity.Season
-        id:         1
-        name:       春期
-        attrName:   SP
-
-    - !!models.entity.Season
-        id:         2
-        name:       秋期
-        attrName:   AU[
-        

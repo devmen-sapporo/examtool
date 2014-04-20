@@ -3,6 +3,25 @@
 @import helper._
 
 @**
+[戻る][次へ] ボタン表示します。
+*@
+@answerSheetNavigationButton()={
+    <ul class="pager">
+        @if(index > 0) {
+            <li class="previous">
+                <a id="prevColumn">&larr; 戻る</a>
+            </li>
+        }
+        
+        @if(index < answerSheet.getQuestionCount()-1) {
+            <li class="next">
+                <a id="nextColumn">次へ &rarr;</a>
+            </li>
+        }
+    </ul>
+}
+
+@**
 回答シート とインデックス
 FR 種別
 と選択したオプションを渡す。
@@ -16,94 +35,79 @@ FR 種別
     -->
     </style>
 
-	<script type="text/javascript">
-	<!--
-	$(document).ready(function(){
-	    $( "#nextColumn" ).click( function() {  
+    <script type="text/javascript">
+    <!--
+    $(document).ready(function(){
+        $(".next").click( function() {  
             $("#nextIndex").val("@(index+1)");
-	    	$('#form1').submit();
-	    });  
-        $( "#prevColumn" ).click( function() {  
+            $('#form1').submit();
+        });  
+        $( ".previous" ).click( function() {  
             $("#nextIndex").val("@(index-1)");
             $('#form1').submit();
         });  
-	});
+    });
 --></script>
 
-<br>
-    <div class="row"> 
-    <div class="col-sm-3 col-lg-3"></div>
-    <div class="col-sm-3 col-lg-3"></div>
-  <div class="col-sm-6 col-lg-6">
-	解答済問題
-	<div class="progress progress-striped">
-	<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@answerSheet.getAnsweredCount()" aria-valuemin="0" aria-valuemax="@answerSheet.getQuestionCount()" style="width: @(answerSheet.getAnsweredCount()*100 / answerSheet.getQuestionCount())%;">
-	   @answerSheet.getAnsweredCount() / @answerSheet.getQuestionCount()
-	</div>
-	</div>
-  </div>
-  </div>
-  
-        <ul class="pager">
-            <li><a href="@routes.Examination.showAnswerSheet(answerSheet.id)">問題一覧</a></li>
-            <li><a href="@routes.Examination.finishExam(answerSheet.id)">試験終了</a></li>
-        </ul>
+<div class="row">
+<div class="col-xs-6 col-sm-12">
+	<span class="btn-group" >
+	<button type="button" class="btn btn-default"><a href="@routes.Examination.showAnswerSheet(answerSheet.id)">問題一覧</a></button>
+	<button type="button" class="btn btn-default"><a href="@routes.Examination.finishExam(answerSheet.id)">試験終了</a></button>
+	</span>
+</div>
+<div class="col-xs-6 col-sm-0" style="text-align:right">
+	解答済 <span class="badge" style="background-color: #5cb85c">@answerSheet.getAnsweredCount()</span></a>
+	未解答 <span class="badge">@answerSheet.getUnansweredCount()</span></a>
+</div>
+</div>
+
+@answerSheetNavigationButton()
 
 <div class="panel panel-primary">
     <!-- Default panel contents -->
-	<div class="panel-heading">
-		<h4>問 @answerSheet.answerColumns.get(index).question.no</h4>
+    <div class="panel-heading">
+        <h4>問 @answerSheet.answerColumns.get(index).question.no</h4>
         <h5>@answerSheet.answerColumns.get(index).question.sentence</h5>
         @if(answerSheet.answerColumns.get(index).question.hasImage) {
             <img src="@routes.Assets.at("images/question/" + answerSheet.answerColumns.get(index).question.getImageFileName())" width="100%" />
         }
         
-	</div>
-	
-	<!-- Form ---------->
-	
+    </div>
+    
+    <!-- Form ---------->
     @helper.form(action = CSRF(routes.Examination.answerAndChange()), 'id -> "form1"){
-	    <input type="hidden" name="answerSheetId" value="@answerSheet.id">
-	    <input type="hidden" name="currentIndex" value="@index">
-	    <input type="hidden" name="nextIndex" id="nextIndex" value="">
-	    
-		<!-- Table -->
-		<div class="panel-body">
-			@for(option <- answerSheet.answerColumns.get(index).question.optionItems) {
-			    @if(answerSheet.answerColumns.get(index) == null){
-			        <p>null ダネ</p>
-			    }
-			    <label class="radiolabel" onclick="">
-			        @if(answerSheet.answerColumns.get(index).isAnswered() && (answerSheet.answerColumns.get(index).selectedOptionItem == option)){
-			            <input type="radio" name="optionItemId" value="@option.id" class="radio" checked="checked">
-			        } else {
+        <input type="hidden" name="answerSheetId" value="@answerSheet.id">
+        <input type="hidden" name="currentIndex" value="@index">
+        <input type="hidden" name="nextIndex" id="nextIndex" value="">
+        
+        <!-- Table -->
+        <div class="panel-body">
+            @for(option <- answerSheet.answerColumns.get(index).question.optionItems) {
+                @if(answerSheet.answerColumns.get(index) == null){
+                    <p>null ダネ</p>
+                }
+                <label class="radiolabel" onclick="">
+                    @if(answerSheet.answerColumns.get(index).isAnswered() && (answerSheet.answerColumns.get(index).selectedOptionItem == option)){
+                        <input type="radio" name="optionItemId" value="@option.id" class="radio" checked="checked">
+                    } else {
                         <input type="radio" name="optionItemId" value="@option.id" class="radio">
-			        }
-				    <B>@signs(answerSheet.answerColumns.get(index).question.optionItems.indexOf(option))</B>
-				    <br>
-				    <div style="margin-left:20px;margin-right:10px;">
-				      @option.sentence
-				    </div>
-				    </input>
-			    </label>
-			}
-		</div>
+                    }
+                    <B>@signs(answerSheet.answerColumns.get(index).question.optionItems.indexOf(option))</B>
+                    <br>
+                    <div style="margin-left:20px;margin-right:10px;">
+                      @option.sentence
+                      @if(option.hasImage) {
+                          <img src="@routes.Assets.at("images/question/" + answerSheet.answerColumns.get(index).question.getOptionItemImageFileName(option.id))" width="100%" />
+                      }
+                    </div>
+                    </input>
+                </label>
+            }
+        </div>
     }
-	<!---------- Form -->
+    <!---------- Form -->
 </div>
-<br>
-    <ul class="pager">
-        @if(index > 0) {
-			<li class="previous">
-				<a id="prevColumn">&larr; Prev</a>
-			</li>
-		}
-		
-		@if(index < answerSheet.getQuestionCount()-1) {
-			<li class="next">
-				<a id="nextColumn">Next &rarr;</a>
-			</li>
-		}
-	</ul>
+@answerSheetNavigationButton()
 <br>
 }

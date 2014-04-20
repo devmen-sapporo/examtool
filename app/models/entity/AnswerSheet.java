@@ -88,9 +88,9 @@ public final class AnswerSheet extends Model {
 	}
 	
 	/**
-	 * 解答済みの問題数を取得します。
+	 * 回答済みの問題数を取得します。
 	 * 
-	 * @return 解答済みの問題数
+	 * @return 回答済みの問題数
 	 */
 	public int getAnsweredCount() {
 		int count = 0;
@@ -101,6 +101,16 @@ public final class AnswerSheet extends Model {
 		
 		return count;
 	}
+	
+	/**
+	 * 未回答の問題数を取得します。
+	 * 
+	 * @return 未回答の問題数
+	 */
+	public int getUnansweredCount() {
+		return this.answerColumns.size() - getAnsweredCount();
+	}
+	
 
 //	/**
 //	 * 問題シートを取得します。

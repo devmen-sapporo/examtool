@@ -25,8 +25,8 @@ public class Global extends GlobalSettings {
         for (Question question : questions)
         {
         	Logger.info(question.toString());
-        	Season season = new Season(1L).unique().get();
-        	Category category= new Category(1L).unique().get();
+        	Season season = new Season(2L).unique().get();
+        	Category category= new Category(2L).unique().get();
 
         	question.season = season;
         	question.category = category;

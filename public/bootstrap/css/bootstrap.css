@@ -5033,7 +5033,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .pager {
   padding-left: 0;
-  margin: 20px 0;
+  margin: 10px 0;
   text-align: center;
   list-style: none;
 }
@@ -5065,7 +5065,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pager li > a,
 .pager li > span {
   display: inline-block;
-  padding: 5px 14px;
+  padding: 4px 10px;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 15px;

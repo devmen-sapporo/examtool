@@ -130,16 +130,23 @@ public class Question extends Model {
 
 	@Override
 	public String toString() {
-		return ("[id:" + id + ", ExamName:" + "" + ", sentence:" + sentence
-				+ ", optionItems:" + optionItems + "]");
+		return ("[" +
+				"id:" + id + 
+				", category:" +  category + 
+				", sentence:" + sentence + 
+				", optionItems:" + optionItems + 
+				"]");
 	}
 
 	public Option<Question> unique() {
 		return new QuestionModelService().findById(id);
 	}
 
-	
 	public String getImageFileName() {
-		return String.format("%s%d%s%03d.png", category.attrName, year, season.attrName, no);
+		return String.format("%s/%d/%s/%03d.png", category.attrName, year, season.attrName, no);
+	}
+	
+	public String getOptionItemImageFileName(long optionItemId) {
+		return String.format("%s/%d/%s/%03d_%d.png", category.attrName, year, season.attrName, no, (int)optionItemId);
 	}
 }

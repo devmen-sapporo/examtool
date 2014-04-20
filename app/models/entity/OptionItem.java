@@ -72,8 +72,7 @@ public class OptionItem extends Model {
 		this.isAnswer = isAnswer;
 	}
 	
-	public static Finder<Long, OptionItem> finder =
-			new Finder<Long, OptionItem>(Long.class, OptionItem.class);
+	public static Finder<Long, OptionItem> finder = new Finder<Long, OptionItem>(Long.class, OptionItem.class);
 
 	public Option<OptionItem> unique()
 	{
