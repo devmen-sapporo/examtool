@@ -8,7 +8,7 @@ script: play-${PLAY_VERSION}/play test
 notifications:
   webhooks:
     - https://idobata.io/hook/48513d0f-dc38-408c-a441-c5be54ca6c28
-deploy
+deploy:
   provider: heroku
   app: examtool
   api_key: 
