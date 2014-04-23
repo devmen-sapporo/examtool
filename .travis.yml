@@ -10,5 +10,8 @@ notifications:
     - https://idobata.io/hook/48513d0f-dc38-408c-a441-c5be54ca6c28
 deploy:
   provider: heroku
+  api_key:
+    secure: UEJatG8T48koj8A/IapxEE9KkVp9r6qgliU+HiHw6XMDyYtksbDHIb8cJjiVuCHHzbX9L87NwMWRULzG+kFQnD0mj0Awfgo8QtfUB69/eeSHk31Jt+IRrlGHCCIEtHn8g383dw1+vcDVFpqRVQqNFgp3FN5541k5PZluG81e+Gg=
   app: examtool
-  api_key: 
+  on:
+    repo: devmen-sapporo/examtool
