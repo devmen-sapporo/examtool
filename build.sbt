@@ -7,7 +7,7 @@ libraryDependencies ++= Seq(
   javaEbean,
   cache,
   filters,
-  "postgresql" % "postgresql" % "9.3-1100-jdbc41",
+  "postgresql" % "postgresql" % "9.1-901-1.jdbc4",
   "org.pac4j" % "play-pac4j_java" % "1.2.0",
   "org.pac4j" % "pac4j-http" % "1.5.0",
   "org.pac4j" % "pac4j-cas" % "1.5.0",
