@@ -32,6 +32,25 @@ FR 種別
     <!--
     input.radio {display:inline-block; width:20px; vertical-align:center;}
     label.radiolabel {display:block; width:100%; background:#FEFEFE; border:1px solid #F3F3F3; font-weight: normal}
+	div.outer {  
+	    display: table;         /* ① */  
+	    height: 100px;  
+	    width: 100%;            /* ② */  
+	    background: #E3F2DA;  
+	    color: #5C5C5C;  
+	}  
+    div.vertical_middle {  
+    display: table-cell;    /* ④ */  
+    vertical-align: middle; /* ⑤ */  
+    }  
+    * html div.vertical_middle {  
+        position: absolute; /* ⑥ */  
+        top: 50%;           /* ⑥ */  
+    }  
+    *+html div.vertical_middle {  
+        position: absolute; /* ⑥ */  
+        top: 50%;           /* ⑥ */  
+    }  
     -->
     </style>
 
@@ -68,7 +87,7 @@ FR 種別
     <!-- Default panel contents -->
     <div class="panel-heading">
         <h4>問 @answerSheet.answerColumns.get(index).question.no</h4>
-        <h5>@answerSheet.answerColumns.get(index).question.sentence</h5>
+        <h4>@answerSheet.answerColumns.get(index).question.sentence</h5>
         @if(answerSheet.answerColumns.get(index).question.hasImage) {
             <img src="@routes.Assets.at("images/question/" + answerSheet.answerColumns.get(index).question.getImageFileName())" width="100%" />
         }
@@ -88,13 +107,14 @@ FR 種別
                     <p>null ダネ</p>
                 }
                 <label class="radiolabel" onclick="">
+                    <div style="height: 40px; padding:3px 10px;">
                     @if(answerSheet.answerColumns.get(index).isAnswered() && (answerSheet.answerColumns.get(index).selectedOptionItem == option)){
                         <input type="radio" name="optionItemId" value="@option.id" class="radio" checked="checked">
                     } else {
                         <input type="radio" name="optionItemId" value="@option.id" class="radio">
                     }
                     <B>@signs(answerSheet.answerColumns.get(index).question.optionItems.indexOf(option))</B>
-                    <br>
+                    </div>
                     <div style="margin-left:20px;margin-right:10px;">
                       @option.sentence
                       @if(option.hasImage) {

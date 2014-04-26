@@ -304,7 +304,7 @@ html {
 
 body {
   font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'MS PGothic', Sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.428571429;
   color: #333333;
   background-color: #ffffff;
@@ -486,12 +486,12 @@ h4,
 
 h5,
 .h5 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 h6,
 .h6 {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 p {
@@ -5033,7 +5033,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .pager {
   padding-left: 0;
-  margin: 10px 0;
+  margin: 20px 0;
   text-align: center;
   list-style: none;
 }
