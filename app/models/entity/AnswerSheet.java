@@ -25,7 +25,7 @@ public final class AnswerSheet extends Model {
 
 	/** ユーザ */
 	@ManyToOne(cascade=CascadeType.ALL)
-	public User user;
+	public Account account;
 
 	/** 解答欄のリスト **/
 	@OneToMany(cascade=CascadeType.ALL)
@@ -47,20 +47,20 @@ public final class AnswerSheet extends Model {
 	/**
 	 * コンストラクタ
 	 * 
-	 * @param user
+	 * @param account
 	 *            ユーザ
 	 * @param questionSheet
 	 *            解答用紙
 	 */
-	public AnswerSheet(User user, QuestionSheet questionSheet) {
-		this.user = user;
-		this.makeAnswerColumns(user, questionSheet);
+	public AnswerSheet(Account account, QuestionSheet questionSheet) {
+		this.account = account;
+		this.makeAnswerColumns(account, questionSheet);
 		this.operationDate = Calendar.getInstance();
 	}
 
-	private void makeAnswerColumns(User user, QuestionSheet questionSheet) {
+	private void makeAnswerColumns(Account account, QuestionSheet questionSheet) {
 		for(Question question: questionSheet.questions) {
-			AnswerColumn answerColumn = new AnswerColumn(user, question);
+			AnswerColumn answerColumn = new AnswerColumn(account, question);
 			this.answerColumns.add(answerColumn);
 		}
 	}

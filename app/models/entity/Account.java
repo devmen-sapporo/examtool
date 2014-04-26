@@ -9,13 +9,13 @@ import play.db.ebean.*;
 import play.libs.F.Option;
 
 @Entity
-public class User extends Model {
+public class Account extends Model {
 
 	/**
 	 * コンストラクタ
 	 * @param id
 	 */
-	public User(long id) {
+	public Account(long id) {
 		this.id = id;
 	}
 
@@ -31,18 +31,18 @@ public class User extends Model {
 	@Required
 	public String password;
 	
-	public static Finder<Long, User> find =
-			new Finder<Long, User>(Long.class, User.class);
+	public static Finder<Long, Account> find =
+			new Finder<Long, Account>(Long.class, Account.class);
 
-    public static User authenticate(String mail, String password) {
+    public static Account authenticate(String mail, String password) {
         return find.where()
             .eq("mail", mail)
             .eq("password", password)
             .findUnique();
     }
     
-	public Option<User> unique() {
-		return new UserModelService().findById(id);
+	public Option<Account> unique() {
+		return new AccountModelService().findById(id);
 	}
 
 	@Override

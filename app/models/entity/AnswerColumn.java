@@ -22,13 +22,13 @@ public class AnswerColumn extends Model {
 	/**
 	 * コンストラクタ
 	 * 
-	 * @param user ユーザ情報
+	 * @param account ユーザ情報
 	 * @param question 問題
 	 */
-	public AnswerColumn(User user, Question question) {
+	public AnswerColumn(Account account, Question question) {
 		super();
 		this.question = question;
-		this.user = user;
+		this.account = account;
 	}
 
 	@Id
@@ -36,7 +36,7 @@ public class AnswerColumn extends Model {
 
 	/** 問題 */
 	@ManyToOne
-	public User user;
+	public Account account;
 
 	/** 問題 */
 	@ManyToOne

@@ -36,8 +36,8 @@ public class Login {
 		return null;
 	}
 	
-	public static User authenticate(String mail, String password) throws java.security.NoSuchAlgorithmException {
-		Model.Finder<Long, User> finder = new Model.Finder<Long, User>(Long.class, User.class);
+	public static Account authenticate(String mail, String password) throws java.security.NoSuchAlgorithmException {
+		Model.Finder<Long, Account> finder = new Model.Finder<Long, Account>(Long.class, Account.class);
 		String hashedPassword = "";
 		if (password != null) {
 			hashedPassword = sha512(password);

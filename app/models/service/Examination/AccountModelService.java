@@ -9,10 +9,10 @@ import play.libs.F.None;
 import play.libs.F.Option;
 import utils.*;
 
-public class UserModelService implements ModelService<User> {
+public class AccountModelService implements ModelService<Account> {
 
-    public static UserModelService use() {
-        return new UserModelService();
+    public static AccountModelService use() {
+        return new AccountModelService();
     }
 
     /**
@@ -21,13 +21,13 @@ public class UserModelService implements ModelService<User> {
      * @return
      */
     @Override
-    public Option<User> findById(Long id) {
+    public Option<Account> findById(Long id) {
         Option<Long> idOps = OptionUtil.apply(id);
         if(idOps.isDefined()) {
-            Model.Finder<Long, User> find = ModelUtil.getFinder(User.class);
+            Model.Finder<Long, Account> find = ModelUtil.getFinder(Account.class);
             return OptionUtil.apply(find.byId(id));
         }
-        return new None<User>();
+        return new None<Account>();
     }
 
     /**
@@ -36,15 +36,15 @@ public class UserModelService implements ModelService<User> {
      * @return
      */
     @Override
-    public Option<User> save(User entry) {
-        Option<User> entryOps = OptionUtil.apply(entry);
+    public Option<Account> save(Account entry) {
+        Option<Account> entryOps = OptionUtil.apply(entry);
         if(entryOps.isDefined()) {
             entry.save();
             if(OptionUtil.apply(entry.id).isDefined()) {
                 return OptionUtil.apply(entry);
             }
         }
-        return new None<User>();
+        return new None<Account>();
     }
 
     /**
@@ -53,7 +53,7 @@ public class UserModelService implements ModelService<User> {
      * @return
      */
     @Override
-    public Option<List<User>> findWithPage(Integer pageSource) {
+    public Option<List<Account>> findWithPage(Integer pageSource) {
         return null;
     }
 

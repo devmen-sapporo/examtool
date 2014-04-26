@@ -58,7 +58,7 @@ public class Application extends JavaController {
 		SignInData data = formSignInData.get();
 		String mail = data.mail;
 		String password = data.password;
-		if (User.authenticate(mail, password) == null) {
+		if (Account.authenticate(mail, password) == null) {
 			return badRequest(index.render("メールアドレス、またはパスワードに誤りがあります。",
 					form(SampleData.class)));
 		}

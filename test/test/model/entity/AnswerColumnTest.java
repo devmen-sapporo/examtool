@@ -18,11 +18,11 @@ public class AnswerColumnTest {
 	  running(fakeApplication(inMemoryDatabase()), new Runnable() {
 	    public void run() {
 
-	    	User expectedUser = new User(1L).unique().get();
+	    	Account expectedUser = new Account(1L).unique().get();
 	    	Question expectedQuestion = new Question(1L).unique().get();
 
 	    	AnswerColumn answerColumn = new AnswerColumn(expectedUser, expectedQuestion);
-	    	User actualUser = answerColumn.user;
+	    	Account actualUser = answerColumn.account;
 	    	Question actualQuestion = answerColumn.question;
 
 	    	assertThat(actualUser, is(expectedUser));
@@ -35,7 +35,7 @@ public class AnswerColumnTest {
 	public void markAnswer_正常() {
 	  running(fakeApplication(inMemoryDatabase()), new Runnable() {
 	    public void run() {
-	    	User expectedUser = new User(1L).unique().get();
+	    	Account expectedUser = new Account(1L).unique().get();
 	    	Question expectedQuestion = new Question(1L).unique().get();
 
 	    	AnswerColumn answerColumn = new AnswerColumn(expectedUser, expectedQuestion);
@@ -54,7 +54,7 @@ public class AnswerColumnTest {
 	public void isAnswered_正常_選択済() {
 	  running(fakeApplication(inMemoryDatabase()), new Runnable() {
 	    public void run() {
-	    	User expectedUser = new User(1L).unique().get();
+	    	Account expectedUser = new Account(1L).unique().get();
 	    	Question expectedQuestion = new Question(1L).unique().get();
 
 	    	AnswerColumn answerColumn = new AnswerColumn(expectedUser, expectedQuestion);
@@ -74,7 +74,7 @@ public class AnswerColumnTest {
 	public void isAnswered_正常_未選択() {
 	  running(fakeApplication(inMemoryDatabase()), new Runnable() {
 	    public void run() {
-	    	User expectedUser = new User(1L).unique().get();
+	    	Account expectedUser = new Account(1L).unique().get();
 	    	Question expectedQuestion = new Question(1L).unique().get();
 
 	    	AnswerColumn answerColumn = new AnswerColumn(expectedUser, expectedQuestion);
@@ -92,7 +92,7 @@ public class AnswerColumnTest {
 	  running(fakeApplication(inMemoryDatabase()), new Runnable() {
 	    public void run() {
 	    	
-	    	User expectedUser = new User(1L).unique().get();
+	    	Account expectedUser = new Account(1L).unique().get();
 	    	Question expectedQuestion = new Question(1L).unique().get();
 
 	    	AnswerColumn answerColumn = new AnswerColumn(expectedUser, expectedQuestion);
@@ -114,7 +114,7 @@ public class AnswerColumnTest {
 	  running(fakeApplication(inMemoryDatabase()), new Runnable() {
 	    public void run() {
 
-	    	User expectedUser = new User(1L).unique().get();
+	    	Account expectedUser = new Account(1L).unique().get();
 	    	Question expectedQuestion = new Question(1L).unique().get();
 
 	    	AnswerColumn answerColumn = new AnswerColumn(expectedUser, expectedQuestion);

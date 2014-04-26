@@ -82,8 +82,8 @@ public class Examination extends Controller {
 	
 	private static AnswerSheet createAnswerSheets(QuestionSheet questionSheet) {
     	String mail = ctx().session().get("mail");
-		User user = User.find.where().eq("mail", mail).findList().get(0);
-		return new AnswerSheet(user, questionSheet);
+		Account account = Account.find.where().eq("mail", mail).findList().get(0);
+		return new AnswerSheet(account, questionSheet);
 	}
 
 	public static Result showAnswerSheet(Long answerSheetId) {
