@@ -27,8 +27,13 @@
             <tr>
               <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@{i+1}</a></td>
               <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@answerSheet.answerColumns.get(i).question.sentence</a></td>
-              @if(answerSheet.answerColumns.get(i).selectedOptionItem != null){
-              	<td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence</td>
+              @if(answerSheet.answerColumns.get(i).isAnswered()){
+                @if(answerSheet.answerColumns.get(i).selectedOptionItem.sentence.length() > 12){
+                  	<td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence.substring(12) ...</td>
+                } else {
+                    <td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence</td>
+                    
+               }
               } else {
               	<td/>
               }

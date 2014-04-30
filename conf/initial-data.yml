@@ -332,7 +332,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         481
         sentence:   テストデータの作成基準として，命令や分岐の網羅率を使用する。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     48
@@ -388,7 +388,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         494
         sentence:   利用者に提供するという視点で，システムが要求を満足していることを確認する
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     49
@@ -396,7 +396,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         501
         sentence:   画面レイアウト
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     50
@@ -436,7 +436,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         512
         sentence:   作業を階層的に細分化する。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     51
@@ -484,7 +484,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         524
         sentence:   B，D
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     52
@@ -516,7 +516,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         534
         sentence:   66
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     53
@@ -524,7 +524,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         541
         sentence:   ジャーナル情報からの復旧処理時間が平均して約 2 倍になる。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     54
@@ -572,7 +572,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         553
         sentence:   新システムヘの移行時のトラブルの影響が大きい。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     55
@@ -604,7 +604,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         563
         sentence:   インシデントの根本原因を突き止めて排除したり，インシデントの発生を予防したりする。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     56
@@ -628,7 +628,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         572
         sentence:   バージョン管理システムのアクセスコントロールの設定が適切であるとと
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     57
@@ -676,7 +676,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         584
         sentence:   問題発生の可能性とその影響の大きなシステムを対象とする。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     58
@@ -692,7 +692,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         592
         sentence:   当該データの記録媒体に秘密を意味する表示をしていること
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     59
@@ -716,7 +716,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         601
         sentence:   マスタファイルが置かれているサーバを二重化し，耐障害性の向上を図っていること
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     60
@@ -764,7 +764,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         613
         sentence:   経営戦略との整合性を考慮すること
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     61
@@ -788,7 +788,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         622
         sentence:   業務プロセスに分析，設計，実行，改善のマネジメントサイクルを取り入れ，業務プロセスの改善見直しや最適なプロセスへの統合を継続的に実施する。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     62
@@ -812,7 +812,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         631
         sentence:   インターネット経由でアプリケーションソフトウェアの機能を，必要なときだけ利用者に提供するサービスのこと
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     63
@@ -844,7 +844,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         641
         sentence:   a
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     64
@@ -876,7 +876,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         651
         sentence:   サーバなど情報機器の保守費用
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     65
@@ -924,7 +924,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         663
         sentence:   経営事業の目的，目標を達成するために必要なシステムに関係する経営上のニーズ，システム化，システム改善を必要とする業務上の課題などの要求事項
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     66
@@ -956,7 +956,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         673
         sentence:   新規参入による脅威
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     67
@@ -996,7 +996,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         684
         sentence:   製造原価，営業費を基準にし，希望マージンを織り込んで価格を決める。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     68
@@ -1004,7 +1004,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         691
         sentence:   市場が商品の価値を理解し始める。商品ラインもチャネルも拡大しなければならない。この時期は売上も伸びるが，投資も必要である。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     69
@@ -1036,7 +1036,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         701
         sentence:   顧客ロイヤルティの獲得と顧客生涯価値の最大化
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     70
@@ -1068,7 +1068,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         711
         sentence:   企業内に散在している知識を共有化し，全体の問題解決力を高める経営を行う。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     71
@@ -1124,7 +1124,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         724
         sentence:   情報リテラシの有無やITの利用環境の相違などによって生じる，社会的又は経済的格差のことである。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     72
@@ -1148,7 +1148,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         733
         sentence:   多種類かつフレキシブルな生産が求められるもの
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     73
@@ -1188,7 +1188,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         744
         sentence:   ロングテール
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     74
@@ -1212,7 +1212,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         753
         sentence:   特定の専門業務や企画業務において，労働時間は，実際の労働時間に関係なく，労使間であらかじめ取り決めた労働時間とみなす。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     75
@@ -1244,7 +1244,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         763
         sentence:   6
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     76
@@ -1269,7 +1269,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         772
         sentence:   
-        isAnswer:   false
+        isAnswer:   true
         hasImage:   true
         question:
             !!models.entity.Question
@@ -1304,7 +1304,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         782
         sentence:   収集した情報を相互の関連によってグループ化し，解決すべき問題点を明確にする方法である。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     78
@@ -1336,7 +1336,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         792
         sentence:   コンパイラのプログラム
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     79
@@ -1376,7 +1376,7 @@ optionItems:
     - !!models.entity.OptionItem
         id:         803
         sentence:   N氏は派遣期間中の仕事に関する指示を，B社の担当者から直接受けることにした。
-        isAnswer:   false
+        isAnswer:   true
         question:
             !!models.entity.Question
             id:     80
