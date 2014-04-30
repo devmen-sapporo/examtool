@@ -16,28 +16,45 @@
   <table class="table">
             <thead>
             <tr>
+              @if(answerSheet.isFinished()) { <th></th> }
               <th>問</th>
               <th>問題</th>
+              @if(!answerSheet.isFinished()) {
               <th>回答</th>
               <th>マーク</th>
+              }
             </tr>
           </thead>
           <tbody>
             @for(i <- 0 to answerSheet.answerColumns.size - 1) {
             <tr>
+              @if(answerSheet.isFinished()) {
+                  @if(answerSheet.getAnswerColumns().get(i).isCorrect()) {
+                      <td>○</td>
+                  } else {
+                      @if(answerSheet.getAnswerColumns().get(i).isAnswered()){
+                          <td>×</td>
+                      } else {
+                          <td>-</td>
+                      }
+                  }
+              }
+              
               <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@{i+1}</a></td>
               <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@answerSheet.answerColumns.get(i).question.sentence</a></td>
-              @if(answerSheet.answerColumns.get(i).isAnswered()){
-                @if(answerSheet.answerColumns.get(i).selectedOptionItem.sentence.length() > 12){
-                  	<td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence.substring(12) ...</td>
-                } else {
-                    <td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence</td>
-                    
-               }
-              } else {
-              	<td/>
-              }
-              <td><span class="glyphicon glyphicon-question-sign"></span></td>
+              @if(!answerSheet.isFinished()) {
+	              @if(answerSheet.answerColumns.get(i).isAnswered()){
+	                @if(answerSheet.answerColumns.get(i).selectedOptionItem.sentence.length() > 12){
+	                  	<td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence.substring(12) ...</td>
+	                } else {
+	                    <td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence</td>
+	                    
+	               }
+	              } else {
+	              	<td/>
+	              }
+	              <td><span class="glyphicon glyphicon-question-sign"></span></td>
+	          }
             </tr>
             }
           </tbody>

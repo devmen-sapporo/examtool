@@ -32,7 +32,7 @@ public final class AnswerSheet extends Model {
 	public List<AnswerColumn> answerColumns = new ArrayList<>();
 
 	/** 終了済かどうかを示すリスト */
-	private boolean isFinished = false;
+	public boolean isFinished = false;
 
 	/** 点数 */
 	private int score = 0;
