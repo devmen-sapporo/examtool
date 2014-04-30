@@ -93,8 +93,8 @@ public class Examination extends Controller {
 	}
 
 	public static Result finishExam(Long answerSheetId) {
-
 		AnswerSheet answerSheet = new AnswerSheet(answerSheetId).unique().get();
+		answerSheet.mark();
         return ok(examresult.render(0, answerSheet));
 	}
 }
