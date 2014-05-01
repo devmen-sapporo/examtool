@@ -1,6 +1,20 @@
 @(result: Integer, answerSheet: models.entity.AnswerSheet)
 
 @main("試験結果") {
+<style type="text/css">
+    <!--
+    .war {  
+        background: #E3F2DA;  
+    }
+    .fine {  
+        background: #E3F2DA;  
+    }
+    .ng {  
+        background: #E3F2DA;  
+    }
+    -->
+    </style>
+
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
@@ -26,23 +40,24 @@
             </tr>
           </thead>
           <tbody>
-            @for(i <- 0 to answerSheet.answerColumns.size - 1) {
             <tr>
+            @for(i <- 0 to answerSheet.answerColumns.size - 1) {
               @if(answerSheet.isFinished()) {
                   @if(answerSheet.getAnswerColumns().get(i).isCorrect()) {
-                      <td>○</td>
+                      <td style="color: #3c763d; background-color: #dff0d8;"><span class="glyphicon glyphicon glyphicon-thumbs-up"></span></td>
                   } else {
                       @if(answerSheet.getAnswerColumns().get(i).isAnswered()){
-                          <td>×</td>
+                        <td style="color: #a94442; background-color: #f2dede;"><span class="glyphicon glyphicon glyphicon-thumbs-down"></span></td>
                       } else {
-                          <td>-</td>
+                        <td style="color: #8a6d3b; background-color: #fcf8e3;"><span class="glyphicon glyphicon glyphicon-minus"></span></td>
                       }
                   }
               }
               
+              @if(!answerSheet.isFinished()) {
               <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@{i+1}</a></td>
               <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@answerSheet.answerColumns.get(i).question.sentence</a></td>
-              @if(!answerSheet.isFinished()) {
+
 	              @if(answerSheet.answerColumns.get(i).isAnswered()){
 	                @if(answerSheet.answerColumns.get(i).selectedOptionItem.sentence.length() > 12){
 	                  	<td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence.substring(12) ...</td>
@@ -54,6 +69,9 @@
 	              	<td/>
 	              }
 	              <td><span class="glyphicon glyphicon-question-sign"></span></td>
+	          } else {
+	            <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@{i+1}</a></td>
+                <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@answerSheet.answerColumns.get(i).question.sentence</a></td>
 	          }
             </tr>
             }
