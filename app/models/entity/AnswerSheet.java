@@ -17,6 +17,23 @@ import play.libs.F.Option;
 @Entity
 public final class AnswerSheet extends Model {
 	
+	protected class AnswerColumnComparator implements Comparator<AnswerColumn>  {
+
+		@Override
+		public int compare(AnswerColumn o1, AnswerColumn o2) {
+	        int no1 = o1.question.no;
+	        int no2 = o2.question.no;
+
+	        if (no1 > no2) {
+	            return 1;
+	        } else if (no1 == no2) {
+	            return 0;
+	        } else {
+	            return -1;
+			}
+		}
+	}
+	
 	@Id
 	public Long id;
 
@@ -36,7 +53,6 @@ public final class AnswerSheet extends Model {
 
 	/** 点数 */
 	private int score = 0;
-	
 	
 	private int currentIndex = 0;
 
@@ -112,19 +128,12 @@ public final class AnswerSheet extends Model {
 	}
 	
 
-//	/**
-//	 * 問題シートを取得します。
-//	 * @return questionSheet
-//	 */
-//	public QuestionSheet getQuestionSheet() {
-//		return questionSheet;
-//	}
-
 	/**
 	 * 得点欄を取得します。
 	 * @return answerColumns
 	 */
 	public List<AnswerColumn> getAnswerColumns() {
+		Collections.sort(answerColumns, new AnswerColumnComparator());
 		return answerColumns;
 	}
 
