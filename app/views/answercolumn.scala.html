@@ -87,9 +87,10 @@ FR 種別
         <h4>問 @answerSheet.answerColumns.get(index).question.no</h4>
         <h4>@answerSheet.answerColumns.get(index).question.sentence</h5>
         @if(answerSheet.answerColumns.get(index).question.hasImage) {
-            <img src="@routes.Assets.at("images/question/" + answerSheet.answerColumns.get(index).question.getImageFileName())" width="100%" />
+            <div style="text-align: center; background-color:#FFFFFF;">
+            <img style="max-width:450px;" src="@routes.Assets.at("images/question/" + answerSheet.answerColumns.get(index).question.getImageFileName())" width="100%" />
+            </div>
         }
-        
     </div>
     
     <!-- Form ---------->

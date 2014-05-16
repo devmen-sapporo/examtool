@@ -31,11 +31,6 @@ public class Application extends JavaController {
 		public String password;
 	}
 
-	public static class SampleData {
-		public String message;
-		public String name;
-	}
-
 	/**
 	 * -> ログイン画面 -> メニュー画面
 	 * 
@@ -48,20 +43,21 @@ public class Application extends JavaController {
 	}
 
 	public static Result signIn() {
-		Form<SignInData> formSignInData = form(SignInData.class)
-				.bindFromRequest();
+		Form<SignInData> formSignInData = form(SignInData.class).bindFromRequest();
 		if (formSignInData.hasErrors()) {
-			return badRequest(index.render("サインインに失敗しました。",
-					form(SampleData.class)));
+			return badRequest(index.render("サインインに失敗しました。"));
 		}
 
 		SignInData data = formSignInData.get();
 		String mail = data.mail;
 		String password = data.password;
 		if (Account.authenticate(mail, password) == null) {
-			return badRequest(index.render("メールアドレス、またはパスワードに誤りがあります。",
-					form(SampleData.class)));
+			return badRequest(index.render("メールアドレス、またはパスワードに誤りがあります。"));
 		}
+		
+		// ログイン成功時キャッシュをクリアし、メールアドレスを保存
+        session().clear();
+        session("email", mail);
 
 		List<ExamCategory> categorys = getCategoryList();
 		return ok(menu.render(mail, categorys));
@@ -99,6 +95,11 @@ public class Application extends JavaController {
 		return ok(login.render("", url, "", form(Login.class)));
 	}
 
+	public static Result relogin() {
+		String url = getRedirectAction("FacebookClient", "/result").getLocation();
+		return ok(login.render("", url, "", form(Login.class)));
+	}
+
 	@RequireCSRFCheck
 	public static Result authenticate() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
@@ -118,11 +119,11 @@ public class Application extends JavaController {
 			return redirect(returnUrl);
 		}
 	}
-
+	
 	@play.mvc.Security.Authenticated(models.Secured.class)
 	public static Result logout() {
 		session().clear();
-		return redirect(routes.Application.login());
+		return redirect(routes.Application.relogin());
 	}
 
 	public static Result result() {

@@ -53,14 +53,13 @@
                       }
                   }
               }
-              
-              @if(!answerSheet.isFinished()) {
-              <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@{i+1}</a></td>
+              <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@answerSheet.answerColumns.get(i).question.no</a></td>
               <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@answerSheet.answerColumns.get(i).question.sentence</a></td>
+              @if(!answerSheet.isFinished()) {
 
 	              @if(answerSheet.answerColumns.get(i).isAnswered()){
-	                @if(answerSheet.answerColumns.get(i).selectedOptionItem.sentence.length() > 12){
-	                  	<td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence.substring(12) ...</td>
+	                @if(answerSheet.answerColumns.get(i).selectedOptionItem.sentence.length() > 20){
+	                  	<td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence.substring(0, 19) ...</td>
 	                } else {
 	                    <td>@answerSheet.answerColumns.get(i).selectedOptionItem.sentence</td>
 	                    
@@ -69,9 +68,6 @@
 	              	<td/>
 	              }
 	              <td><span class="glyphicon glyphicon-question-sign"></span></td>
-	          } else {
-	            <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@answerSheet.answerColumns.get(i).question.no</a></td>
-                <td><a href="@routes.Examination.changeAnswerColumn(i, answerSheet.id)">@answerSheet.answerColumns.get(i).question.sentence</a></td>
 	          }
             </tr>
             }

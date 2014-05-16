@@ -3,10 +3,12 @@ package models;
 import java.security.*;
 
 import models.entity.*;
+import play.data.*;
 import play.data.validation.*;
 import play.db.ebean.*;
  
 public class Login {
+	
 	@Constraints.Required
 	private String mail;
 	
@@ -36,12 +38,20 @@ public class Login {
 		return null;
 	}
 	
+	/**
+	 * 認証を行います。成功時はアカウント情報を返します。
+	 * @param mail
+	 * @param password
+	 * @return アカウント情報
+	 * @throws java.security.NoSuchAlgorithmException
+	 */
 	public static Account authenticate(String mail, String password) throws java.security.NoSuchAlgorithmException {
 		Model.Finder<Long, Account> finder = new Model.Finder<Long, Account>(Long.class, Account.class);
 		String hashedPassword = "";
 		if (password != null) {
 			hashedPassword = sha512(password);
 		}
+		
 		return finder.where()
 				.eq("mail", mail)
 				.eq("password", hashedPassword)
