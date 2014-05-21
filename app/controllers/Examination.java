@@ -52,15 +52,12 @@ public class Examination extends Controller {
 	}
 
 	/**
-	 * 
+	 * 解答し、問題を切り替えます。
 	 * @return
 	 */
 	public static Result answerAndChange() {
 
 		Map<String, String[]> form = request().body().asFormUrlEncoded();
-		
-		Logger.info("受けたインデックスは => " + form.get("currentIndex")[0]);
-		Logger.info("次のインデックスは => " + form.get("nextIndex")[0]);
 		
 		int currentIndex = Integer.parseInt(form.get("currentIndex")[0]);
 		int nextIndex = Integer.parseInt(form.get("nextIndex")[0]);
