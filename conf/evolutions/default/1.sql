@@ -20,6 +20,13 @@ create table answer_column (
   constraint pk_answer_column primary key (id))
 ;
 
+create table answer_history (
+  id                        bigint not null,
+  account_id                bigint,
+  answer_column_id          bigint,
+  constraint pk_answer_history primary key (id))
+;
+
 create table answer_sheet (
   id                        bigint not null,
   operation_date            timestamp,
@@ -82,6 +89,8 @@ create sequence account_seq;
 
 create sequence answer_column_seq;
 
+create sequence answer_history_seq;
+
 create sequence answer_sheet_seq;
 
 create sequence category_seq;
@@ -102,14 +111,18 @@ alter table answer_column add constraint fk_answer_column_answerSheet_3 foreign 
 create index ix_answer_column_answerSheet_3 on answer_column (answer_sheet_id);
 alter table answer_column add constraint fk_answer_column_selectedOptio_4 foreign key (selected_option_item_id) references option_item (id) on delete restrict on update restrict;
 create index ix_answer_column_selectedOptio_4 on answer_column (selected_option_item_id);
-alter table answer_sheet add constraint fk_answer_sheet_account_5 foreign key (account_id) references account (id) on delete restrict on update restrict;
-create index ix_answer_sheet_account_5 on answer_sheet (account_id);
-alter table option_item add constraint fk_option_item_question_6 foreign key (question_id) references question (id) on delete restrict on update restrict;
-create index ix_option_item_question_6 on option_item (question_id);
-alter table question add constraint fk_question_category_7 foreign key (category_id) references category (id) on delete restrict on update restrict;
-create index ix_question_category_7 on question (category_id);
-alter table question add constraint fk_question_season_8 foreign key (season_id) references season (id) on delete restrict on update restrict;
-create index ix_question_season_8 on question (season_id);
+alter table answer_history add constraint fk_answer_history_account_5 foreign key (account_id) references account (id) on delete restrict on update restrict;
+create index ix_answer_history_account_5 on answer_history (account_id);
+alter table answer_history add constraint fk_answer_history_answerColumn_6 foreign key (answer_column_id) references answer_column (id) on delete restrict on update restrict;
+create index ix_answer_history_answerColumn_6 on answer_history (answer_column_id);
+alter table answer_sheet add constraint fk_answer_sheet_account_7 foreign key (account_id) references account (id) on delete restrict on update restrict;
+create index ix_answer_sheet_account_7 on answer_sheet (account_id);
+alter table option_item add constraint fk_option_item_question_8 foreign key (question_id) references question (id) on delete restrict on update restrict;
+create index ix_option_item_question_8 on option_item (question_id);
+alter table question add constraint fk_question_category_9 foreign key (category_id) references category (id) on delete restrict on update restrict;
+create index ix_question_category_9 on question (category_id);
+alter table question add constraint fk_question_season_10 foreign key (season_id) references season (id) on delete restrict on update restrict;
+create index ix_question_season_10 on question (season_id);
 
 
 
@@ -120,6 +133,8 @@ SET REFERENTIAL_INTEGRITY FALSE;
 drop table if exists account;
 
 drop table if exists answer_column;
+
+drop table if exists answer_history;
 
 drop table if exists answer_sheet;
 
@@ -140,6 +155,8 @@ SET REFERENTIAL_INTEGRITY TRUE;
 drop sequence if exists account_seq;
 
 drop sequence if exists answer_column_seq;
+
+drop sequence if exists answer_history_seq;
 
 drop sequence if exists answer_sheet_seq;
 

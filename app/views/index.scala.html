@@ -1,21 +1,66 @@
 @(message: String)
 
-@main("Welcome to Play") {
+@**
+一列分のコンテンツ説明を表示。
+*@
+@columnItem(title: String, imageFilePath: String, description: String, isEnable: Boolean)={
+    <div class="col-sm-4">
+        <img src="@routes.Assets.at(imageFilePath)" alt="Generic placeholder image">
+  
+        <h2>@title</h2>
+        
+        @helper.form(action = routes.Application.menu){
+	        @if(isEnable) {
+	          <input type="submit" value=" 開 始 &raquo;" class="btn btn-success">
+	        } else {
+	          <input type="submit" value=" 開 始 &raquo;" class="btn btn-default disabled">
+	        }
+        }
+        <div class="row" style="height: 100px; padding-top: 10px;">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-11">
+           @Html(description)
+           </div>
+        </div>
+    </div>
+}
 
-	<h1>Play Framework lesson
-	<img src="@routes.Assets.at("images/logo_b.png")" height="100" width="100" />
-	</h1>
-	
-	@if(message != null) {
-    	<div class="alert alert-danger">@message</div>
-	}
-	
-	<div class="well">
-	@helper.form(action = routes.Application.signIn){
-        表示されないフォーム
-		<input type="submit" value="Sign in" class="btn btn-primary">
-	}
+@main("Welcome to Play") {
+    
+    <div class="row"> 
+	   <div class="col-sm-3 col-lg-3"></div>
+	   <div class="col-sm-6 col-lg-6">
+	   <h1 style="text-align: center">特訓 情報処理試験
+	   <img src="@routes.Assets.at("images/logo_b.png")" height="100" width="100" />
+	   </h1>
+	   </div>
+	   <div class="col-sm-3 col-lg-3"></div>
 	</div>
+	
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        @columnItem("トレーニング",
+                    "images/traning.png",
+                    "自由に問題を選択し、回答できます。<br>サインインしている場合、回答履歴は保存され後から参照することができます。<br>日々の時間の合間にトレーニング！",
+                    false)
+        @columnItem("試験", 
+                    "images/examination.png",
+                    "20 ~ 80問の問題を規定時間内に解いて実力を確認できます。<br>定期的に実施し自分の弱点を見つけよう。<br>サインインすると履歴が保存され分野ごとの強み弱みが分析できます。",
+                    true)
+        @columnItem("個人データ", 
+                    "images/anal.png",
+                    "目標の試験までの日程や履歴情報から午前試験の合格可能性を表示します。<br>問題をたくさん説いてデータの精度を高めよう！",
+                    false)
+      </div><!-- /.row -->
+    </div>
+    <br><r>
+	<div class="well">
+        <div style="text-align: center">
+        秋の情報処理試験まで あと <div class="alert alert-success" style="display:inline; margin-top:10px"><h1 style="display:inline;  margin-top:10px">12</h1></div>日
+    </div>
+    </div>
 
     <div class="fb-like" data-href="http://examtool.herokuapp.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
 

@@ -45,7 +45,14 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-cog"></span></a></li>
-      <li><a href="@routes.Application.logout()">Logout</a></li>
+      @if(session.get("mail") != null) {
+        <li><p class="navbar-text" style="padding-left: 0px; margin-left: 5px"><span class="glyphicon glyphicon-user"></span> @session.get("mail")</p></li>
+        <li class="active"><a href="@routes.Application.logout()">Logout</a></li>
+      } else {
+        <li class="active"><a href="@routes.Application.login()">Login</a></li>
+      }
+      
+      
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

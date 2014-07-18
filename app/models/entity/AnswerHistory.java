@@ -25,16 +25,20 @@ public class AnswerHistory extends Model {
 	 * 
 	 * @param answerColumn 解答
 	 */
-	public AnswerHistory(AnswerColumn answerColumn) {
+	public AnswerHistory(Account account, AnswerColumn answerColumn) {
 		super();
+		this.account = account;
 		this.answerColumn = answerColumn;
 	}
 	
 	@Id
 	public long id;
 	
+	/** アカウント */
+	@ManyToOne
+	public Account account;
+	
 	/** 問題 */
 	@ManyToOne
 	public AnswerColumn answerColumn;
-
 }

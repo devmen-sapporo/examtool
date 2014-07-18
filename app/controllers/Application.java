@@ -14,7 +14,6 @@ import play.*;
 import play.data.*;
 import play.data.validation.Constraints.Email;
 import play.data.validation.Constraints.Required;
-import play.filters.csrf.*;
 import play.mvc.*;
 import views.html.*;
 
@@ -36,10 +35,11 @@ public class Application extends JavaController {
 	 * 
 	 * @return
 	 */
-	@play.mvc.Security.Authenticated(models.Secured.class)
+	//@play.mvc.Security.Authenticated(models.Secured.class)
 	public static Result index() {
 		List<ExamCategory> categorys = getCategoryList();
-		return ok(menu.render("", categorys));
+//		return ok(menu.render("", categorys));
+		return ok(index.render(""));
 	}
 
 	public static Result signIn() {
@@ -61,6 +61,11 @@ public class Application extends JavaController {
 
 		List<ExamCategory> categorys = getCategoryList();
 		return ok(menu.render(mail, categorys));
+	}
+
+	public static Result menu() {
+		List<ExamCategory> categorys = getCategoryList();
+		return ok(menu.render("", categorys));
 	}
 
 	/**
@@ -89,7 +94,7 @@ public class Application extends JavaController {
 		return examCategorys;
 	}
 
-	@AddCSRFToken
+//	@AddCSRFToken
 	public static Result login() {
 		String url = getRedirectAction("FacebookClient", "/result").getLocation();
 		return ok(login.render("", url, "", form(Login.class)));
@@ -100,7 +105,7 @@ public class Application extends JavaController {
 		return ok(login.render("", url, "", form(Login.class)));
 	}
 
-	@RequireCSRFCheck
+//	@RequireCSRFCheck
 	public static Result authenticate() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
 		if (loginForm.hasErrors()) {
