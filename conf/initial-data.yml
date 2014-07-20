@@ -3,6 +3,12 @@
 users:
 
     - !!models.entity.Account
+        id:         9999
+        name:       guest
+        mail:       dummy
+        password:   dummy
+
+    - !!models.entity.Account
         id:         1
         name:       Atsushi Suzuki
         mail:       atsushisuzuki.mail@gmail.com

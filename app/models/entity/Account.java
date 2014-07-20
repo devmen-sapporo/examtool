@@ -8,8 +8,16 @@ import play.data.validation.Constraints.Required;
 import play.db.ebean.*;
 import play.libs.F.Option;
 
+/**
+ * アカウントクラス です。
+ * Id = 0 の場合はゲストユーザとします。
+ * @author Hiroyuki
+ *
+ */
 @Entity
 public class Account extends Model {
+
+	public static long GuestId = 9999;
 
 	/**
 	 * コンストラクタ
@@ -44,6 +52,16 @@ public class Account extends Model {
 	public Option<Account> unique() {
 		return new AccountModelService().findById(id);
 	}
+	
+	/**
+	 * ゲストユーザかどうかを判定します。
+	 * 
+	 * @return ゲストユーザの場合 true を返します。
+	 */
+	public boolean isGuest() {
+		return (this.id == 0L);
+	}
+	
 
 	@Override
 	public String toString() {

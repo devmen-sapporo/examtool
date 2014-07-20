@@ -68,7 +68,14 @@ public class Examination extends Controller {
 
 	private static AnswerSheet createAnswerSheets(QuestionSheet questionSheet) {
 		String mail = ctx().session().get("mail");
-		Account account = Account.find.where().eq("mail", mail).findList().get(0);
+		
+		Account account;
+		if (mail != null) {
+			account = Account.find.where().eq("mail", mail).findList().get(0);
+		} else {
+			account = Account.find.where().eq("id", Account.GuestId).findList().get(0);
+		}
+		
 		return new AnswerSheet(account, questionSheet);
 	}
 
@@ -95,10 +102,13 @@ public class Examination extends Controller {
 		answerSheet.update();
 
 		String mail = ctx().session().get("mail");
-		Account account = Account.find.where().eq("mail", mail).findList().get(0);
 
-		for (AnswerColumn column : answerSheet.answerColumns) {
-			new AnswerHistory(account, column).save();
+		if (mail != null) { 
+			Account account = Account.find.where().eq("mail", mail).findList().get(0);
+	
+			for (AnswerColumn column : answerSheet.answerColumns) {
+				new AnswerHistory(account, column).save();
+			}
 		}
 
 		return ok(examresult.render(0, answerSheet));
