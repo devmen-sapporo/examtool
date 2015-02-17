@@ -1395,3 +1395,943 @@ optionItems:
             !!models.entity.Question
             id:     80
 
+    - !!models.entity.Tag
+        id:         A01
+        name:       基礎理論
+
+
+    - !!models.entity.Tag
+        id:         A01_001
+        name:       基礎理論
+        parent:
+            !!models.entity.Tag
+            id:         A01
+
+    - !!models.entity.Tag
+        id:         A01_001_001
+        name:       基礎理論 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001
+
+    - !!models.entity.Tag
+        id:         A01_001_001_01
+        name:       離散数学 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001_001
+
+    - !!models.entity.Tag
+        id:         A01_001_001_02
+        name:       応用数学 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001_001
+
+    - !!models.entity.Tag
+        id:         A01_001_001_03
+        name:       情報に関する理論 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001_001
+
+    - !!models.entity.Tag
+        id:         A01_001_001_04
+        name:       通信に関する理論 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001_001
+
+    - !!models.entity.Tag
+        id:         A01_001_001_05
+        name:       計測・制御に関する理論 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001_001
+
+    - !!models.entity.Tag
+        id:         A01_001_002
+        name:       アルゴリズムとプログラミング 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001
+
+    - !!models.entity.Tag
+        id:         A01_001_002_01
+        name:       データ構造 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001_002
+
+    - !!models.entity.Tag
+        id:         A01_001_002_02
+        name:       アルゴリズム 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001_002
+
+    - !!models.entity.Tag
+        id:         A01_001_002_03
+        name:       プログラミング 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001_002
+
+    - !!models.entity.Tag
+        id:         A01_001_002_04
+        name:       プログラム言語 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001_002
+
+    - !!models.entity.Tag
+        id:         A01_001_002_05
+        name:       その他の言語 
+        parent:
+            !!models.entity.Tag
+            id:         A01_001_002
+
+    - !!models.entity.Tag
+        id:         A01_002
+        name:       コンピュータシステム
+        parent:
+            !!models.entity.Tag
+            id:         A01
+
+    - !!models.entity.Tag
+        id:         A01_002_001
+        name:       コンピュータ構成要素 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002
+
+    - !!models.entity.Tag
+        id:         A01_002_001_01
+        name:       プロセッサ 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_001
+
+    - !!models.entity.Tag
+        id:         A01_002_001_02
+        name:       メモリ 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_001
+
+    - !!models.entity.Tag
+        id:         A01_002_001_03
+        name:       バス 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_001
+
+    - !!models.entity.Tag
+        id:         A01_002_001_04
+        name:       入出力デバイス 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_001
+
+    - !!models.entity.Tag
+        id:         A01_002_001_05
+        name:       入出力装置 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_001
+
+    - !!models.entity.Tag
+        id:         A01_002_002
+        name:       システム構成要素 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002
+
+    - !!models.entity.Tag
+        id:         A01_002_002_01
+        name:       システムの構成 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_002
+
+    - !!models.entity.Tag
+        id:         A01_002_002_02
+        name:       システムの評価指標 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_002
+
+    - !!models.entity.Tag
+        id:         A01_002_003
+        name:       ソフトウェア 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002
+
+    - !!models.entity.Tag
+        id:         A01_002_003_01
+        name:       オペレーティングシステム 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_003
+
+    - !!models.entity.Tag
+        id:         A01_002_003_02
+        name:       ミドルウェア 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_003
+
+    - !!models.entity.Tag
+        id:         A01_002_003_03
+        name:       ファイルシステム 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_003
+
+    - !!models.entity.Tag
+        id:         A01_002_003_04
+        name:       開発ツール 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_003
+
+    - !!models.entity.Tag
+        id:         A01_002_003_05
+        name:       オープンソースソフトウェア
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_003
+
+    - !!models.entity.Tag
+        id:         A01_002_004
+        name:       ハードウェア 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002
+
+    - !!models.entity.Tag
+        id:         A01_002_004_01
+        name:       ハードウェア 
+        parent:
+            !!models.entity.Tag
+            id:         A01_002_004
+
+    - !!models.entity.Tag
+        id:         A01_003
+        name:       技術要素
+        parent:
+            !!models.entity.Tag
+            id:         A01
+
+    - !!models.entity.Tag
+        id:         A01_003_001
+        name:       ヒューマンインタフェース 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003
+
+    - !!models.entity.Tag
+        id:         A01_003_001_01
+        name:       ヒューマンインタフェース技術 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_001
+
+    - !!models.entity.Tag
+        id:         A01_003_001_02
+        name:       インタフェース設計 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_001
+
+    - !!models.entity.Tag
+        id:         A01_003_002
+        name:       マルチメディア 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003
+
+    - !!models.entity.Tag
+        id:         A01_003_002_01
+        name:       マルチメディア技術 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_002
+
+    - !!models.entity.Tag
+        id:         A01_003_002_02
+        name:       マルチメディア応用 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_002
+
+    - !!models.entity.Tag
+        id:         A01_003_003
+        name:       データベース 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003
+
+    - !!models.entity.Tag
+        id:         A01_003_003_01
+        name:       データベース方式 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_003
+
+    - !!models.entity.Tag
+        id:         A01_003_003_02
+        name:       データベース設計 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_003
+
+    - !!models.entity.Tag
+        id:         A01_003_003_03
+        name:       データ操作 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_003
+
+    - !!models.entity.Tag
+        id:         A01_003_003_04
+        name:       トランザクション処理 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_003
+
+    - !!models.entity.Tag
+        id:         A01_003_003_05
+        name:       データベース応用 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_003
+
+    - !!models.entity.Tag
+        id:         A01_003_004
+        name:       ネットワーク 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003
+
+    - !!models.entity.Tag
+        id:         A01_003_004_01
+        name:       ネットワーク方式 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_004
+
+    - !!models.entity.Tag
+        id:         A01_003_004_02
+        name:       データ通信と制御
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_004
+
+    - !!models.entity.Tag
+        id:         A01_003_004_03
+        name:       通信プロトコル 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_004
+
+    - !!models.entity.Tag
+        id:         A01_003_004_04
+        name:       ネットワーク管理 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_004
+
+    - !!models.entity.Tag
+        id:         A01_003_004_05
+        name:       ネットワーク応用 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_004
+
+    - !!models.entity.Tag
+        id:         A01_003_005
+        name:       セキュリティ 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003
+
+    - !!models.entity.Tag
+        id:         A01_003_005_01
+        name:       情報セキュリティ 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_005
+
+    - !!models.entity.Tag
+        id:         A01_003_005_02
+        name:       情報セキュリティ管理 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_005
+
+    - !!models.entity.Tag
+        id:         A01_003_005_03
+        name:       セキュリティ技術評価 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_005
+
+    - !!models.entity.Tag
+        id:         A01_003_005_04
+        name:       情報セキュリティ対策 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_005
+
+    - !!models.entity.Tag
+        id:         A01_003_005_05
+        name:       セキュリティ実装技術 
+        parent:
+            !!models.entity.Tag
+            id:         A01_003_005
+
+    - !!models.entity.Tag
+        id:         A01_004
+        name:       開発技術
+        parent:
+            !!models.entity.Tag
+            id:         A01
+
+    - !!models.entity.Tag
+        id:         A01_004_001
+        name:       システム開発技術 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004
+
+    - !!models.entity.Tag
+        id:         A01_004_001_01
+        name:       システム要件定義 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_001
+
+    - !!models.entity.Tag
+        id:         A01_004_001_02
+        name:       システム方式設計 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_001
+
+    - !!models.entity.Tag
+        id:         A01_004_001_03
+        name:       ソフトウェア要件定義 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_001
+
+    - !!models.entity.Tag
+        id:         A01_004_001_04
+        name:       ソフトウェア方式設計・ソフトウェア詳細設計
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_001
+
+    - !!models.entity.Tag
+        id:         A01_004_001_05
+        name:       ソフトウェア構築 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_001
+
+    - !!models.entity.Tag
+        id:         A01_004_001_06
+        name:       ソフトウェア結合・ソフトウェア適格性確認テスト 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_001
+
+    - !!models.entity.Tag
+        id:         A01_004_001_07
+        name:       システム結合・システム適格性確認テスト 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_001
+
+    - !!models.entity.Tag
+        id:         A01_004_001_08
+        name:       導入 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_001
+
+    - !!models.entity.Tag
+        id:         A01_004_001_09
+        name:       受入れ支援 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_001
+
+    - !!models.entity.Tag
+        id:         A01_004_001_10
+        name:       保守・廃棄 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_001
+
+    - !!models.entity.Tag
+        id:         A01_004_002
+        name:       ソフトウェア開発管理技術 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004
+
+    - !!models.entity.Tag
+        id:         A01_004_002_01
+        name:       開発プロセス・手法 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_002
+
+    - !!models.entity.Tag
+        id:         A01_004_002_02
+        name:       知的財産適用管理 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_002
+
+    - !!models.entity.Tag
+        id:         A01_004_002_03
+        name:       開発環境管理 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_002
+
+    - !!models.entity.Tag
+        id:         A01_004_002_04
+        name:       構成管理・変更管理 
+        parent:
+            !!models.entity.Tag
+            id:         A01_004_002
+
+    - !!models.entity.Tag
+        id:         A02
+        name:       マネジメント系
+
+
+    - !!models.entity.Tag
+        id:         A02_001
+        name:       プロジェクトマネジメント
+        parent:
+            !!models.entity.Tag
+            id:         A02
+
+    - !!models.entity.Tag
+        id:         A02_001_001
+        name:       プロジェクトマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_01
+        name:       プロジェクトマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_010
+        name:       プロジェクト調達マネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_011
+        name:       プロジェクトコミュニケーションマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_02
+        name:       プロジェクト統合マネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_03
+        name:       プロジェクトステークホルダマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_04
+        name:       プロジェクトスコープマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_05
+        name:       プロジェクト資源マネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_06
+        name:       プロジェクトタイムマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_07
+        name:       プロジェクトコストマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_08
+        name:       プロジェクトリスクマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_001_001_09
+        name:       プロジェクト品質マネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_001_001
+
+    - !!models.entity.Tag
+        id:         A02_002
+        name:       サービスマネジメント
+        parent:
+            !!models.entity.Tag
+            id:         A02
+
+    - !!models.entity.Tag
+        id:         A02_002_001
+        name:       サービスマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_002
+
+    - !!models.entity.Tag
+        id:         A02_002_001_01
+        name:       サービスマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_002_001
+
+    - !!models.entity.Tag
+        id:         A02_002_001_02
+        name:       サービスの設計・移行 
+        parent:
+            !!models.entity.Tag
+            id:         A02_002_001
+
+    - !!models.entity.Tag
+        id:         A02_002_001_03
+        name:       サービスマネジメントプロセス 
+        parent:
+            !!models.entity.Tag
+            id:         A02_002_001
+
+    - !!models.entity.Tag
+        id:         A02_002_001_04
+        name:       サービスの運用 
+        parent:
+            !!models.entity.Tag
+            id:         A02_002_001
+
+    - !!models.entity.Tag
+        id:         A02_002_001_05
+        name:       ファシリティマネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A02_002_001
+
+    - !!models.entity.Tag
+        id:         A02_002_002
+        name:       システム監査 
+        parent:
+            !!models.entity.Tag
+            id:         A02_002
+
+    - !!models.entity.Tag
+        id:         A02_002_002_01
+        name:       システム監査 
+        parent:
+            !!models.entity.Tag
+            id:         A02_002_002
+
+    - !!models.entity.Tag
+        id:         A02_002_002_02
+        name:       内部統制
+        parent:
+            !!models.entity.Tag
+            id:         A02_002_002
+
+    - !!models.entity.Tag
+        id:         A03
+        name:       ストラテジ系
+
+
+    - !!models.entity.Tag
+        id:         A03_001
+        name:       システム戦略
+        parent:
+            !!models.entity.Tag
+            id:         A03
+
+    - !!models.entity.Tag
+        id:         A03_001_001
+        name:       システム戦略 
+        parent:
+            !!models.entity.Tag
+            id:         A03_001
+
+    - !!models.entity.Tag
+        id:         A03_001_001_01
+        name:       情報システム戦略 
+        parent:
+            !!models.entity.Tag
+            id:         A03_001_001
+
+    - !!models.entity.Tag
+        id:         A03_001_001_02
+        name:       業務プロセス 
+        parent:
+            !!models.entity.Tag
+            id:         A03_001_001
+
+    - !!models.entity.Tag
+        id:         A03_001_001_03
+        name:       ソリューションビジネス 
+        parent:
+            !!models.entity.Tag
+            id:         A03_001_001
+
+    - !!models.entity.Tag
+        id:         A03_001_001_04
+        name:       システム活用促進・評価 
+        parent:
+            !!models.entity.Tag
+            id:         A03_001_001
+
+    - !!models.entity.Tag
+        id:         A03_001_002
+        name:       システム企画 
+        parent:
+            !!models.entity.Tag
+            id:         A03_001
+
+    - !!models.entity.Tag
+        id:         A03_001_002_01
+        name:       システム化計画 
+        parent:
+            !!models.entity.Tag
+            id:         A03_001_002
+
+    - !!models.entity.Tag
+        id:         A03_001_002_02
+        name:       要件定義 
+        parent:
+            !!models.entity.Tag
+            id:         A03_001_002
+
+    - !!models.entity.Tag
+        id:         A03_001_002_03
+        name:       調達計画・実施 
+        parent:
+            !!models.entity.Tag
+            id:         A03_001_002
+
+    - !!models.entity.Tag
+        id:         A03_002
+        name:       経営戦略
+        parent:
+            !!models.entity.Tag
+            id:         A03
+
+    - !!models.entity.Tag
+        id:         A03_002_001
+        name:       経営戦略マネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002
+
+    - !!models.entity.Tag
+        id:         A03_002_001_01
+        name:       経営戦略手法 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_001
+
+    - !!models.entity.Tag
+        id:         A03_002_001_02
+        name:       マーケティング 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_001
+
+    - !!models.entity.Tag
+        id:         A03_002_001_03
+        name:       ビジネス戦略と目標・評価 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_001
+
+    - !!models.entity.Tag
+        id:         A03_002_001_04
+        name:       経営管理システム 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_001
+
+    - !!models.entity.Tag
+        id:         A03_002_002
+        name:       技術戦略マネジメント 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002
+
+    - !!models.entity.Tag
+        id:         A03_002_002_01
+        name:       技術開発戦略の立案 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_002
+
+    - !!models.entity.Tag
+        id:         A03_002_002_02
+        name:       技術開発計画 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_002
+
+    - !!models.entity.Tag
+        id:         A03_002_002_05
+        name:       産業機器 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_002
+
+    - !!models.entity.Tag
+        id:         A03_002_003
+        name:       ビジネスインダストリ 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002
+
+    - !!models.entity.Tag
+        id:         A03_002_003_01
+        name:       ビジネスシステム 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_003
+
+    - !!models.entity.Tag
+        id:         A03_002_003_02
+        name:       エンジニアリングシステム 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_003
+
+    - !!models.entity.Tag
+        id:         A03_002_003_03
+        name:       e-ビジネス 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_003
+
+    - !!models.entity.Tag
+        id:         A03_002_003_04
+        name:       民生機器 
+        parent:
+            !!models.entity.Tag
+            id:         A03_002_003
+
+    - !!models.entity.Tag
+        id:         A03_003
+        name:       企業と法務
+        parent:
+            !!models.entity.Tag
+            id:         A03
+
+    - !!models.entity.Tag
+        id:         A03_003_001
+        name:       企業活動 
+        parent:
+            !!models.entity.Tag
+            id:         A03_003
+
+    - !!models.entity.Tag
+        id:         A03_003_001_01
+        name:       経営・組織論 
+        parent:
+            !!models.entity.Tag
+            id:         A03_003_001
+
+    - !!models.entity.Tag
+        id:         A03_003_001_02
+        name:       OR・IE 
+        parent:
+            !!models.entity.Tag
+            id:         A03_003_001
+
+    - !!models.entity.Tag
+        id:         A03_003_001_03
+        name:       会計・財務 
+        parent:
+            !!models.entity.Tag
+            id:         A03_003_001
+
+    - !!models.entity.Tag
+        id:         A03_003_002
+        name:       法務 
+        parent:
+            !!models.entity.Tag
+            id:         A03_003
+
+    - !!models.entity.Tag
+        id:         A03_003_002_01
+        name:       知的財産権 
+        parent:
+            !!models.entity.Tag
+            id:         A03_003_002
+
+    - !!models.entity.Tag
+        id:         A03_003_002_02
+        name:       セキュリティ関連法規 
+        parent:
+            !!models.entity.Tag
+            id:         A03_003_002
+
+    - !!models.entity.Tag
+        id:         A03_003_002_03
+        name:       労働関連・取引関連法規 
+        parent:
+            !!models.entity.Tag
+            id:         A03_003_002
+
+    - !!models.entity.Tag
+        id:         A03_003_002_04
+        name:       その他の法律・ガイドライン・技術者倫理 
+        parent:
+            !!models.entity.Tag
+            id:         A03_003_002
+
+    - !!models.entity.Tag
+        id:         A03_003_002_05
+        name:       標準化関連 
+        parent:
+            !!models.entity.Tag
+            id:         A03_003_002
+
+

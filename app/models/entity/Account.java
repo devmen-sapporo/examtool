@@ -59,9 +59,17 @@ public class Account extends Model {
 	 * @return ゲストユーザの場合 true を返します。
 	 */
 	public boolean isGuest() {
-		return (this.id == 0L);
+		return (this.id == GuestId);
 	}
 	
+	/**
+	 * 管理者かどうかを判定します。
+	 * 
+	 * @return 管理者の場合 true を返します。
+	 */
+	public boolean isRoot() {
+		return (this.mail.equals("mae0003@gmail.com") || this.mail.equals("atsushisuzuki.mail@gmail.com"));
+	}
 
 	@Override
 	public String toString() {

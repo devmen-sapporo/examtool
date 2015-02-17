@@ -17,6 +17,7 @@ create table answer_column (
   question_id               bigint,
   answer_sheet_id           bigint,
   selected_option_item_id   bigint,
+  answer_date               timestamp,
   constraint pk_answer_column primary key (id))
 ;
 
@@ -44,15 +45,6 @@ create table category (
   constraint pk_category primary key (id))
 ;
 
-create table message (
-  id                        bigint not null,
-  name                      varchar(255),
-  mail                      varchar(255),
-  message                   varchar(255),
-  post_date                 timestamp not null,
-  constraint pk_message primary key (id))
-;
-
 create table option_item (
   id                        bigint not null,
   sentence                  varchar(255),
@@ -70,6 +62,7 @@ create table question (
   no                        integer,
   sentence                  varchar(255),
   has_image                 boolean,
+  tag_id                    varchar(255),
   constraint pk_question primary key (id))
 ;
 
@@ -85,6 +78,13 @@ create table season (
   constraint pk_season primary key (id))
 ;
 
+create table tag (
+  id                        varchar(255) not null,
+  name                      varchar(255),
+  parent_id                 varchar(255),
+  constraint pk_tag primary key (id))
+;
+
 create sequence account_seq;
 
 create sequence answer_column_seq;
@@ -95,13 +95,13 @@ create sequence answer_sheet_seq;
 
 create sequence category_seq;
 
-create sequence message_seq;
-
 create sequence option_item_seq;
 
 create sequence question_seq;
 
 create sequence season_seq;
+
+create sequence tag_seq;
 
 alter table answer_column add constraint fk_answer_column_account_1 foreign key (account_id) references account (id) on delete restrict on update restrict;
 create index ix_answer_column_account_1 on answer_column (account_id);
@@ -123,6 +123,10 @@ alter table question add constraint fk_question_category_9 foreign key (category
 create index ix_question_category_9 on question (category_id);
 alter table question add constraint fk_question_season_10 foreign key (season_id) references season (id) on delete restrict on update restrict;
 create index ix_question_season_10 on question (season_id);
+alter table question add constraint fk_question_tag_11 foreign key (tag_id) references tag (id) on delete restrict on update restrict;
+create index ix_question_tag_11 on question (tag_id);
+alter table tag add constraint fk_tag_parent_12 foreign key (parent_id) references tag (id) on delete restrict on update restrict;
+create index ix_tag_parent_12 on tag (parent_id);
 
 
 
@@ -140,8 +144,6 @@ drop table if exists answer_sheet;
 
 drop table if exists category;
 
-drop table if exists message;
-
 drop table if exists option_item;
 
 drop table if exists question;
@@ -149,6 +151,8 @@ drop table if exists question;
 drop table if exists question_sheet;
 
 drop table if exists season;
+
+drop table if exists tag;
 
 SET REFERENTIAL_INTEGRITY TRUE;
 
@@ -162,11 +166,11 @@ drop sequence if exists answer_sheet_seq;
 
 drop sequence if exists category_seq;
 
-drop sequence if exists message_seq;
-
 drop sequence if exists option_item_seq;
 
 drop sequence if exists question_seq;
 
 drop sequence if exists season_seq;
+
+drop sequence if exists tag_seq;
 

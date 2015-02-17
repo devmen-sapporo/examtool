@@ -67,6 +67,12 @@ public class Question extends Model {
 			Long.class, Question.class);
 
 	/**
+	 * タグ情報
+	 */
+	@OneToOne
+	public Tag tag;
+	
+	/**
 	 * コンストラクタ
 	 */
 	public Question(Long id) {

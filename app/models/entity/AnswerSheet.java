@@ -16,7 +16,7 @@ import play.libs.F.Option;
  */
 @Entity
 public final class AnswerSheet extends Model {
-	
+
 	protected class AnswerColumnComparator implements Comparator<AnswerColumn>  {
 
 		@Override
@@ -33,7 +33,7 @@ public final class AnswerSheet extends Model {
 			}
 		}
 	}
-	
+
 	@Id
 	public Long id;
 
@@ -53,7 +53,7 @@ public final class AnswerSheet extends Model {
 
 	/** 点数 */
 	private int score = 0;
-	
+
 	private int currentIndex = 0;
 
 	public AnswerSheet(long id) {
@@ -102,11 +102,11 @@ public final class AnswerSheet extends Model {
 	public int getQuestionCount() {
 		return this.answerColumns.size();
 	}
-	
+
 	/**
-	 * 回答済みの問題数を取得します。
+	 * 解答済みの問題数を取得します。
 	 * 
-	 * @return 回答済みの問題数
+	 * @return 解答済みの問題数
 	 */
 	public int getAnsweredCount() {
 		int count = 0;
@@ -117,16 +117,15 @@ public final class AnswerSheet extends Model {
 		
 		return count;
 	}
-	
+
 	/**
-	 * 未回答の問題数を取得します。
+	 * 未解答の問題数を取得します。
 	 * 
-	 * @return 未回答の問題数
+	 * @return 未解答の問題数
 	 */
 	public int getUnansweredCount() {
 		return this.answerColumns.size() - getAnsweredCount();
 	}
-	
 
 	/**
 	 * 得点欄を取得します。

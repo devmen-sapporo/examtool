@@ -1,5 +1,7 @@
 package models.entity;
 
+import java.util.*;
+
 import javax.persistence.*;
 
 import models.service.Examination.*;
@@ -48,6 +50,9 @@ public class AnswerColumn extends Model {
 	/** 選んだ選択肢 */
 	@ManyToOne
 	public OptionItem selectedOptionItem;
+	
+	/** 回答日 */
+	public Calendar answerDate;
 
 	/**
 	 * 解答します。
@@ -57,6 +62,7 @@ public class AnswerColumn extends Model {
 	 */
 	public void markAnswer(OptionItem selectedOptionItem) {
 		this.selectedOptionItem = selectedOptionItem;
+		this.answerDate = Calendar.getInstance();
 	}
 
 	/**

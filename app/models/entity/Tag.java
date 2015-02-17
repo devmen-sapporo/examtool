@@ -2,27 +2,42 @@ package models.entity;
 
 import java.util.*;
 
+import javax.persistence.*;
+
+import play.db.ebean.*;
+
 /**
  * タグ
  * @author A.Suzuki
  *
  */
-public final class Tag {
+@Entity
+public final class Tag extends Model{
 
-	private int id;
+	@Id
+	public String id;
 
-	private String name;
+	public String name;
 
-	private Tag parent;
+	@ManyToOne
+	public Tag parent;
 
-	private List<Tag> children = new ArrayList<>();
+	@OneToMany
+	public List<Tag> childrens = new ArrayList<>();
+
+	/**
+	 * コンストラクタ
+	 */
+	public Tag(String id) {
+		this.id = id;
+	}
 
 	/**
 	 * コンストラクタです。
 	 * @param id ID
 	 * @param name 名前
 	 */
-	public Tag(int id, String name) {
+	public Tag(String id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -34,19 +49,18 @@ public final class Tag {
 	 * @param name 名前
 	 * @param parent 親タグ
 	 */
-	public Tag(int id, String name, Tag parent) {
+	public Tag(String id, String name, Tag parent) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.parent = parent;
-		parent.addChildren(this);
 	}
 
 	/**
 	 * IDを取得します。
 	 * @return ID
 	 */
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -78,12 +92,12 @@ public final class Tag {
 	 * 子どもタグを取得します。
 	 * @return
 	 */
-	public List<Tag> getChildren() {
-		return children;
+	public List<Tag> getChildrens() {
+		return childrens;
 	}
 
 	private void addChildren(Tag child) {
-		this.children.add(child);
+		this.childrens.add(child);
 	}
 
 }
